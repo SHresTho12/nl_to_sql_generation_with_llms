@@ -1,0 +1,4109 @@
+[
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT T1.vehicle_id ,  T1.model FROM vehicle AS T1 JOIN vehicle_driver AS T2 ON T1.vehicle_id  =  T2.vehicle_id GROUP BY T2.vehicle_id HAVING count(*)  =  2 OR T1.builder  =  'Ziyang'",
+        "query_toks": [
+            "SELECT",
+            "T1.vehicle_id",
+            ",",
+            "T1.model",
+            "FROM",
+            "vehicle",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle_driver",
+            "AS",
+            "T2",
+            "ON",
+            "T1.vehicle_id",
+            "=",
+            "T2.vehicle_id",
+            "GROUP",
+            "BY",
+            "T2.vehicle_id",
+            "HAVING",
+            "count",
+            "(",
+            "*",
+            ")",
+            "=",
+            "2",
+            "OR",
+            "T1.builder",
+            "=",
+            "'Ziyang",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t1",
+            ".",
+            "vehicle_id",
+            ",",
+            "t1",
+            ".",
+            "model",
+            "from",
+            "vehicle",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "vehicle_id",
+            "=",
+            "t2",
+            ".",
+            "vehicle_id",
+            "group",
+            "by",
+            "t2",
+            ".",
+            "vehicle_id",
+            "having",
+            "count",
+            "(",
+            "*",
+            ")",
+            "=",
+            "value",
+            "or",
+            "t1",
+            ".",
+            "builder",
+            "=",
+            "value"
+        ],
+        "question": "Return the ids and models of vehicles that have been driven by exactly two drivers or built by Ziyang.",
+        "question_toks": [
+            "Return",
+            "the",
+            "ids",
+            "and",
+            "models",
+            "of",
+            "vehicles",
+            "that",
+            "have",
+            "been",
+            "driven",
+            "by",
+            "exactly",
+            "two",
+            "drivers",
+            "or",
+            "built",
+            "by",
+            "Ziyang",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ],
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            13,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    13,
+                    false
+                ]
+            ],
+            "having": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ],
+                    2.0,
+                    null
+                ],
+                "or",
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            6,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Ziyang\"",
+                    null
+                ]
+            ],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT v.Vehicle_ID, v.Model FROM vehicle v JOIN vehicle_driver vd ON v.Vehicle_ID = vd.Vehicle_ID JOIN driver d ON vd.Driver_ID = d.Driver_ID WHERE v.Builder = 'Ziyang' GROUP BY v.Vehicle_ID, v.Model HAVING COUNT(vd.Driver_ID) = 2  UNION  SELECT v.Vehicle_ID, v.Model FROM vehicle v JOIN vehicle_driver vd ON v.Vehicle_ID = vd.Vehicle_ID GROUP BY v.Vehicle_ID, v.Model HAVING COUNT(vd.Driver_ID) = 2;",
+        "id": 180
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT T1.vehicle_id ,  T1.model FROM vehicle AS T1 JOIN vehicle_driver AS T2 ON T1.vehicle_id  =  T2.vehicle_id JOIN driver AS T3 ON T2.driver_id  =  T3.driver_id WHERE T3.name  =  'Jeff Gordon' UNION SELECT T1.vehicle_id ,  T1.model FROM vehicle AS T1 JOIN vehicle_driver AS T2 ON T1.vehicle_id  =  T2.vehicle_id GROUP BY T2.vehicle_id HAVING count(*)  >  2",
+        "query_toks": [
+            "SELECT",
+            "T1.vehicle_id",
+            ",",
+            "T1.model",
+            "FROM",
+            "vehicle",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle_driver",
+            "AS",
+            "T2",
+            "ON",
+            "T1.vehicle_id",
+            "=",
+            "T2.vehicle_id",
+            "JOIN",
+            "driver",
+            "AS",
+            "T3",
+            "ON",
+            "T2.driver_id",
+            "=",
+            "T3.driver_id",
+            "WHERE",
+            "T3.name",
+            "=",
+            "'Jeff",
+            "Gordon",
+            "'",
+            "UNION",
+            "SELECT",
+            "T1.vehicle_id",
+            ",",
+            "T1.model",
+            "FROM",
+            "vehicle",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle_driver",
+            "AS",
+            "T2",
+            "ON",
+            "T1.vehicle_id",
+            "=",
+            "T2.vehicle_id",
+            "GROUP",
+            "BY",
+            "T2.vehicle_id",
+            "HAVING",
+            "count",
+            "(",
+            "*",
+            ")",
+            ">",
+            "2"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t1",
+            ".",
+            "vehicle_id",
+            ",",
+            "t1",
+            ".",
+            "model",
+            "from",
+            "vehicle",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "vehicle_id",
+            "=",
+            "t2",
+            ".",
+            "vehicle_id",
+            "join",
+            "driver",
+            "as",
+            "t3",
+            "on",
+            "t2",
+            ".",
+            "driver_id",
+            "=",
+            "t3",
+            ".",
+            "driver_id",
+            "where",
+            "t3",
+            ".",
+            "name",
+            "=",
+            "value",
+            "union",
+            "select",
+            "t1",
+            ".",
+            "vehicle_id",
+            ",",
+            "t1",
+            ".",
+            "model",
+            "from",
+            "vehicle",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "vehicle_id",
+            "=",
+            "t2",
+            ".",
+            "vehicle_id",
+            "group",
+            "by",
+            "t2",
+            ".",
+            "vehicle_id",
+            "having",
+            "count",
+            "(",
+            "*",
+            ")",
+            ">",
+            "value"
+        ],
+        "question": "What are the vehicle ids and models which have been driven by more than 2 drivers or been driven by the driver named 'Jeff Gordon'?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "vehicle",
+            "ids",
+            "and",
+            "models",
+            "which",
+            "have",
+            "been",
+            "driven",
+            "by",
+            "more",
+            "than",
+            "2",
+            "drivers",
+            "or",
+            "been",
+            "driven",
+            "by",
+            "the",
+            "driver",
+            "named",
+            "'Jeff",
+            "Gordon",
+            "'",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ],
+                    [
+                        "table_unit",
+                        2
+                    ],
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            13,
+                            false
+                        ],
+                        null
+                    ],
+                    "and",
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                12,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            8,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            9,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Jeff Gordon\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": {
+                "from": {
+                    "table_units": [
+                        [
+                            "table_unit",
+                            0
+                        ],
+                        [
+                            "table_unit",
+                            2
+                        ]
+                    ],
+                    "conds": [
+                        [
+                            false,
+                            2,
+                            [
+                                0,
+                                [
+                                    0,
+                                    1,
+                                    false
+                                ],
+                                null
+                            ],
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                },
+                "select": [
+                    false,
+                    [
+                        [
+                            0,
+                            [
+                                0,
+                                [
+                                    0,
+                                    1,
+                                    false
+                                ],
+                                null
+                            ]
+                        ],
+                        [
+                            0,
+                            [
+                                0,
+                                [
+                                    0,
+                                    2,
+                                    false
+                                ],
+                                null
+                            ]
+                        ]
+                    ]
+                ],
+                "where": [],
+                "groupBy": [
+                    [
+                        0,
+                        13,
+                        false
+                    ]
+                ],
+                "having": [
+                    [
+                        false,
+                        3,
+                        [
+                            0,
+                            [
+                                3,
+                                0,
+                                false
+                            ],
+                            null
+                        ],
+                        2.0,
+                        null
+                    ]
+                ],
+                "orderBy": [],
+                "limit": null,
+                "intersect": null,
+                "union": null,
+                "except": null
+            },
+            "except": null
+        },
+        "generated_sql": "SELECT v.Vehicle_ID, v.Model FROM vehicle v JOIN vehicle_driver vd ON v.Vehicle_ID = vd.Vehicle_ID JOIN driver d ON vd.Driver_ID = d.Driver_ID WHERE v.Vehicle_ID IN (     SELECT vd.Vehicle_ID     FROM vehicle_driver vd     JOIN driver d ON vd.Driver_ID = d.Driver_ID     WHERE d.Name = 'Jeff Gordon' ) OR v.Vehicle_ID IN (     SELECT vd.Vehicle_ID     FROM vehicle_driver vd     GROUP BY vd.Vehicle_ID     HAVING COUNT(vd.Driver_ID) > 2 );",
+        "id": 181
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT T1.vehicle_id ,  T1.model FROM vehicle AS T1 JOIN vehicle_driver AS T2 ON T1.vehicle_id  =  T2.vehicle_id JOIN driver AS T3 ON T2.driver_id  =  T3.driver_id WHERE T3.name  =  'Jeff Gordon' UNION SELECT T1.vehicle_id ,  T1.model FROM vehicle AS T1 JOIN vehicle_driver AS T2 ON T1.vehicle_id  =  T2.vehicle_id GROUP BY T2.vehicle_id HAVING count(*)  >  2",
+        "query_toks": [
+            "SELECT",
+            "T1.vehicle_id",
+            ",",
+            "T1.model",
+            "FROM",
+            "vehicle",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle_driver",
+            "AS",
+            "T2",
+            "ON",
+            "T1.vehicle_id",
+            "=",
+            "T2.vehicle_id",
+            "JOIN",
+            "driver",
+            "AS",
+            "T3",
+            "ON",
+            "T2.driver_id",
+            "=",
+            "T3.driver_id",
+            "WHERE",
+            "T3.name",
+            "=",
+            "'Jeff",
+            "Gordon",
+            "'",
+            "UNION",
+            "SELECT",
+            "T1.vehicle_id",
+            ",",
+            "T1.model",
+            "FROM",
+            "vehicle",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle_driver",
+            "AS",
+            "T2",
+            "ON",
+            "T1.vehicle_id",
+            "=",
+            "T2.vehicle_id",
+            "GROUP",
+            "BY",
+            "T2.vehicle_id",
+            "HAVING",
+            "count",
+            "(",
+            "*",
+            ")",
+            ">",
+            "2"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t1",
+            ".",
+            "vehicle_id",
+            ",",
+            "t1",
+            ".",
+            "model",
+            "from",
+            "vehicle",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "vehicle_id",
+            "=",
+            "t2",
+            ".",
+            "vehicle_id",
+            "join",
+            "driver",
+            "as",
+            "t3",
+            "on",
+            "t2",
+            ".",
+            "driver_id",
+            "=",
+            "t3",
+            ".",
+            "driver_id",
+            "where",
+            "t3",
+            ".",
+            "name",
+            "=",
+            "value",
+            "union",
+            "select",
+            "t1",
+            ".",
+            "vehicle_id",
+            ",",
+            "t1",
+            ".",
+            "model",
+            "from",
+            "vehicle",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "vehicle_id",
+            "=",
+            "t2",
+            ".",
+            "vehicle_id",
+            "group",
+            "by",
+            "t2",
+            ".",
+            "vehicle_id",
+            "having",
+            "count",
+            "(",
+            "*",
+            ")",
+            ">",
+            "value"
+        ],
+        "question": "Return the ids and models of vehicles that have been driven by more than 2 drivers or been driven by the Jeff Gordon.",
+        "question_toks": [
+            "Return",
+            "the",
+            "ids",
+            "and",
+            "models",
+            "of",
+            "vehicles",
+            "that",
+            "have",
+            "been",
+            "driven",
+            "by",
+            "more",
+            "than",
+            "2",
+            "drivers",
+            "or",
+            "been",
+            "driven",
+            "by",
+            "the",
+            "Jeff",
+            "Gordon",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ],
+                    [
+                        "table_unit",
+                        2
+                    ],
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            13,
+                            false
+                        ],
+                        null
+                    ],
+                    "and",
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                12,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            8,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            9,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Jeff Gordon\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": {
+                "from": {
+                    "table_units": [
+                        [
+                            "table_unit",
+                            0
+                        ],
+                        [
+                            "table_unit",
+                            2
+                        ]
+                    ],
+                    "conds": [
+                        [
+                            false,
+                            2,
+                            [
+                                0,
+                                [
+                                    0,
+                                    1,
+                                    false
+                                ],
+                                null
+                            ],
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                },
+                "select": [
+                    false,
+                    [
+                        [
+                            0,
+                            [
+                                0,
+                                [
+                                    0,
+                                    1,
+                                    false
+                                ],
+                                null
+                            ]
+                        ],
+                        [
+                            0,
+                            [
+                                0,
+                                [
+                                    0,
+                                    2,
+                                    false
+                                ],
+                                null
+                            ]
+                        ]
+                    ]
+                ],
+                "where": [],
+                "groupBy": [
+                    [
+                        0,
+                        13,
+                        false
+                    ]
+                ],
+                "having": [
+                    [
+                        false,
+                        3,
+                        [
+                            0,
+                            [
+                                3,
+                                0,
+                                false
+                            ],
+                            null
+                        ],
+                        2.0,
+                        null
+                    ]
+                ],
+                "orderBy": [],
+                "limit": null,
+                "intersect": null,
+                "union": null,
+                "except": null
+            },
+            "except": null
+        },
+        "generated_sql": "SELECT v.Vehicle_ID, v.Model FROM vehicle v JOIN vehicle_driver vd ON v.Vehicle_ID = vd.Vehicle_ID JOIN driver d ON vd.Driver_ID = d.Driver_ID WHERE v.Vehicle_ID IN (     SELECT vd.Vehicle_ID     FROM vehicle_driver vd     GROUP BY vd.Vehicle_ID     HAVING COUNT(vd.Driver_ID) > 2 ) OR d.Name = 'Jeff Gordon';",
+        "id": 182
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(*) FROM vehicle WHERE top_speed  =  (SELECT max(top_speed) FROM vehicle)",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "top_speed",
+            "=",
+            "(",
+            "SELECT",
+            "max",
+            "(",
+            "top_speed",
+            ")",
+            "FROM",
+            "vehicle",
+            ")"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "vehicle",
+            "where",
+            "top_speed",
+            "=",
+            "(",
+            "select",
+            "max",
+            "(",
+            "top_speed",
+            ")",
+            "from",
+            "vehicle",
+            ")"
+        ],
+        "question": "How many vehicles have maximum top speed?",
+        "question_toks": [
+            "How",
+            "many",
+            "vehicles",
+            "have",
+            "maximum",
+            "top",
+            "speed",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            4,
+                            false
+                        ],
+                        null
+                    ],
+                    {
+                        "from": {
+                            "table_units": [
+                                [
+                                    "table_unit",
+                                    0
+                                ]
+                            ],
+                            "conds": []
+                        },
+                        "select": [
+                            false,
+                            [
+                                [
+                                    1,
+                                    [
+                                        0,
+                                        [
+                                            0,
+                                            4,
+                                            false
+                                        ],
+                                        null
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "where": [],
+                        "groupBy": [],
+                        "having": [],
+                        "orderBy": [],
+                        "limit": null,
+                        "intersect": null,
+                        "union": null,
+                        "except": null
+                    },
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(*) FROM vehicle WHERE Top_Speed = (SELECT MAX(Top_Speed) FROM vehicle);",
+        "id": 183
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(*) FROM vehicle WHERE top_speed  =  (SELECT max(top_speed) FROM vehicle)",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "top_speed",
+            "=",
+            "(",
+            "SELECT",
+            "max",
+            "(",
+            "top_speed",
+            ")",
+            "FROM",
+            "vehicle",
+            ")"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "vehicle",
+            "where",
+            "top_speed",
+            "=",
+            "(",
+            "select",
+            "max",
+            "(",
+            "top_speed",
+            ")",
+            "from",
+            "vehicle",
+            ")"
+        ],
+        "question": "Count the number of vehicles that have a top speed equal to the maximum across all vehicles.",
+        "question_toks": [
+            "Count",
+            "the",
+            "number",
+            "of",
+            "vehicles",
+            "that",
+            "have",
+            "a",
+            "top",
+            "speed",
+            "equal",
+            "to",
+            "the",
+            "maximum",
+            "across",
+            "all",
+            "vehicles",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            4,
+                            false
+                        ],
+                        null
+                    ],
+                    {
+                        "from": {
+                            "table_units": [
+                                [
+                                    "table_unit",
+                                    0
+                                ]
+                            ],
+                            "conds": []
+                        },
+                        "select": [
+                            false,
+                            [
+                                [
+                                    1,
+                                    [
+                                        0,
+                                        [
+                                            0,
+                                            4,
+                                            false
+                                        ],
+                                        null
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "where": [],
+                        "groupBy": [],
+                        "having": [],
+                        "orderBy": [],
+                        "limit": null,
+                        "intersect": null,
+                        "union": null,
+                        "except": null
+                    },
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(*) FROM vehicle WHERE Top_Speed = (SELECT MAX(Top_Speed) FROM vehicle);",
+        "id": 184
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT name FROM driver ORDER BY name",
+        "query_toks": [
+            "SELECT",
+            "name",
+            "FROM",
+            "driver",
+            "ORDER",
+            "BY",
+            "name"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "name",
+            "from",
+            "driver",
+            "order",
+            "by",
+            "name"
+        ],
+        "question": "Show all driver names in the alphabetical order.",
+        "question_toks": [
+            "Show",
+            "all",
+            "driver",
+            "names",
+            "in",
+            "the",
+            "alphabetical",
+            "order",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "asc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            9,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Name FROM driver ORDER BY Name;",
+        "id": 185
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT name FROM driver ORDER BY name",
+        "query_toks": [
+            "SELECT",
+            "name",
+            "FROM",
+            "driver",
+            "ORDER",
+            "BY",
+            "name"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "name",
+            "from",
+            "driver",
+            "order",
+            "by",
+            "name"
+        ],
+        "question": "What are the names of drivers, returned in alphbetical order?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "names",
+            "of",
+            "drivers",
+            ",",
+            "returned",
+            "in",
+            "alphbetical",
+            "order",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "asc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            9,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Name FROM driver ORDER BY Name;",
+        "id": 186
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(*) ,  racing_series FROM driver GROUP BY racing_series",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            ",",
+            "racing_series",
+            "FROM",
+            "driver",
+            "GROUP",
+            "BY",
+            "racing_series"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            ",",
+            "racing_series",
+            "from",
+            "driver",
+            "group",
+            "by",
+            "racing_series"
+        ],
+        "question": "How many drivers have been racing in each racing series?",
+        "question_toks": [
+            "How",
+            "many",
+            "drivers",
+            "have",
+            "been",
+            "racing",
+            "in",
+            "each",
+            "racing",
+            "series",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                11,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    11,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Racing_Series, COUNT(*) AS Driver_Count FROM driver GROUP BY Racing_Series;",
+        "id": 187
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(*) ,  racing_series FROM driver GROUP BY racing_series",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            ",",
+            "racing_series",
+            "FROM",
+            "driver",
+            "GROUP",
+            "BY",
+            "racing_series"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            ",",
+            "racing_series",
+            "from",
+            "driver",
+            "group",
+            "by",
+            "racing_series"
+        ],
+        "question": "Count the number of drivers that have raced in each series.",
+        "question_toks": [
+            "Count",
+            "the",
+            "number",
+            "of",
+            "drivers",
+            "that",
+            "have",
+            "raced",
+            "in",
+            "each",
+            "series",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                11,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    11,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Racing_Series, COUNT(DISTINCT Driver_ID) AS Driver_Count FROM vehicle_driver JOIN driver ON vehicle_driver.Driver_ID = driver.Driver_ID GROUP BY Racing_Series;",
+        "id": 188
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT T1.name ,  T1.citizenship FROM driver AS T1 JOIN vehicle_driver AS T2 ON T1.driver_id  =  T2.driver_id JOIN vehicle AS T3 ON T2.vehicle_id  =  T3.vehicle_id WHERE T3.model  =  'DJ1'",
+        "query_toks": [
+            "SELECT",
+            "T1.name",
+            ",",
+            "T1.citizenship",
+            "FROM",
+            "driver",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle_driver",
+            "AS",
+            "T2",
+            "ON",
+            "T1.driver_id",
+            "=",
+            "T2.driver_id",
+            "JOIN",
+            "vehicle",
+            "AS",
+            "T3",
+            "ON",
+            "T2.vehicle_id",
+            "=",
+            "T3.vehicle_id",
+            "WHERE",
+            "T3.model",
+            "=",
+            "'DJ1",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t1",
+            ".",
+            "name",
+            ",",
+            "t1",
+            ".",
+            "citizenship",
+            "from",
+            "driver",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "driver_id",
+            "=",
+            "t2",
+            ".",
+            "driver_id",
+            "join",
+            "vehicle",
+            "as",
+            "t3",
+            "on",
+            "t2",
+            ".",
+            "vehicle_id",
+            "=",
+            "t3",
+            ".",
+            "vehicle_id",
+            "where",
+            "t3",
+            ".",
+            "model",
+            "=",
+            "value"
+        ],
+        "question": "What are the name and citizenship of the drivers who have driven the vehicle model 'DJ1'?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "name",
+            "and",
+            "citizenship",
+            "of",
+            "the",
+            "drivers",
+            "who",
+            "have",
+            "driven",
+            "the",
+            "vehicle",
+            "model",
+            "'DJ1",
+            "'",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ],
+                    [
+                        "table_unit",
+                        2
+                    ],
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                8,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            12,
+                            false
+                        ],
+                        null
+                    ],
+                    "and",
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                10,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            2,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"DJ1\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT d.Name, d.Citizenship FROM driver d JOIN vehicle_driver vd ON d.Driver_ID = vd.Driver_ID JOIN vehicle v ON vd.Vehicle_ID = v.Vehicle_ID WHERE v.Model = 'DJ1';",
+        "id": 189
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT T1.name ,  T1.citizenship FROM driver AS T1 JOIN vehicle_driver AS T2 ON T1.driver_id  =  T2.driver_id JOIN vehicle AS T3 ON T2.vehicle_id  =  T3.vehicle_id WHERE T3.model  =  'DJ1'",
+        "query_toks": [
+            "SELECT",
+            "T1.name",
+            ",",
+            "T1.citizenship",
+            "FROM",
+            "driver",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle_driver",
+            "AS",
+            "T2",
+            "ON",
+            "T1.driver_id",
+            "=",
+            "T2.driver_id",
+            "JOIN",
+            "vehicle",
+            "AS",
+            "T3",
+            "ON",
+            "T2.vehicle_id",
+            "=",
+            "T3.vehicle_id",
+            "WHERE",
+            "T3.model",
+            "=",
+            "'DJ1",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t1",
+            ".",
+            "name",
+            ",",
+            "t1",
+            ".",
+            "citizenship",
+            "from",
+            "driver",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "driver_id",
+            "=",
+            "t2",
+            ".",
+            "driver_id",
+            "join",
+            "vehicle",
+            "as",
+            "t3",
+            "on",
+            "t2",
+            ".",
+            "vehicle_id",
+            "=",
+            "t3",
+            ".",
+            "vehicle_id",
+            "where",
+            "t3",
+            ".",
+            "model",
+            "=",
+            "value"
+        ],
+        "question": "Return the names and citizenships of drivers who have driven the vehicle with the model 'DJ1'.",
+        "question_toks": [
+            "Return",
+            "the",
+            "names",
+            "and",
+            "citizenships",
+            "of",
+            "drivers",
+            "who",
+            "have",
+            "driven",
+            "the",
+            "vehicle",
+            "with",
+            "the",
+            "model",
+            "'DJ1",
+            "'",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ],
+                    [
+                        "table_unit",
+                        2
+                    ],
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                8,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            12,
+                            false
+                        ],
+                        null
+                    ],
+                    "and",
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                10,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            2,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"DJ1\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT d.Name, d.Citizenship FROM driver d JOIN vehicle_driver vd ON d.Driver_ID = vd.Driver_ID JOIN vehicle v ON vd.Vehicle_ID = v.Vehicle_ID WHERE v.Model = 'DJ ';",
+        "id": 190
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(*) FROM driver WHERE driver_id NOT IN ( SELECT driver_id FROM vehicle_driver )",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "driver",
+            "WHERE",
+            "driver_id",
+            "NOT",
+            "IN",
+            "(",
+            "SELECT",
+            "driver_id",
+            "FROM",
+            "vehicle_driver",
+            ")"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "driver",
+            "where",
+            "driver_id",
+            "not",
+            "in",
+            "(",
+            "select",
+            "driver_id",
+            "from",
+            "vehicle_driver",
+            ")"
+        ],
+        "question": "How many drivers have not driven any cars?",
+        "question_toks": [
+            "How",
+            "many",
+            "drivers",
+            "have",
+            "not",
+            "driven",
+            "any",
+            "cars",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    true,
+                    8,
+                    [
+                        0,
+                        [
+                            0,
+                            8,
+                            false
+                        ],
+                        null
+                    ],
+                    {
+                        "from": {
+                            "table_units": [
+                                [
+                                    "table_unit",
+                                    2
+                                ]
+                            ],
+                            "conds": []
+                        },
+                        "select": [
+                            false,
+                            [
+                                [
+                                    0,
+                                    [
+                                        0,
+                                        [
+                                            0,
+                                            12,
+                                            false
+                                        ],
+                                        null
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "where": [],
+                        "groupBy": [],
+                        "having": [],
+                        "orderBy": [],
+                        "limit": null,
+                        "intersect": null,
+                        "union": null,
+                        "except": null
+                    },
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(*)  FROM driver  WHERE Driver_ID NOT IN (SELECT Driver_ID FROM vehicle_driver);",
+        "id": 191
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(*) FROM driver WHERE driver_id NOT IN ( SELECT driver_id FROM vehicle_driver )",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "driver",
+            "WHERE",
+            "driver_id",
+            "NOT",
+            "IN",
+            "(",
+            "SELECT",
+            "driver_id",
+            "FROM",
+            "vehicle_driver",
+            ")"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "driver",
+            "where",
+            "driver_id",
+            "not",
+            "in",
+            "(",
+            "select",
+            "driver_id",
+            "from",
+            "vehicle_driver",
+            ")"
+        ],
+        "question": "Count the number of drivers who have not driven any vehicles.",
+        "question_toks": [
+            "Count",
+            "the",
+            "number",
+            "of",
+            "drivers",
+            "who",
+            "have",
+            "not",
+            "driven",
+            "any",
+            "vehicles",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    true,
+                    8,
+                    [
+                        0,
+                        [
+                            0,
+                            8,
+                            false
+                        ],
+                        null
+                    ],
+                    {
+                        "from": {
+                            "table_units": [
+                                [
+                                    "table_unit",
+                                    2
+                                ]
+                            ],
+                            "conds": []
+                        },
+                        "select": [
+                            false,
+                            [
+                                [
+                                    0,
+                                    [
+                                        0,
+                                        [
+                                            0,
+                                            12,
+                                            false
+                                        ],
+                                        null
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "where": [],
+                        "groupBy": [],
+                        "having": [],
+                        "orderBy": [],
+                        "limit": null,
+                        "intersect": null,
+                        "union": null,
+                        "except": null
+                    },
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(*)  FROM driver  WHERE Driver_ID NOT IN (SELECT DISTINCT Driver_ID FROM vehicle_driver);",
+        "id": 192
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT count(*) FROM Exams",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "Exams"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "exams"
+        ],
+        "question": "How many exams are there?",
+        "question_toks": [
+            "How",
+            "many",
+            "exams",
+            "are",
+            "there",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(*)  FROM Exams;",
+        "id": 193
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT count(*) FROM Exams",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "Exams"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "exams"
+        ],
+        "question": "Count the number of exams.",
+        "question_toks": [
+            "Count",
+            "the",
+            "number",
+            "of",
+            "exams",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(*)  FROM Exams;",
+        "id": 194
+    },
+    {
+        "db_id": "online_exams",
+        "query": "select distinct subject_code from exams order by subject_code asc",
+        "query_toks": [
+            "select",
+            "distinct",
+            "subject_code",
+            "from",
+            "exams",
+            "order",
+            "by",
+            "subject_code",
+            "asc"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "distinct",
+            "subject_code",
+            "from",
+            "exams",
+            "order",
+            "by",
+            "subject_code",
+            "asc"
+        ],
+        "question": "List the distinct subject code of exams in ascending alphabetical order .",
+        "question_toks": [
+            "List",
+            "the",
+            "distinct",
+            "subject",
+            "code",
+            "of",
+            "exams",
+            "in",
+            "ascending",
+            "alphabetical",
+            "order",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                true,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                14,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "asc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            14,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT DISTINCT Subject_Code FROM Exams ORDER BY Subject_Code ASC;",
+        "id": 195
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT DISTINCT Subject_Code FROM Exams ORDER BY Subject_Code",
+        "query_toks": [
+            "SELECT",
+            "DISTINCT",
+            "Subject_Code",
+            "FROM",
+            "Exams",
+            "ORDER",
+            "BY",
+            "Subject_Code"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "distinct",
+            "subject_code",
+            "from",
+            "exams",
+            "order",
+            "by",
+            "subject_code"
+        ],
+        "question": "Give me an alphabetically ordered list of the distinct subject code for exams.",
+        "question_toks": [
+            "Give",
+            "me",
+            "an",
+            "alphabetically",
+            "ordered",
+            "list",
+            "of",
+            "the",
+            "distinct",
+            "subject",
+            "code",
+            "for",
+            "exams",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                true,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                14,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "asc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            14,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT DISTINCT Subject_Code FROM Exams ORDER BY Subject_Code ASC;",
+        "id": 196
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT Exam_Date ,  Exam_Name FROM Exams WHERE Subject_Code != 'Database'",
+        "query_toks": [
+            "SELECT",
+            "Exam_Date",
+            ",",
+            "Exam_Name",
+            "FROM",
+            "Exams",
+            "WHERE",
+            "Subject_Code",
+            "!",
+            "=",
+            "'Database",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "exam_date",
+            ",",
+            "exam_name",
+            "from",
+            "exams",
+            "where",
+            "subject_code",
+            "!",
+            "=",
+            "value"
+        ],
+        "question": "What are the names and dates of the exams with subject code that is not \"Database\"?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "names",
+            "and",
+            "dates",
+            "of",
+            "the",
+            "exams",
+            "with",
+            "subject",
+            "code",
+            "that",
+            "is",
+            "not",
+            "``",
+            "Database",
+            "''",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                15,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                16,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    7,
+                    [
+                        0,
+                        [
+                            0,
+                            14,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Database\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Exam_Name, Exam_Date FROM Exams WHERE Subject_Code != 'Database';",
+        "id": 197
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT Exam_Date ,  Exam_Name FROM Exams WHERE Subject_Code != 'Database'",
+        "query_toks": [
+            "SELECT",
+            "Exam_Date",
+            ",",
+            "Exam_Name",
+            "FROM",
+            "Exams",
+            "WHERE",
+            "Subject_Code",
+            "!",
+            "=",
+            "'Database",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "exam_date",
+            ",",
+            "exam_name",
+            "from",
+            "exams",
+            "where",
+            "subject_code",
+            "!",
+            "=",
+            "value"
+        ],
+        "question": "Find the exams whose subject code is not \"Database\". What are the exam dates and exam names?",
+        "question_toks": [
+            "Find",
+            "the",
+            "exams",
+            "whose",
+            "subject",
+            "code",
+            "is",
+            "not",
+            "``",
+            "Database",
+            "''",
+            ".",
+            "What",
+            "are",
+            "the",
+            "exam",
+            "dates",
+            "and",
+            "exam",
+            "names",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                15,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                16,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    7,
+                    [
+                        0,
+                        [
+                            0,
+                            14,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Database\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Exam_Date, Exam_Name FROM Exams WHERE Subject_Code != 'Database';",
+        "id": 198
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT Exam_Date FROM Exams WHERE Subject_Code LIKE '%data%' ORDER BY Exam_Date DESC",
+        "query_toks": [
+            "SELECT",
+            "Exam_Date",
+            "FROM",
+            "Exams",
+            "WHERE",
+            "Subject_Code",
+            "LIKE",
+            "'",
+            "%",
+            "data",
+            "%",
+            "'",
+            "ORDER",
+            "BY",
+            "Exam_Date",
+            "DESC"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "exam_date",
+            "from",
+            "exams",
+            "where",
+            "subject_code",
+            "like",
+            "value",
+            "order",
+            "by",
+            "exam_date",
+            "desc"
+        ],
+        "question": "List the dates of the exams with subject code containing the word \"data\", in descending order of dates.",
+        "question_toks": [
+            "List",
+            "the",
+            "dates",
+            "of",
+            "the",
+            "exams",
+            "with",
+            "subject",
+            "code",
+            "containing",
+            "the",
+            "word",
+            "``",
+            "data",
+            "''",
+            ",",
+            "in",
+            "descending",
+            "order",
+            "of",
+            "dates",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                15,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    9,
+                    [
+                        0,
+                        [
+                            0,
+                            14,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"%data%\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            15,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Exam_Date FROM Exams WHERE Subject_Code LIKE '%data%' ORDER BY Exam_Date DESC;",
+        "id": 199
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT Exam_Date FROM Exams WHERE Subject_Code LIKE '%data%' ORDER BY Exam_Date DESC",
+        "query_toks": [
+            "SELECT",
+            "Exam_Date",
+            "FROM",
+            "Exams",
+            "WHERE",
+            "Subject_Code",
+            "LIKE",
+            "'",
+            "%",
+            "data",
+            "%",
+            "'",
+            "ORDER",
+            "BY",
+            "Exam_Date",
+            "DESC"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "exam_date",
+            "from",
+            "exams",
+            "where",
+            "subject_code",
+            "like",
+            "value",
+            "order",
+            "by",
+            "exam_date",
+            "desc"
+        ],
+        "question": "What are the dates of the exams whose subject code contains the substring \"data\"? Return them in descending order of dates.",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "dates",
+            "of",
+            "the",
+            "exams",
+            "whose",
+            "subject",
+            "code",
+            "contains",
+            "the",
+            "substring",
+            "``",
+            "data",
+            "''",
+            "?",
+            "Return",
+            "them",
+            "in",
+            "descending",
+            "order",
+            "of",
+            "dates",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                15,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    9,
+                    [
+                        0,
+                        [
+                            0,
+                            14,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"%data%\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            15,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Exam_Date FROM Exams WHERE Subject_Code LIKE '%data%' ORDER BY Exam_Date DESC;",
+        "id": 200
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT Type_of_Question_Code ,  COUNT(*) FROM Questions GROUP BY Type_of_Question_Code",
+        "query_toks": [
+            "SELECT",
+            "Type_of_Question_Code",
+            ",",
+            "COUNT",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "Questions",
+            "GROUP",
+            "BY",
+            "Type_of_Question_Code"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "type_of_question_code",
+            ",",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "questions",
+            "group",
+            "by",
+            "type_of_question_code"
+        ],
+        "question": "What are the type of questions and their counts?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "type",
+            "of",
+            "questions",
+            "and",
+            "their",
+            "counts",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                11,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    11,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Type_of_Question_Code, COUNT(*) AS Question_Count FROM Questions GROUP BY Type_of_Question_Code;",
+        "id": 201
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT Type_of_Question_Code ,  COUNT(*) FROM Questions GROUP BY Type_of_Question_Code",
+        "query_toks": [
+            "SELECT",
+            "Type_of_Question_Code",
+            ",",
+            "COUNT",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "Questions",
+            "GROUP",
+            "BY",
+            "Type_of_Question_Code"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "type_of_question_code",
+            ",",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "questions",
+            "group",
+            "by",
+            "type_of_question_code"
+        ],
+        "question": "For each question type, return its type code and its count of occurrence.",
+        "question_toks": [
+            "For",
+            "each",
+            "question",
+            "type",
+            ",",
+            "return",
+            "its",
+            "type",
+            "code",
+            "and",
+            "its",
+            "count",
+            "of",
+            "occurrence",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                11,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    11,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Type_of_Question_Code, COUNT(*) AS Question_Count FROM Questions GROUP BY Type_of_Question_Code;",
+        "id": 202
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT DISTINCT Student_Answer_Text FROM Student_Answers WHERE Comments  =  \"Normal\"",
+        "query_toks": [
+            "SELECT",
+            "DISTINCT",
+            "Student_Answer_Text",
+            "FROM",
+            "Student_Answers",
+            "WHERE",
+            "Comments",
+            "=",
+            "``",
+            "Normal",
+            "''"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "distinct",
+            "student_answer_text",
+            "from",
+            "student_answers",
+            "where",
+            "comments",
+            "=",
+            "value"
+        ],
+        "question": "What are the distinct student answer texts that received comments \"Normal\"?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "student",
+            "answer",
+            "texts",
+            "that",
+            "received",
+            "comments",
+            "``",
+            "Normal",
+            "''",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        5
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                true,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                29,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            27,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Normal\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT DISTINCT Student_Answer_Text FROM Student_Answers WHERE Comments = 'Normal';",
+        "id": 203
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT DISTINCT Student_Answer_Text FROM Student_Answers WHERE Comments  =  \"Normal\"",
+        "query_toks": [
+            "SELECT",
+            "DISTINCT",
+            "Student_Answer_Text",
+            "FROM",
+            "Student_Answers",
+            "WHERE",
+            "Comments",
+            "=",
+            "``",
+            "Normal",
+            "''"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "distinct",
+            "student_answer_text",
+            "from",
+            "student_answers",
+            "where",
+            "comments",
+            "=",
+            "value"
+        ],
+        "question": "List all the distinct student answer texts to which comments \"Normal\" were given?",
+        "question_toks": [
+            "List",
+            "all",
+            "the",
+            "distinct",
+            "student",
+            "answer",
+            "texts",
+            "to",
+            "which",
+            "comments",
+            "``",
+            "Normal",
+            "''",
+            "were",
+            "given",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        5
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                true,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                29,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            27,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Normal\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT DISTINCT Student_Answer_Text FROM Student_Answers WHERE Comments = 'Normal';",
+        "id": 204
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT count(DISTINCT Comments) FROM Student_Answers",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "DISTINCT",
+            "Comments",
+            ")",
+            "FROM",
+            "Student_Answers"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "distinct",
+            "comments",
+            ")",
+            "from",
+            "student_answers"
+        ],
+        "question": "How many different comments are there for student answers?",
+        "question_toks": [
+            "How",
+            "many",
+            "different",
+            "comments",
+            "are",
+            "there",
+            "for",
+            "student",
+            "answers",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        5
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                27,
+                                true
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(DISTINCT Comments) AS Number_of_Comments FROM Student_Answers;",
+        "id": 205
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT count(DISTINCT Comments) FROM Student_Answers",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "DISTINCT",
+            "Comments",
+            ")",
+            "FROM",
+            "Student_Answers"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "distinct",
+            "comments",
+            ")",
+            "from",
+            "student_answers"
+        ],
+        "question": "Count the number of different comments for student answers.",
+        "question_toks": [
+            "Count",
+            "the",
+            "number",
+            "of",
+            "different",
+            "comments",
+            "for",
+            "student",
+            "answers",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        5
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                27,
+                                true
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(DISTINCT Comments) AS Number_of_Distinct_Comments FROM Student_Answers;",
+        "id": 206
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT Student_Answer_Text FROM Student_Answers GROUP BY Student_Answer_Text ORDER BY COUNT(*) DESC",
+        "query_toks": [
+            "SELECT",
+            "Student_Answer_Text",
+            "FROM",
+            "Student_Answers",
+            "GROUP",
+            "BY",
+            "Student_Answer_Text",
+            "ORDER",
+            "BY",
+            "COUNT",
+            "(",
+            "*",
+            ")",
+            "DESC"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "student_answer_text",
+            "from",
+            "student_answers",
+            "group",
+            "by",
+            "student_answer_text",
+            "order",
+            "by",
+            "count",
+            "(",
+            "*",
+            ")",
+            "desc"
+        ],
+        "question": "List all the student answer texts in descending order of count.",
+        "question_toks": [
+            "List",
+            "all",
+            "the",
+            "student",
+            "answer",
+            "texts",
+            "in",
+            "descending",
+            "order",
+            "of",
+            "count",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        5
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                29,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    29,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Student_Answer_Text, COUNT(Student_Answer_Text) AS Answer_Count FROM Student_Answers GROUP BY Student_Answer_Text ORDER BY Answer_Count DESC;",
+        "id": 207
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT Student_Answer_Text FROM Student_Answers GROUP BY Student_Answer_Text ORDER BY COUNT(*) DESC",
+        "query_toks": [
+            "SELECT",
+            "Student_Answer_Text",
+            "FROM",
+            "Student_Answers",
+            "GROUP",
+            "BY",
+            "Student_Answer_Text",
+            "ORDER",
+            "BY",
+            "COUNT",
+            "(",
+            "*",
+            ")",
+            "DESC"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "student_answer_text",
+            "from",
+            "student_answers",
+            "group",
+            "by",
+            "student_answer_text",
+            "order",
+            "by",
+            "count",
+            "(",
+            "*",
+            ")",
+            "desc"
+        ],
+        "question": "Sort the student answer texts in descending order of their frequency of occurrence.",
+        "question_toks": [
+            "Sort",
+            "the",
+            "student",
+            "answer",
+            "texts",
+            "in",
+            "descending",
+            "order",
+            "of",
+            "their",
+            "frequency",
+            "of",
+            "occurrence",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        5
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                29,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    29,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Student_Answer_Text, COUNT(*) AS Frequency FROM Student_Answers GROUP BY Student_Answer_Text ORDER BY Frequency DESC;",
+        "id": 208
+    },
+    {
+        "db_id": "online_exams",
+        "query": "SELECT T2.First_Name ,  T1.Date_of_Answer FROM Student_Answers AS T1 JOIN Students AS T2 ON T1.Student_ID  =  T2.Student_ID",
+        "query_toks": [
+            "SELECT",
+            "T2.First_Name",
+            ",",
+            "T1.Date_of_Answer",
+            "FROM",
+            "Student_Answers",
+            "AS",
+            "T1",
+            "JOIN",
+            "Students",
+            "AS",
+            "T2",
+            "ON",
+            "T1.Student_ID",
+            "=",
+            "T2.Student_ID"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t2",
+            ".",
+            "first_name",
+            ",",
+            "t1",
+            ".",
+            "date_of_answer",
+            "from",
+            "student_answers",
+            "as",
+            "t1",
+            "join",
+            "students",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "student_id",
+            "=",
+            "t2",
+            ".",
+            "student_id"
+        ],
+        "question": "Please show the first names of students and the dates of their answers.",
+        "question_toks": [
+            "Please",
+            "show",
+            "the",
+            "first",
+            "names",
+            "of",
+            "students",
+            "and",
+            "the",
+            "dates",
+            "of",
+            "their",
+            "answers",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        5
+                    ],
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                25,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                26,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Students.First_Name, Student_Answers.Date_of_Answer FROM Students JOIN Student_Answers ON Students.Student_ID = Student_Answers.Student_ID;",
+        "id": 209
+    }
+]

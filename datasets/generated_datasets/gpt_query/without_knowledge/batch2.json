@@ -1,0 +1,1232 @@
+[
+    {
+        "db_id": "soccer_3",
+        "query": "SELECT Country FROM player GROUP BY Country HAVING COUNT(*)  >  1",
+        "query_toks": [
+            "SELECT",
+            "Country",
+            "FROM",
+            "player",
+            "GROUP",
+            "BY",
+            "Country",
+            "HAVING",
+            "COUNT",
+            "(",
+            "*",
+            ")",
+            ">",
+            "1"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "country",
+            "from",
+            "player",
+            "group",
+            "by",
+            "country",
+            "having",
+            "count",
+            "(",
+            "*",
+            ")",
+            ">",
+            "value"
+        ],
+        "question": "List the country that have more than one player.",
+        "question_toks": [
+            "List",
+            "the",
+            "country",
+            "that",
+            "have",
+            "more",
+            "than",
+            "one",
+            "player",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    9,
+                    false
+                ]
+            ],
+            "having": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ],
+                    1.0,
+                    null
+                ]
+            ],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Country FROM player GROUP BY Country HAVING COUNT(*) > 1;",
+        "id": 30
+    },
+    {
+        "db_id": "soccer_3",
+        "query": "SELECT Country FROM player GROUP BY Country HAVING COUNT(*)  >  1",
+        "query_toks": [
+            "SELECT",
+            "Country",
+            "FROM",
+            "player",
+            "GROUP",
+            "BY",
+            "Country",
+            "HAVING",
+            "COUNT",
+            "(",
+            "*",
+            ")",
+            ">",
+            "1"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "country",
+            "from",
+            "player",
+            "group",
+            "by",
+            "country",
+            "having",
+            "count",
+            "(",
+            "*",
+            ")",
+            ">",
+            "value"
+        ],
+        "question": "Which countries have produced more than one player?",
+        "question_toks": [
+            "Which",
+            "countries",
+            "have",
+            "produced",
+            "more",
+            "than",
+            "one",
+            "player",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    9,
+                    false
+                ]
+            ],
+            "having": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ],
+                    1.0,
+                    null
+                ]
+            ],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Country FROM player GROUP BY Country HAVING COUNT(*) > 1;",
+        "id": 31
+    },
+    {
+        "db_id": "soccer_3",
+        "query": "SELECT Name FROM club WHERE Club_ID NOT IN (SELECT Club_ID FROM player)",
+        "query_toks": [
+            "SELECT",
+            "Name",
+            "FROM",
+            "club",
+            "WHERE",
+            "Club_ID",
+            "NOT",
+            "IN",
+            "(",
+            "SELECT",
+            "Club_ID",
+            "FROM",
+            "player",
+            ")"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "name",
+            "from",
+            "club",
+            "where",
+            "club_id",
+            "not",
+            "in",
+            "(",
+            "select",
+            "club_id",
+            "from",
+            "player",
+            ")"
+        ],
+        "question": "List the name of clubs that do not have players.",
+        "question_toks": [
+            "List",
+            "the",
+            "name",
+            "of",
+            "clubs",
+            "that",
+            "do",
+            "not",
+            "have",
+            "players",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    true,
+                    8,
+                    [
+                        0,
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ],
+                    {
+                        "from": {
+                            "table_units": [
+                                [
+                                    "table_unit",
+                                    1
+                                ]
+                            ],
+                            "conds": []
+                        },
+                        "select": [
+                            false,
+                            [
+                                [
+                                    0,
+                                    [
+                                        0,
+                                        [
+                                            0,
+                                            13,
+                                            false
+                                        ],
+                                        null
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "where": [],
+                        "groupBy": [],
+                        "having": [],
+                        "orderBy": [],
+                        "limit": null,
+                        "intersect": null,
+                        "union": null,
+                        "except": null
+                    },
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Name FROM club WHERE Club_ID NOT IN (SELECT DISTINCT Club_ID FROM player);",
+        "id": 32
+    },
+    {
+        "db_id": "soccer_3",
+        "query": "SELECT Name FROM club WHERE Club_ID NOT IN (SELECT Club_ID FROM player)",
+        "query_toks": [
+            "SELECT",
+            "Name",
+            "FROM",
+            "club",
+            "WHERE",
+            "Club_ID",
+            "NOT",
+            "IN",
+            "(",
+            "SELECT",
+            "Club_ID",
+            "FROM",
+            "player",
+            ")"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "name",
+            "from",
+            "club",
+            "where",
+            "club_id",
+            "not",
+            "in",
+            "(",
+            "select",
+            "club_id",
+            "from",
+            "player",
+            ")"
+        ],
+        "question": "What are the names of clubs that do not have any players?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "names",
+            "of",
+            "clubs",
+            "that",
+            "do",
+            "not",
+            "have",
+            "any",
+            "players",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    true,
+                    8,
+                    [
+                        0,
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ],
+                    {
+                        "from": {
+                            "table_units": [
+                                [
+                                    "table_unit",
+                                    1
+                                ]
+                            ],
+                            "conds": []
+                        },
+                        "select": [
+                            false,
+                            [
+                                [
+                                    0,
+                                    [
+                                        0,
+                                        [
+                                            0,
+                                            13,
+                                            false
+                                        ],
+                                        null
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "where": [],
+                        "groupBy": [],
+                        "having": [],
+                        "orderBy": [],
+                        "limit": null,
+                        "intersect": null,
+                        "union": null,
+                        "except": null
+                    },
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Name FROM club WHERE Club_ID NOT IN (SELECT Club_ID FROM player);",
+        "id": 33
+    },
+    {
+        "db_id": "soccer_3",
+        "query": "SELECT Country FROM player WHERE Earnings  >  1400000 INTERSECT SELECT Country FROM player WHERE Earnings  <  1100000",
+        "query_toks": [
+            "SELECT",
+            "Country",
+            "FROM",
+            "player",
+            "WHERE",
+            "Earnings",
+            ">",
+            "1400000",
+            "INTERSECT",
+            "SELECT",
+            "Country",
+            "FROM",
+            "player",
+            "WHERE",
+            "Earnings",
+            "<",
+            "1100000"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "country",
+            "from",
+            "player",
+            "where",
+            "earnings",
+            ">",
+            "value",
+            "intersect",
+            "select",
+            "country",
+            "from",
+            "player",
+            "where",
+            "earnings",
+            "<",
+            "value"
+        ],
+        "question": "Show the country of players with earnings more than 1400000 and players with earnings less than 1100000.",
+        "question_toks": [
+            "Show",
+            "the",
+            "country",
+            "of",
+            "players",
+            "with",
+            "earnings",
+            "more",
+            "than",
+            "1400000",
+            "and",
+            "players",
+            "with",
+            "earnings",
+            "less",
+            "than",
+            "1100000",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            0,
+                            10,
+                            false
+                        ],
+                        null
+                    ],
+                    1400000.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": {
+                "from": {
+                    "table_units": [
+                        [
+                            "table_unit",
+                            1
+                        ]
+                    ],
+                    "conds": []
+                },
+                "select": [
+                    false,
+                    [
+                        [
+                            0,
+                            [
+                                0,
+                                [
+                                    0,
+                                    9,
+                                    false
+                                ],
+                                null
+                            ]
+                        ]
+                    ]
+                ],
+                "where": [
+                    [
+                        false,
+                        4,
+                        [
+                            0,
+                            [
+                                0,
+                                10,
+                                false
+                            ],
+                            null
+                        ],
+                        1100000.0,
+                        null
+                    ]
+                ],
+                "groupBy": [],
+                "having": [],
+                "orderBy": [],
+                "limit": null,
+                "intersect": null,
+                "union": null,
+                "except": null
+            },
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT DISTINCT Country FROM player WHERE Earnings > 1400000  UNION  SELECT DISTINCT Country FROM player WHERE Earnings < 1100000;",
+        "id": 34
+    },
+    {
+        "db_id": "soccer_3",
+        "query": "SELECT Country FROM player WHERE Earnings  >  1400000 INTERSECT SELECT Country FROM player WHERE Earnings  <  1100000",
+        "query_toks": [
+            "SELECT",
+            "Country",
+            "FROM",
+            "player",
+            "WHERE",
+            "Earnings",
+            ">",
+            "1400000",
+            "INTERSECT",
+            "SELECT",
+            "Country",
+            "FROM",
+            "player",
+            "WHERE",
+            "Earnings",
+            "<",
+            "1100000"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "country",
+            "from",
+            "player",
+            "where",
+            "earnings",
+            ">",
+            "value",
+            "intersect",
+            "select",
+            "country",
+            "from",
+            "player",
+            "where",
+            "earnings",
+            "<",
+            "value"
+        ],
+        "question": "Which country has produced both players with earnings over 1400000 and players with earnings below 1100000?",
+        "question_toks": [
+            "Which",
+            "country",
+            "has",
+            "produced",
+            "both",
+            "players",
+            "with",
+            "earnings",
+            "over",
+            "1400000",
+            "and",
+            "players",
+            "with",
+            "earnings",
+            "below",
+            "1100000",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            0,
+                            10,
+                            false
+                        ],
+                        null
+                    ],
+                    1400000.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": {
+                "from": {
+                    "table_units": [
+                        [
+                            "table_unit",
+                            1
+                        ]
+                    ],
+                    "conds": []
+                },
+                "select": [
+                    false,
+                    [
+                        [
+                            0,
+                            [
+                                0,
+                                [
+                                    0,
+                                    9,
+                                    false
+                                ],
+                                null
+                            ]
+                        ]
+                    ]
+                ],
+                "where": [
+                    [
+                        false,
+                        4,
+                        [
+                            0,
+                            [
+                                0,
+                                10,
+                                false
+                            ],
+                            null
+                        ],
+                        1100000.0,
+                        null
+                    ]
+                ],
+                "groupBy": [],
+                "having": [],
+                "orderBy": [],
+                "limit": null,
+                "intersect": null,
+                "union": null,
+                "except": null
+            },
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Country FROM player GROUP BY Country HAVING COUNT(CASE WHEN Earnings > 1400000 THEN 1 END) > 0    AND COUNT(CASE WHEN Earnings < 1100000 THEN 1 END) > 0;",
+        "id": 35
+    },
+    {
+        "db_id": "soccer_3",
+        "query": "SELECT COUNT (DISTINCT Country) FROM player",
+        "query_toks": [
+            "SELECT",
+            "COUNT",
+            "(",
+            "DISTINCT",
+            "Country",
+            ")",
+            "FROM",
+            "player"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "distinct",
+            "country",
+            ")",
+            "from",
+            "player"
+        ],
+        "question": "What is the number of distinct countries of all players?",
+        "question_toks": [
+            "What",
+            "is",
+            "the",
+            "number",
+            "of",
+            "distinct",
+            "countries",
+            "of",
+            "all",
+            "players",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                true
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(DISTINCT Country) AS NumberOfDistinctCountries FROM player;",
+        "id": 36
+    },
+    {
+        "db_id": "soccer_3",
+        "query": "SELECT COUNT (DISTINCT Country) FROM player",
+        "query_toks": [
+            "SELECT",
+            "COUNT",
+            "(",
+            "DISTINCT",
+            "Country",
+            ")",
+            "FROM",
+            "player"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "distinct",
+            "country",
+            ")",
+            "from",
+            "player"
+        ],
+        "question": "How many different countries are players from?",
+        "question_toks": [
+            "How",
+            "many",
+            "different",
+            "countries",
+            "are",
+            "players",
+            "from",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                true
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(DISTINCT Country) AS NumberOfDifferentCountrie",
+        "id": 37
+    },
+    {
+        "db_id": "soccer_3",
+        "query": "SELECT Earnings FROM player WHERE Country  =  \"Australia\" OR Country  =  \"Zimbabwe\"",
+        "query_toks": [
+            "SELECT",
+            "Earnings",
+            "FROM",
+            "player",
+            "WHERE",
+            "Country",
+            "=",
+            "``",
+            "Australia",
+            "''",
+            "OR",
+            "Country",
+            "=",
+            "``",
+            "Zimbabwe",
+            "''"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "earnings",
+            "from",
+            "player",
+            "where",
+            "country",
+            "=",
+            "value",
+            "or",
+            "country",
+            "=",
+            "value"
+        ],
+        "question": "Show the earnings of players from country \"Australia\" or \"Zimbabwe\".",
+        "question_toks": [
+            "Show",
+            "the",
+            "earnings",
+            "of",
+            "players",
+            "from",
+            "country",
+            "``",
+            "Australia",
+            "''",
+            "or",
+            "``",
+            "Zimbabwe",
+            "''",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                10,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            9,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Australia\"",
+                    null
+                ],
+                "or",
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            9,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Zimbabwe\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Name, Earnings FROM player WHERE Country IN ('Australia', 'Zimbabwe');",
+        "id": 38
+    },
+    {
+        "db_id": "soccer_3",
+        "query": "SELECT Earnings FROM player WHERE Country  =  \"Australia\" OR Country  =  \"Zimbabwe\"",
+        "query_toks": [
+            "SELECT",
+            "Earnings",
+            "FROM",
+            "player",
+            "WHERE",
+            "Country",
+            "=",
+            "``",
+            "Australia",
+            "''",
+            "OR",
+            "Country",
+            "=",
+            "``",
+            "Zimbabwe",
+            "''"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "earnings",
+            "from",
+            "player",
+            "where",
+            "country",
+            "=",
+            "value",
+            "or",
+            "country",
+            "=",
+            "value"
+        ],
+        "question": "What are the earnings of players from either of the countries of Australia or Zimbabwe?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "earnings",
+            "of",
+            "players",
+            "from",
+            "either",
+            "of",
+            "the",
+            "countries",
+            "of",
+            "Australia",
+            "or",
+            "Zimbabwe",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                10,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            9,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Australia\"",
+                    null
+                ],
+                "or",
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            9,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Zimbabwe\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Earnings FROM player WHERE Country = 'Australia' OR Country = 'Zimbabwe';",
+        "id": 39
+    }
+]

@@ -1,0 +1,6653 @@
+[
+    {
+        "db_id": "bbc_channels",
+        "query": "SELECT count(*) FROM channel WHERE channel_id NOT IN (SELECT channel_id FROM program)",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "channel",
+            "WHERE",
+            "channel_id",
+            "NOT",
+            "IN",
+            "(",
+            "SELECT",
+            "channel_id",
+            "FROM",
+            "program",
+            ")"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "channel",
+            "where",
+            "channel_id",
+            "not",
+            "in",
+            "(",
+            "select",
+            "channel_id",
+            "from",
+            "program",
+            ")"
+        ],
+        "question": "Find the number of channels that do not run any program.",
+        "question_toks": [
+            "Find",
+            "the",
+            "number",
+            "of",
+            "channels",
+            "that",
+            "do",
+            "not",
+            "run",
+            "any",
+            "program",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    true,
+                    8,
+                    [
+                        0,
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ],
+                    {
+                        "from": {
+                            "table_units": [
+                                [
+                                    "table_unit",
+                                    2
+                                ]
+                            ],
+                            "conds": []
+                        },
+                        "select": [
+                            false,
+                            [
+                                [
+                                    0,
+                                    [
+                                        0,
+                                        [
+                                            0,
+                                            13,
+                                            false
+                                        ],
+                                        null
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "where": [],
+                        "groupBy": [],
+                        "having": [],
+                        "orderBy": [],
+                        "limit": null,
+                        "intersect": null,
+                        "union": null,
+                        "except": null
+                    },
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(*) AS num_channels_without_program FROM channel WHERE Channel_ID NOT IN (SELECT DISTINCT Channel_ID FROM program);",
+        "id": 130
+    },
+    {
+        "db_id": "bbc_channels",
+        "query": "SELECT t2.name FROM program AS t1 JOIN director AS t2 ON t1.director_id  =  t2.director_id WHERE t1.title  =  'Dracula'",
+        "query_toks": [
+            "SELECT",
+            "t2.name",
+            "FROM",
+            "program",
+            "AS",
+            "t1",
+            "JOIN",
+            "director",
+            "AS",
+            "t2",
+            "ON",
+            "t1.director_id",
+            "=",
+            "t2.director_id",
+            "WHERE",
+            "t1.title",
+            "=",
+            "'Dracula",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t2",
+            ".",
+            "name",
+            "from",
+            "program",
+            "as",
+            "t1",
+            "join",
+            "director",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "director_id",
+            "=",
+            "t2",
+            ".",
+            "director_id",
+            "where",
+            "t1",
+            ".",
+            "title",
+            "=",
+            "value"
+        ],
+        "question": "What is the name of the director who is in the \"Dracula\" program?",
+        "question_toks": [
+            "What",
+            "is",
+            "the",
+            "name",
+            "of",
+            "the",
+            "director",
+            "who",
+            "is",
+            "in",
+            "the",
+            "``",
+            "Dracula",
+            "''",
+            "program",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ],
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                12,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            6,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                7,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            11,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Dracula\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT director.Name FROM director JOIN program ON director.Director_ID = program.Director_ID WHERE program.Title = 'Dracula';",
+        "id": 131
+    },
+    {
+        "db_id": "bbc_channels",
+        "query": "SELECT t1.name ,  t1.internet FROM channel AS t1 JOIN director_admin AS t2 ON t1.channel_id  =  t2.channel_id GROUP BY t1.channel_id ORDER BY count(*) DESC LIMIT 1",
+        "query_toks": [
+            "SELECT",
+            "t1.name",
+            ",",
+            "t1.internet",
+            "FROM",
+            "channel",
+            "AS",
+            "t1",
+            "JOIN",
+            "director_admin",
+            "AS",
+            "t2",
+            "ON",
+            "t1.channel_id",
+            "=",
+            "t2.channel_id",
+            "GROUP",
+            "BY",
+            "t1.channel_id",
+            "ORDER",
+            "BY",
+            "count",
+            "(",
+            "*",
+            ")",
+            "DESC",
+            "LIMIT",
+            "1"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t1",
+            ".",
+            "name",
+            ",",
+            "t1",
+            ".",
+            "internet",
+            "from",
+            "channel",
+            "as",
+            "t1",
+            "join",
+            "director_admin",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "channel_id",
+            "=",
+            "t2",
+            ".",
+            "channel_id",
+            "group",
+            "by",
+            "t1",
+            ".",
+            "channel_id",
+            "order",
+            "by",
+            "count",
+            "(",
+            "*",
+            ")",
+            "desc",
+            "limit",
+            "value"
+        ],
+        "question": "Find the name and internet web of the channel that is directed by the most directors.",
+        "question_toks": [
+            "Find",
+            "the",
+            "name",
+            "and",
+            "internet",
+            "web",
+            "of",
+            "the",
+            "channel",
+            "that",
+            "is",
+            "directed",
+            "by",
+            "the",
+            "most",
+            "directors",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ],
+                    [
+                        "table_unit",
+                        3
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            15,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                5,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    1,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": 1,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT channel.Name, channel.Internet FROM channel JOIN (     SELECT Channel_ID, COUNT(DISTINCT Director_ID) AS num_directors     FROM director_admin     GROUP BY Channel_ID     ORDER BY num_directors DESC     LIMIT 1 ) AS max_directors ON channel.Channel_ID = max_directors.Channel_ID;",
+        "id": 132
+    },
+    {
+        "db_id": "bbc_channels",
+        "query": "SELECT name FROM director WHERE age BETWEEN 30 AND 60",
+        "query_toks": [
+            "SELECT",
+            "name",
+            "FROM",
+            "director",
+            "WHERE",
+            "age",
+            "BETWEEN",
+            "30",
+            "AND",
+            "60"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "name",
+            "from",
+            "director",
+            "where",
+            "age",
+            "between",
+            "value",
+            "and",
+            "value"
+        ],
+        "question": "Find the name of the directors whose age is between 30 and 60.",
+        "question_toks": [
+            "Find",
+            "the",
+            "name",
+            "of",
+            "the",
+            "directors",
+            "whose",
+            "age",
+            "is",
+            "between",
+            "30",
+            "and",
+            "60",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                7,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    1,
+                    [
+                        0,
+                        [
+                            0,
+                            8,
+                            false
+                        ],
+                        null
+                    ],
+                    30.0,
+                    60.0
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Name FROM director WHERE Age BETWEEN 30 AND 60;",
+        "id": 133
+    },
+    {
+        "db_id": "bbc_channels",
+        "query": "SELECT t1.name FROM channel AS t1 JOIN director_admin AS t2 ON t1.channel_id  =  t2.channel_id JOIN director AS t3 ON t2.director_id  =  t3.director_id WHERE t3.age  <  40 INTERSECT SELECT t1.name FROM channel AS t1 JOIN director_admin AS t2 ON t1.channel_id  =  t2.channel_id JOIN director AS t3 ON t2.director_id  =  t3.director_id WHERE t3.age  >  60",
+        "query_toks": [
+            "SELECT",
+            "t1.name",
+            "FROM",
+            "channel",
+            "AS",
+            "t1",
+            "JOIN",
+            "director_admin",
+            "AS",
+            "t2",
+            "ON",
+            "t1.channel_id",
+            "=",
+            "t2.channel_id",
+            "JOIN",
+            "director",
+            "AS",
+            "t3",
+            "ON",
+            "t2.director_id",
+            "=",
+            "t3.director_id",
+            "WHERE",
+            "t3.age",
+            "<",
+            "40",
+            "INTERSECT",
+            "SELECT",
+            "t1.name",
+            "FROM",
+            "channel",
+            "AS",
+            "t1",
+            "JOIN",
+            "director_admin",
+            "AS",
+            "t2",
+            "ON",
+            "t1.channel_id",
+            "=",
+            "t2.channel_id",
+            "JOIN",
+            "director",
+            "AS",
+            "t3",
+            "ON",
+            "t2.director_id",
+            "=",
+            "t3.director_id",
+            "WHERE",
+            "t3.age",
+            ">",
+            "60"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t1",
+            ".",
+            "name",
+            "from",
+            "channel",
+            "as",
+            "t1",
+            "join",
+            "director_admin",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "channel_id",
+            "=",
+            "t2",
+            ".",
+            "channel_id",
+            "join",
+            "director",
+            "as",
+            "t3",
+            "on",
+            "t2",
+            ".",
+            "director_id",
+            "=",
+            "t3",
+            ".",
+            "director_id",
+            "where",
+            "t3",
+            ".",
+            "age",
+            "<",
+            "value",
+            "intersect",
+            "select",
+            "t1",
+            ".",
+            "name",
+            "from",
+            "channel",
+            "as",
+            "t1",
+            "join",
+            "director_admin",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "channel_id",
+            "=",
+            "t2",
+            ".",
+            "channel_id",
+            "join",
+            "director",
+            "as",
+            "t3",
+            "on",
+            "t2",
+            ".",
+            "director_id",
+            "=",
+            "t3",
+            ".",
+            "director_id",
+            "where",
+            "t3",
+            ".",
+            "age",
+            ">",
+            "value"
+        ],
+        "question": "give me the name of channels that have both a director younger than 40 and a director older than 60.",
+        "question_toks": [
+            "give",
+            "me",
+            "the",
+            "name",
+            "of",
+            "channels",
+            "that",
+            "have",
+            "both",
+            "a",
+            "director",
+            "younger",
+            "than",
+            "40",
+            "and",
+            "a",
+            "director",
+            "older",
+            "than",
+            "60",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ],
+                    [
+                        "table_unit",
+                        3
+                    ],
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            15,
+                            false
+                        ],
+                        null
+                    ],
+                    "and",
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                14,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            6,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    4,
+                    [
+                        0,
+                        [
+                            0,
+                            8,
+                            false
+                        ],
+                        null
+                    ],
+                    40.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": {
+                "from": {
+                    "table_units": [
+                        [
+                            "table_unit",
+                            0
+                        ],
+                        [
+                            "table_unit",
+                            3
+                        ],
+                        [
+                            "table_unit",
+                            1
+                        ]
+                    ],
+                    "conds": [
+                        [
+                            false,
+                            2,
+                            [
+                                0,
+                                [
+                                    0,
+                                    1,
+                                    false
+                                ],
+                                null
+                            ],
+                            [
+                                0,
+                                15,
+                                false
+                            ],
+                            null
+                        ],
+                        "and",
+                        [
+                            false,
+                            2,
+                            [
+                                0,
+                                [
+                                    0,
+                                    14,
+                                    false
+                                ],
+                                null
+                            ],
+                            [
+                                0,
+                                6,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                },
+                "select": [
+                    false,
+                    [
+                        [
+                            0,
+                            [
+                                0,
+                                [
+                                    0,
+                                    2,
+                                    false
+                                ],
+                                null
+                            ]
+                        ]
+                    ]
+                ],
+                "where": [
+                    [
+                        false,
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                8,
+                                false
+                            ],
+                            null
+                        ],
+                        60.0,
+                        null
+                    ]
+                ],
+                "groupBy": [],
+                "having": [],
+                "orderBy": [],
+                "limit": null,
+                "intersect": null,
+                "union": null,
+                "except": null
+            },
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT c.Name FROM channel c JOIN director_admin da1 ON c.Channel_ID = da1.Channel_ID JOIN director d1 ON da1.Director_ID = d1.Director_ID JOIN director_admin da2 ON c.Channel_ID = da2.Channel_ID JOIN director d2 ON da2.Director_ID = d2.Director_ID WHERE d1.Age < 40 AND d2.Age > 60;",
+        "id": 134
+    },
+    {
+        "db_id": "bbc_channels",
+        "query": "SELECT t1.name ,  t1.channel_id FROM channel AS t1 JOIN director_admin AS t2 ON t1.channel_id  =  t2.channel_id JOIN director AS t3 ON t2.director_id  =  t3.director_id WHERE t3.name != \"Hank Baskett\"",
+        "query_toks": [
+            "SELECT",
+            "t1.name",
+            ",",
+            "t1.channel_id",
+            "FROM",
+            "channel",
+            "AS",
+            "t1",
+            "JOIN",
+            "director_admin",
+            "AS",
+            "t2",
+            "ON",
+            "t1.channel_id",
+            "=",
+            "t2.channel_id",
+            "JOIN",
+            "director",
+            "AS",
+            "t3",
+            "ON",
+            "t2.director_id",
+            "=",
+            "t3.director_id",
+            "WHERE",
+            "t3.name",
+            "!",
+            "=",
+            "``",
+            "Hank",
+            "Baskett",
+            "''"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t1",
+            ".",
+            "name",
+            ",",
+            "t1",
+            ".",
+            "channel_id",
+            "from",
+            "channel",
+            "as",
+            "t1",
+            "join",
+            "director_admin",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "channel_id",
+            "=",
+            "t2",
+            ".",
+            "channel_id",
+            "join",
+            "director",
+            "as",
+            "t3",
+            "on",
+            "t2",
+            ".",
+            "director_id",
+            "=",
+            "t3",
+            ".",
+            "director_id",
+            "where",
+            "t3",
+            ".",
+            "name",
+            "!",
+            "=",
+            "value"
+        ],
+        "question": "Find the id and name of the channel that is not directed by Hank Baskett.",
+        "question_toks": [
+            "Find",
+            "the",
+            "id",
+            "and",
+            "name",
+            "of",
+            "the",
+            "channel",
+            "that",
+            "is",
+            "not",
+            "directed",
+            "by",
+            "Hank",
+            "Baskett",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ],
+                    [
+                        "table_unit",
+                        3
+                    ],
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            15,
+                            false
+                        ],
+                        null
+                    ],
+                    "and",
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                14,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            6,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    7,
+                    [
+                        0,
+                        [
+                            0,
+                            7,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Hank Baskett\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Channel_ID, Name FROM channel WHERE Channel_ID NOT IN (     SELECT Channel_ID     FROM director_admin     JOIN director ON director_admin.Director_ID = director.Director_ID     WHERE director.Name = 'Hank Baskett' );",
+        "id": 135
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT count(*) FROM radio",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "radio"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "radio"
+        ],
+        "question": "How many radios are there?",
+        "question_toks": [
+            "How",
+            "many",
+            "radios",
+            "are",
+            "there",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(*) AS num_radios FROM radio;",
+        "id": 136
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "select transmitter from radio order by erp_kw asc",
+        "query_toks": [
+            "select",
+            "transmitter",
+            "from",
+            "radio",
+            "order",
+            "by",
+            "erp_kw",
+            "asc"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "transmitter",
+            "from",
+            "radio",
+            "order",
+            "by",
+            "erp_kw",
+            "asc"
+        ],
+        "question": "List the transmitters of radios in ascending order of erp kw .",
+        "question_toks": [
+            "List",
+            "the",
+            "transmitters",
+            "of",
+            "radios",
+            "in",
+            "ascending",
+            "order",
+            "of",
+            "erp",
+            "kw",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                7,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "asc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            12,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Transmitter FROM radio ORDER BY CAST(ERP_kW AS REAL) ASC;",
+        "id": 137
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT tv_show_name ,  Original_Airdate FROM tv_show",
+        "query_toks": [
+            "SELECT",
+            "tv_show_name",
+            ",",
+            "Original_Airdate",
+            "FROM",
+            "tv_show"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "tv_show_name",
+            ",",
+            "original_airdate",
+            "from",
+            "tv_show"
+        ],
+        "question": "What are the names and original air dates of tv shows?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "names",
+            "and",
+            "original",
+            "air",
+            "dates",
+            "of",
+            "tv",
+            "shows",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                14,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                17,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT tv_show_name, Original_Airdate FROM tv_show;",
+        "id": 138
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT Station_name FROM city_channel WHERE Affiliation != \"ABC\"",
+        "query_toks": [
+            "SELECT",
+            "Station_name",
+            "FROM",
+            "city_channel",
+            "WHERE",
+            "Affiliation",
+            "!",
+            "=",
+            "``",
+            "ABC",
+            "''"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "station_name",
+            "from",
+            "city_channel",
+            "where",
+            "affiliation",
+            "!",
+            "=",
+            "value"
+        ],
+        "question": "List the station names of city channels whose affiliation is not \"ABC\".",
+        "question_toks": [
+            "List",
+            "the",
+            "station",
+            "names",
+            "of",
+            "city",
+            "channels",
+            "whose",
+            "affiliation",
+            "is",
+            "not",
+            "``",
+            "ABC",
+            "''",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                3,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    7,
+                    [
+                        0,
+                        [
+                            0,
+                            5,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"ABC\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Station_name FROM city_channel WHERE Affiliation != 'ABC';",
+        "id": 139
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT Transmitter FROM radio WHERE ERP_kW  >  150 OR ERP_kW  <  30",
+        "query_toks": [
+            "SELECT",
+            "Transmitter",
+            "FROM",
+            "radio",
+            "WHERE",
+            "ERP_kW",
+            ">",
+            "150",
+            "OR",
+            "ERP_kW",
+            "<",
+            "30"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "transmitter",
+            "from",
+            "radio",
+            "where",
+            "erp_kw",
+            ">",
+            "value",
+            "or",
+            "erp_kw",
+            "<",
+            "value"
+        ],
+        "question": "Show the transmitters of radios whose ERP is bigger than 150 or smaller than 30.",
+        "question_toks": [
+            "Show",
+            "the",
+            "transmitters",
+            "of",
+            "radios",
+            "whose",
+            "ERP",
+            "is",
+            "bigger",
+            "than",
+            "150",
+            "or",
+            "smaller",
+            "than",
+            "30",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                7,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            0,
+                            12,
+                            false
+                        ],
+                        null
+                    ],
+                    150.0,
+                    null
+                ],
+                "or",
+                [
+                    false,
+                    4,
+                    [
+                        0,
+                        [
+                            0,
+                            12,
+                            false
+                        ],
+                        null
+                    ],
+                    30.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Transmitter FROM radio WHERE CAST(ERP_kW AS REAL) > 150 OR CAST(ERP_kW AS REAL) < 30;",
+        "id": 140
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT Transmitter FROM radio ORDER BY ERP_kW DESC LIMIT 1",
+        "query_toks": [
+            "SELECT",
+            "Transmitter",
+            "FROM",
+            "radio",
+            "ORDER",
+            "BY",
+            "ERP_kW",
+            "DESC",
+            "LIMIT",
+            "1"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "transmitter",
+            "from",
+            "radio",
+            "order",
+            "by",
+            "erp_kw",
+            "desc",
+            "limit",
+            "value"
+        ],
+        "question": "What is the transmitter of the radio with the largest ERP_kW?",
+        "question_toks": [
+            "What",
+            "is",
+            "the",
+            "transmitter",
+            "of",
+            "the",
+            "radio",
+            "with",
+            "the",
+            "largest",
+            "ERP_kW",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                7,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            12,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": 1,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Transmitter FROM radio WHERE ERP_kW = (     SELECT MAX(CAST(ERP_kW AS REAL))     FROM radio );",
+        "id": 141
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT avg(ERP_kW) FROM radio",
+        "query_toks": [
+            "SELECT",
+            "avg",
+            "(",
+            "ERP_kW",
+            ")",
+            "FROM",
+            "radio"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "avg",
+            "(",
+            "erp_kw",
+            ")",
+            "from",
+            "radio"
+        ],
+        "question": "What is the average ERP across all radios?",
+        "question_toks": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "ERP",
+            "across",
+            "all",
+            "radios",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        5,
+                        [
+                            0,
+                            [
+                                0,
+                                12,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT AVG(CAST(ERP_kW AS REAL)) AS average_ERP FROM radio;",
+        "id": 142
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT Affiliation ,  COUNT(*) FROM city_channel GROUP BY Affiliation",
+        "query_toks": [
+            "SELECT",
+            "Affiliation",
+            ",",
+            "COUNT",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "city_channel",
+            "GROUP",
+            "BY",
+            "Affiliation"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "affiliation",
+            ",",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "city_channel",
+            "group",
+            "by",
+            "affiliation"
+        ],
+        "question": "Show the different affiliations of city channels and the number of city channels with each affiliation.",
+        "question_toks": [
+            "Show",
+            "the",
+            "different",
+            "affiliations",
+            "of",
+            "city",
+            "channels",
+            "and",
+            "the",
+            "number",
+            "of",
+            "city",
+            "channels",
+            "with",
+            "each",
+            "affiliation",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                5,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    5,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Affiliation, COUNT(*) AS num_channels FROM city_channel GROUP BY Affiliation;",
+        "id": 143
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT Affiliation FROM city_channel GROUP BY Affiliation ORDER BY COUNT(*) DESC LIMIT 1",
+        "query_toks": [
+            "SELECT",
+            "Affiliation",
+            "FROM",
+            "city_channel",
+            "GROUP",
+            "BY",
+            "Affiliation",
+            "ORDER",
+            "BY",
+            "COUNT",
+            "(",
+            "*",
+            ")",
+            "DESC",
+            "LIMIT",
+            "1"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "affiliation",
+            "from",
+            "city_channel",
+            "group",
+            "by",
+            "affiliation",
+            "order",
+            "by",
+            "count",
+            "(",
+            "*",
+            ")",
+            "desc",
+            "limit",
+            "value"
+        ],
+        "question": "Please show the most common affiliation for city channels.",
+        "question_toks": [
+            "Please",
+            "show",
+            "the",
+            "most",
+            "common",
+            "affiliation",
+            "for",
+            "city",
+            "channels",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                5,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    5,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": 1,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Affiliation, COUNT(*) AS num_channels FROM city_channel GROUP BY Affiliation ORDER BY num_channels DESC LIMIT 1;",
+        "id": 144
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT Affiliation FROM city_channel GROUP BY Affiliation HAVING COUNT(*)  >  3",
+        "query_toks": [
+            "SELECT",
+            "Affiliation",
+            "FROM",
+            "city_channel",
+            "GROUP",
+            "BY",
+            "Affiliation",
+            "HAVING",
+            "COUNT",
+            "(",
+            "*",
+            ")",
+            ">",
+            "3"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "affiliation",
+            "from",
+            "city_channel",
+            "group",
+            "by",
+            "affiliation",
+            "having",
+            "count",
+            "(",
+            "*",
+            ")",
+            ">",
+            "value"
+        ],
+        "question": "List the affiliations shared by more than three city channels.",
+        "question_toks": [
+            "List",
+            "the",
+            "affiliations",
+            "shared",
+            "by",
+            "more",
+            "than",
+            "three",
+            "city",
+            "channels",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                5,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    5,
+                    false
+                ]
+            ],
+            "having": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ],
+                    3.0,
+                    null
+                ]
+            ],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Affiliation, COUNT(*) AS num_channels FROM city_channel GROUP BY Affiliation HAVING num_channels > 3;",
+        "id": 145
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT City ,  Station_name FROM city_channel ORDER BY Station_name ASC",
+        "query_toks": [
+            "SELECT",
+            "City",
+            ",",
+            "Station_name",
+            "FROM",
+            "city_channel",
+            "ORDER",
+            "BY",
+            "Station_name",
+            "ASC"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "city",
+            ",",
+            "station_name",
+            "from",
+            "city_channel",
+            "order",
+            "by",
+            "station_name",
+            "asc"
+        ],
+        "question": "Show the cities and station names of city channels in ascending alphabetical order of station name.",
+        "question_toks": [
+            "Show",
+            "the",
+            "cities",
+            "and",
+            "station",
+            "names",
+            "of",
+            "city",
+            "channels",
+            "in",
+            "ascending",
+            "alphabetical",
+            "order",
+            "of",
+            "station",
+            "name",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                3,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "asc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            3,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT City, Station_name FROM city_channel ORDER BY Station_name ASC;",
+        "id": 146
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT T3.Transmitter ,  T2.City FROM city_channel_radio AS T1 JOIN city_channel AS T2 ON T1.City_channel_ID  =  T2.ID JOIN radio AS T3 ON T1.Radio_ID  =  T3.Radio_ID",
+        "query_toks": [
+            "SELECT",
+            "T3.Transmitter",
+            ",",
+            "T2.City",
+            "FROM",
+            "city_channel_radio",
+            "AS",
+            "T1",
+            "JOIN",
+            "city_channel",
+            "AS",
+            "T2",
+            "ON",
+            "T1.City_channel_ID",
+            "=",
+            "T2.ID",
+            "JOIN",
+            "radio",
+            "AS",
+            "T3",
+            "ON",
+            "T1.Radio_ID",
+            "=",
+            "T3.Radio_ID"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t3",
+            ".",
+            "transmitter",
+            ",",
+            "t2",
+            ".",
+            "city",
+            "from",
+            "city_channel_radio",
+            "as",
+            "t1",
+            "join",
+            "city_channel",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "city_channel_id",
+            "=",
+            "t2",
+            ".",
+            "id",
+            "join",
+            "radio",
+            "as",
+            "t3",
+            "on",
+            "t1",
+            ".",
+            "radio_id",
+            "=",
+            "t3",
+            ".",
+            "radio_id"
+        ],
+        "question": "Show the transmitters of radios and the cities of the channels they are associated with.",
+        "question_toks": [
+            "Show",
+            "the",
+            "transmitters",
+            "of",
+            "radios",
+            "and",
+            "the",
+            "cities",
+            "of",
+            "the",
+            "channels",
+            "they",
+            "are",
+            "associated",
+            "with",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        3
+                    ],
+                    [
+                        "table_unit",
+                        0
+                    ],
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                18,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ],
+                    "and",
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                19,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            6,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                7,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT r.Transmitter, cc.City FROM city_channel_radio ccr JOIN city_channel cc ON ccr.City_channel_ID = cc.ID JOIN radio r ON ccr.Radio_ID = r.Radio_ID;",
+        "id": 147
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT T3.Transmitter ,  T2.Station_name FROM city_channel_radio AS T1 JOIN city_channel AS T2 ON T1.City_channel_ID  =  T2.ID JOIN radio AS T3 ON T1.Radio_ID  =  T3.Radio_ID ORDER BY T3.ERP_kW DESC",
+        "query_toks": [
+            "SELECT",
+            "T3.Transmitter",
+            ",",
+            "T2.Station_name",
+            "FROM",
+            "city_channel_radio",
+            "AS",
+            "T1",
+            "JOIN",
+            "city_channel",
+            "AS",
+            "T2",
+            "ON",
+            "T1.City_channel_ID",
+            "=",
+            "T2.ID",
+            "JOIN",
+            "radio",
+            "AS",
+            "T3",
+            "ON",
+            "T1.Radio_ID",
+            "=",
+            "T3.Radio_ID",
+            "ORDER",
+            "BY",
+            "T3.ERP_kW",
+            "DESC"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t3",
+            ".",
+            "transmitter",
+            ",",
+            "t2",
+            ".",
+            "station_name",
+            "from",
+            "city_channel_radio",
+            "as",
+            "t1",
+            "join",
+            "city_channel",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "city_channel_id",
+            "=",
+            "t2",
+            ".",
+            "id",
+            "join",
+            "radio",
+            "as",
+            "t3",
+            "on",
+            "t1",
+            ".",
+            "radio_id",
+            "=",
+            "t3",
+            ".",
+            "radio_id",
+            "order",
+            "by",
+            "t3",
+            ".",
+            "erp_kw",
+            "desc"
+        ],
+        "question": "Show the transmitters of radios and the station names of the channels they are associated with in descending order of the ERP of the radios.",
+        "question_toks": [
+            "Show",
+            "the",
+            "transmitters",
+            "of",
+            "radios",
+            "and",
+            "the",
+            "station",
+            "names",
+            "of",
+            "the",
+            "channels",
+            "they",
+            "are",
+            "associated",
+            "with",
+            "in",
+            "descending",
+            "order",
+            "of",
+            "the",
+            "ERP",
+            "of",
+            "the",
+            "radios",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        3
+                    ],
+                    [
+                        "table_unit",
+                        0
+                    ],
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                18,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ],
+                    "and",
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                19,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            6,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                7,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                3,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            12,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT r.Transmitter, cc.Station_name FROM city_channel_radio ccr JOIN city_channel cc ON ccr.City_channel_ID = cc.ID JOIN radio r ON ccr.Radio_ID = r.Radio_ID ORDER BY CAST(r.ERP_kW AS REAL) DESC;",
+        "id": 148
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT T2.Transmitter ,  COUNT(*) FROM city_channel_radio AS T1 JOIN radio AS T2 ON T1.Radio_ID  =  T2.Radio_ID GROUP BY T2.Transmitter",
+        "query_toks": [
+            "SELECT",
+            "T2.Transmitter",
+            ",",
+            "COUNT",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "city_channel_radio",
+            "AS",
+            "T1",
+            "JOIN",
+            "radio",
+            "AS",
+            "T2",
+            "ON",
+            "T1.Radio_ID",
+            "=",
+            "T2.Radio_ID",
+            "GROUP",
+            "BY",
+            "T2.Transmitter"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t2",
+            ".",
+            "transmitter",
+            ",",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "city_channel_radio",
+            "as",
+            "t1",
+            "join",
+            "radio",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "radio_id",
+            "=",
+            "t2",
+            ".",
+            "radio_id",
+            "group",
+            "by",
+            "t2",
+            ".",
+            "transmitter"
+        ],
+        "question": "Show the transmitters of the radios and the number of city channels they are associated with.",
+        "question_toks": [
+            "Show",
+            "the",
+            "transmitters",
+            "of",
+            "the",
+            "radios",
+            "and",
+            "the",
+            "number",
+            "of",
+            "city",
+            "channels",
+            "they",
+            "are",
+            "associated",
+            "with",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        3
+                    ],
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                19,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            6,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                7,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    7,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT r.Transmitter, COUNT(ccr.City_channel_ID) AS Num_of_city_channels FROM radio r LEFT JOIN city_channel_radio ccr ON r.Radio_ID = ccr.Radio_ID GROUP BY r.Transmitter;",
+        "id": 149
+    },
+    {
+        "db_id": "tv_shows",
+        "query": "SELECT Transmitter FROM radio WHERE Radio_ID NOT IN (SELECT Radio_ID FROM city_channel_radio)",
+        "query_toks": [
+            "SELECT",
+            "Transmitter",
+            "FROM",
+            "radio",
+            "WHERE",
+            "Radio_ID",
+            "NOT",
+            "IN",
+            "(",
+            "SELECT",
+            "Radio_ID",
+            "FROM",
+            "city_channel_radio",
+            ")"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "transmitter",
+            "from",
+            "radio",
+            "where",
+            "radio_id",
+            "not",
+            "in",
+            "(",
+            "select",
+            "radio_id",
+            "from",
+            "city_channel_radio",
+            ")"
+        ],
+        "question": "Show the distinct transmitters of radios that are not associated with any city channel.",
+        "question_toks": [
+            "Show",
+            "the",
+            "distinct",
+            "transmitters",
+            "of",
+            "radios",
+            "that",
+            "are",
+            "not",
+            "associated",
+            "with",
+            "any",
+            "city",
+            "channel",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                7,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    true,
+                    8,
+                    [
+                        0,
+                        [
+                            0,
+                            6,
+                            false
+                        ],
+                        null
+                    ],
+                    {
+                        "from": {
+                            "table_units": [
+                                [
+                                    "table_unit",
+                                    3
+                                ]
+                            ],
+                            "conds": []
+                        },
+                        "select": [
+                            false,
+                            [
+                                [
+                                    0,
+                                    [
+                                        0,
+                                        [
+                                            0,
+                                            19,
+                                            false
+                                        ],
+                                        null
+                                    ]
+                                ]
+                            ]
+                        ],
+                        "where": [],
+                        "groupBy": [],
+                        "having": [],
+                        "orderBy": [],
+                        "limit": null,
+                        "intersect": null,
+                        "union": null,
+                        "except": null
+                    },
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT DISTINCT r.Transmitter FROM radio r LEFT JOIN city_channel_radio ccr ON r.Radio_ID = ccr.Radio_ID WHERE ccr.City_channel_ID IS NULL;",
+        "id": 150
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT model FROM vehicle WHERE power  >  6000 ORDER BY top_speed DESC LIMIT 1",
+        "query_toks": [
+            "SELECT",
+            "model",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "power",
+            ">",
+            "6000",
+            "ORDER",
+            "BY",
+            "top_speed",
+            "DESC",
+            "LIMIT",
+            "1"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "model",
+            "from",
+            "vehicle",
+            "where",
+            "power",
+            ">",
+            "value",
+            "order",
+            "by",
+            "top_speed",
+            "desc",
+            "limit",
+            "value"
+        ],
+        "question": "What is the model of the vehicle with maximum top speed whose power is higher than 6000?",
+        "question_toks": [
+            "What",
+            "is",
+            "the",
+            "model",
+            "of",
+            "the",
+            "vehicle",
+            "with",
+            "maximum",
+            "top",
+            "speed",
+            "whose",
+            "power",
+            "is",
+            "higher",
+            "than",
+            "6000",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            0,
+                            5,
+                            false
+                        ],
+                        null
+                    ],
+                    6000.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            4,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": 1,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Model FROM vehicle WHERE Power > 6000 ORDER BY Top_Speed DESC LIMIT 1;",
+        "id": 151
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT model FROM vehicle WHERE power  >  6000 ORDER BY top_speed DESC LIMIT 1",
+        "query_toks": [
+            "SELECT",
+            "model",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "power",
+            ">",
+            "6000",
+            "ORDER",
+            "BY",
+            "top_speed",
+            "DESC",
+            "LIMIT",
+            "1"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "model",
+            "from",
+            "vehicle",
+            "where",
+            "power",
+            ">",
+            "value",
+            "order",
+            "by",
+            "top_speed",
+            "desc",
+            "limit",
+            "value"
+        ],
+        "question": "Of vehicles with power over 6000, return the model of the vehicle with the greatest top speed.",
+        "question_toks": [
+            "Of",
+            "vehicles",
+            "with",
+            "power",
+            "over",
+            "6000",
+            ",",
+            "return",
+            "the",
+            "model",
+            "of",
+            "the",
+            "vehicle",
+            "with",
+            "the",
+            "greatest",
+            "top",
+            "speed",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            0,
+                            5,
+                            false
+                        ],
+                        null
+                    ],
+                    6000.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            4,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": 1,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Model FROM vehicle WHERE Power > 6000 ORDER BY Top_Speed DESC LIMIT 1;",
+        "id": 152
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT name FROM driver WHERE citizenship  =  'United States'",
+        "query_toks": [
+            "SELECT",
+            "name",
+            "FROM",
+            "driver",
+            "WHERE",
+            "citizenship",
+            "=",
+            "'United",
+            "States",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "name",
+            "from",
+            "driver",
+            "where",
+            "citizenship",
+            "=",
+            "value"
+        ],
+        "question": "What are the names of the drivers who are citizens of the 'United States'?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "names",
+            "of",
+            "the",
+            "drivers",
+            "who",
+            "are",
+            "citizens",
+            "of",
+            "the",
+            "'United",
+            "States",
+            "'",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            10,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"United States\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Name FROM driver WHERE Citizenship = 'United States';",
+        "id": 153
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT name FROM driver WHERE citizenship  =  'United States'",
+        "query_toks": [
+            "SELECT",
+            "name",
+            "FROM",
+            "driver",
+            "WHERE",
+            "citizenship",
+            "=",
+            "'United",
+            "States",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "name",
+            "from",
+            "driver",
+            "where",
+            "citizenship",
+            "=",
+            "value"
+        ],
+        "question": "Return the names of drivers with citizenship from the United States.",
+        "question_toks": [
+            "Return",
+            "the",
+            "names",
+            "of",
+            "drivers",
+            "with",
+            "citizenship",
+            "from",
+            "the",
+            "United",
+            "States",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            10,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"United States\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Name FROM driver WHERE Citizenship = 'United States';",
+        "id": 154
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(*) ,  driver_id FROM vehicle_driver GROUP BY driver_id ORDER BY count(*) DESC LIMIT 1",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            ",",
+            "driver_id",
+            "FROM",
+            "vehicle_driver",
+            "GROUP",
+            "BY",
+            "driver_id",
+            "ORDER",
+            "BY",
+            "count",
+            "(",
+            "*",
+            ")",
+            "DESC",
+            "LIMIT",
+            "1"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            ",",
+            "driver_id",
+            "from",
+            "vehicle_driver",
+            "group",
+            "by",
+            "driver_id",
+            "order",
+            "by",
+            "count",
+            "(",
+            "*",
+            ")",
+            "desc",
+            "limit",
+            "value"
+        ],
+        "question": "How many vehicles has a driver driven at most, and what is the driver id of the driver who has driven this many vehicles?",
+        "question_toks": [
+            "How",
+            "many",
+            "vehicles",
+            "has",
+            "a",
+            "driver",
+            "driven",
+            "at",
+            "most",
+            ",",
+            "and",
+            "what",
+            "is",
+            "the",
+            "driver",
+            "id",
+            "of",
+            "the",
+            "driver",
+            "who",
+            "has",
+            "driven",
+            "this",
+            "many",
+            "vehicles",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                12,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    12,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": 1,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(Vehicle_ID) AS Max_Vehicles_Driven, Driver_ID FROM vehicle_driver GROUP BY Driver_ID ORDER BY Max_Vehicles_Driven DESC LIMIT 1;",
+        "id": 155
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(*) ,  driver_id FROM vehicle_driver GROUP BY driver_id ORDER BY count(*) DESC LIMIT 1",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            ",",
+            "driver_id",
+            "FROM",
+            "vehicle_driver",
+            "GROUP",
+            "BY",
+            "driver_id",
+            "ORDER",
+            "BY",
+            "count",
+            "(",
+            "*",
+            ")",
+            "DESC",
+            "LIMIT",
+            "1"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            ",",
+            "driver_id",
+            "from",
+            "vehicle_driver",
+            "group",
+            "by",
+            "driver_id",
+            "order",
+            "by",
+            "count",
+            "(",
+            "*",
+            ")",
+            "desc",
+            "limit",
+            "value"
+        ],
+        "question": "What is the id of the driver who has driven the most vehicles, and how many vehicles is this?",
+        "question_toks": [
+            "What",
+            "is",
+            "the",
+            "id",
+            "of",
+            "the",
+            "driver",
+            "who",
+            "has",
+            "driven",
+            "the",
+            "most",
+            "vehicles",
+            ",",
+            "and",
+            "how",
+            "many",
+            "vehicles",
+            "is",
+            "this",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                12,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    12,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [
+                "desc",
+                [
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": 1,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Driver_ID, COUNT(Vehicle_ID) AS Total_Vehicles FROM vehicle_driver GROUP BY Driver_ID ORDER BY Total_Vehicles DESC LIMIT 1;",
+        "id": 156
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT max(power) ,  avg(power) FROM vehicle WHERE builder  =  'Zhuzhou'",
+        "query_toks": [
+            "SELECT",
+            "max",
+            "(",
+            "power",
+            ")",
+            ",",
+            "avg",
+            "(",
+            "power",
+            ")",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "builder",
+            "=",
+            "'Zhuzhou",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "max",
+            "(",
+            "power",
+            ")",
+            ",",
+            "avg",
+            "(",
+            "power",
+            ")",
+            "from",
+            "vehicle",
+            "where",
+            "builder",
+            "=",
+            "value"
+        ],
+        "question": "What is the maximum and average power for the vehicles manufactured by 'Zhuzhou'?",
+        "question_toks": [
+            "What",
+            "is",
+            "the",
+            "maximum",
+            "and",
+            "average",
+            "power",
+            "for",
+            "the",
+            "vehicles",
+            "manufactured",
+            "by",
+            "'Zhuzhou",
+            "'",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        1,
+                        [
+                            0,
+                            [
+                                0,
+                                5,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        5,
+                        [
+                            0,
+                            [
+                                0,
+                                5,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            6,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Zhuzhou\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT MAX(Power) AS Max_Power, AVG(Power) AS Avg_Power FROM vehicle WHERE Builder = 'Zhuzhou';",
+        "id": 157
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT max(power) ,  avg(power) FROM vehicle WHERE builder  =  'Zhuzhou'",
+        "query_toks": [
+            "SELECT",
+            "max",
+            "(",
+            "power",
+            ")",
+            ",",
+            "avg",
+            "(",
+            "power",
+            ")",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "builder",
+            "=",
+            "'Zhuzhou",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "max",
+            "(",
+            "power",
+            ")",
+            ",",
+            "avg",
+            "(",
+            "power",
+            ")",
+            "from",
+            "vehicle",
+            "where",
+            "builder",
+            "=",
+            "value"
+        ],
+        "question": "Return the maximum and average power for the vehicles built by Zhuzhou.",
+        "question_toks": [
+            "Return",
+            "the",
+            "maximum",
+            "and",
+            "average",
+            "power",
+            "for",
+            "the",
+            "vehicles",
+            "built",
+            "by",
+            "Zhuzhou",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        1,
+                        [
+                            0,
+                            [
+                                0,
+                                5,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        5,
+                        [
+                            0,
+                            [
+                                0,
+                                5,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            6,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Zhuzhou\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT MAX(Power) AS Max_Power, AVG(Power) AS Avg_Power FROM vehicle WHERE Builder = 'Zhuzhou';",
+        "id": 158
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT vehicle_id FROM vehicle_driver GROUP BY vehicle_id ORDER BY count(*) ASC LIMIT 1",
+        "query_toks": [
+            "SELECT",
+            "vehicle_id",
+            "FROM",
+            "vehicle_driver",
+            "GROUP",
+            "BY",
+            "vehicle_id",
+            "ORDER",
+            "BY",
+            "count",
+            "(",
+            "*",
+            ")",
+            "ASC",
+            "LIMIT",
+            "1"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "vehicle_id",
+            "from",
+            "vehicle_driver",
+            "group",
+            "by",
+            "vehicle_id",
+            "order",
+            "by",
+            "count",
+            "(",
+            "*",
+            ")",
+            "asc",
+            "limit",
+            "value"
+        ],
+        "question": "What is the id of the vehicle driven for the least times for the vehicles ever used?",
+        "question_toks": [
+            "What",
+            "is",
+            "the",
+            "id",
+            "of",
+            "the",
+            "vehicle",
+            "driven",
+            "for",
+            "the",
+            "least",
+            "times",
+            "for",
+            "the",
+            "vehicles",
+            "ever",
+            "used",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    13,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [
+                "asc",
+                [
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": 1,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Vehicle_ID FROM (     SELECT Vehicle_ID, COUNT(Driver_ID) AS Usage_Count     FROM vehicle_driver     GROUP BY Vehicle_ID     ORDER BY Usage_Count ASC ) LIMIT 1;",
+        "id": 159
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT vehicle_id FROM vehicle_driver GROUP BY vehicle_id ORDER BY count(*) ASC LIMIT 1",
+        "query_toks": [
+            "SELECT",
+            "vehicle_id",
+            "FROM",
+            "vehicle_driver",
+            "GROUP",
+            "BY",
+            "vehicle_id",
+            "ORDER",
+            "BY",
+            "count",
+            "(",
+            "*",
+            ")",
+            "ASC",
+            "LIMIT",
+            "1"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "vehicle_id",
+            "from",
+            "vehicle_driver",
+            "group",
+            "by",
+            "vehicle_id",
+            "order",
+            "by",
+            "count",
+            "(",
+            "*",
+            ")",
+            "asc",
+            "limit",
+            "value"
+        ],
+        "question": "Return the id of the vehicle that has been driven the fewest times.",
+        "question_toks": [
+            "Return",
+            "the",
+            "id",
+            "of",
+            "the",
+            "vehicle",
+            "that",
+            "has",
+            "been",
+            "driven",
+            "the",
+            "fewest",
+            "times",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    13,
+                    false
+                ]
+            ],
+            "having": [],
+            "orderBy": [
+                "asc",
+                [
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            ],
+            "limit": 1,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Vehicle_ID FROM (     SELECT Vehicle_ID, COUNT(Driver_ID) AS Usage_Count     FROM vehicle_driver     GROUP BY Vehicle_ID     ORDER BY Usage_Count ASC ) LIMIT 1;",
+        "id": 160
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT top_speed ,  power FROM vehicle WHERE build_year  =  1996",
+        "query_toks": [
+            "SELECT",
+            "top_speed",
+            ",",
+            "power",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "build_year",
+            "=",
+            "1996"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "top_speed",
+            ",",
+            "power",
+            "from",
+            "vehicle",
+            "where",
+            "build_year",
+            "=",
+            "value"
+        ],
+        "question": "What is the top speed and power of the vehicle manufactured in the year of 1996?",
+        "question_toks": [
+            "What",
+            "is",
+            "the",
+            "top",
+            "speed",
+            "and",
+            "power",
+            "of",
+            "the",
+            "vehicle",
+            "manufactured",
+            "in",
+            "the",
+            "year",
+            "of",
+            "1996",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                4,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                5,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            3,
+                            false
+                        ],
+                        null
+                    ],
+                    1996.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Top_Speed, Power FROM vehicle WHERE Build_Year = '1996';",
+        "id": 161
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT top_speed ,  power FROM vehicle WHERE build_year  =  1996",
+        "query_toks": [
+            "SELECT",
+            "top_speed",
+            ",",
+            "power",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "build_year",
+            "=",
+            "1996"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "top_speed",
+            ",",
+            "power",
+            "from",
+            "vehicle",
+            "where",
+            "build_year",
+            "=",
+            "value"
+        ],
+        "question": "Return the top speed and power of the vehicle that was built in the year 1996.",
+        "question_toks": [
+            "Return",
+            "the",
+            "top",
+            "speed",
+            "and",
+            "power",
+            "of",
+            "the",
+            "vehicle",
+            "that",
+            "was",
+            "built",
+            "in",
+            "the",
+            "year",
+            "1996",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                4,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                5,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            3,
+                            false
+                        ],
+                        null
+                    ],
+                    1996.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Top_Speed, Power FROM vehicle WHERE Build_Year = '1996';",
+        "id": 162
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT build_year ,  model ,  builder FROM vehicle",
+        "query_toks": [
+            "SELECT",
+            "build_year",
+            ",",
+            "model",
+            ",",
+            "builder",
+            "FROM",
+            "vehicle"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "build_year",
+            ",",
+            "model",
+            ",",
+            "builder",
+            "from",
+            "vehicle"
+        ],
+        "question": "What are the build year, model name and builder of the vehicles?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "build",
+            "year",
+            ",",
+            "model",
+            "name",
+            "and",
+            "builder",
+            "of",
+            "the",
+            "vehicles",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                3,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                6,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Build_Year, Model, Builder FROM vehicle;",
+        "id": 163
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT build_year ,  model ,  builder FROM vehicle",
+        "query_toks": [
+            "SELECT",
+            "build_year",
+            ",",
+            "model",
+            ",",
+            "builder",
+            "FROM",
+            "vehicle"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "build_year",
+            ",",
+            "model",
+            ",",
+            "builder",
+            "from",
+            "vehicle"
+        ],
+        "question": "Give the build year, model, and builder of each vehicle.",
+        "question_toks": [
+            "Give",
+            "the",
+            "build",
+            "year",
+            ",",
+            "model",
+            ",",
+            "and",
+            "builder",
+            "of",
+            "each",
+            "vehicle",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                3,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                6,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Build_Year, Model, Builder FROM vehicle;",
+        "id": 164
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(DISTINCT T1.driver_id) FROM vehicle_driver AS T1 JOIN vehicle AS T2 ON T1.vehicle_id  =  T2.vehicle_id WHERE T2.build_year  =  2012",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "DISTINCT",
+            "T1.driver_id",
+            ")",
+            "FROM",
+            "vehicle_driver",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle",
+            "AS",
+            "T2",
+            "ON",
+            "T1.vehicle_id",
+            "=",
+            "T2.vehicle_id",
+            "WHERE",
+            "T2.build_year",
+            "=",
+            "2012"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "distinct",
+            "t1",
+            ".",
+            "driver_id",
+            ")",
+            "from",
+            "vehicle_driver",
+            "as",
+            "t1",
+            "join",
+            "vehicle",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "vehicle_id",
+            "=",
+            "t2",
+            ".",
+            "vehicle_id",
+            "where",
+            "t2",
+            ".",
+            "build_year",
+            "=",
+            "value"
+        ],
+        "question": "How many drivers have driven vehicles built in 2012?",
+        "question_toks": [
+            "How",
+            "many",
+            "drivers",
+            "have",
+            "driven",
+            "vehicles",
+            "built",
+            "in",
+            "2012",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ],
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                12,
+                                true
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            3,
+                            false
+                        ],
+                        null
+                    ],
+                    2012.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(DISTINCT driver.Driver_ID) AS Num_Drivers FROM driver JOIN vehicle_driver ON driver.Driver_ID = vehicle_driver.Driver_ID JOIN vehicle ON vehicle.Vehicle_ID = vehicle_driver.Vehicle_ID WHERE vehicle.Build_Year = '2012';",
+        "id": 165
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(DISTINCT T1.driver_id) FROM vehicle_driver AS T1 JOIN vehicle AS T2 ON T1.vehicle_id  =  T2.vehicle_id WHERE T2.build_year  =  2012",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "DISTINCT",
+            "T1.driver_id",
+            ")",
+            "FROM",
+            "vehicle_driver",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle",
+            "AS",
+            "T2",
+            "ON",
+            "T1.vehicle_id",
+            "=",
+            "T2.vehicle_id",
+            "WHERE",
+            "T2.build_year",
+            "=",
+            "2012"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "distinct",
+            "t1",
+            ".",
+            "driver_id",
+            ")",
+            "from",
+            "vehicle_driver",
+            "as",
+            "t1",
+            "join",
+            "vehicle",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "vehicle_id",
+            "=",
+            "t2",
+            ".",
+            "vehicle_id",
+            "where",
+            "t2",
+            ".",
+            "build_year",
+            "=",
+            "value"
+        ],
+        "question": "Count the number of different drivers who have driven vehicles built in 2012.",
+        "question_toks": [
+            "Count",
+            "the",
+            "number",
+            "of",
+            "different",
+            "drivers",
+            "who",
+            "have",
+            "driven",
+            "vehicles",
+            "built",
+            "in",
+            "2012",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        2
+                    ],
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                12,
+                                true
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            3,
+                            false
+                        ],
+                        null
+                    ],
+                    2012.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(DISTINCT driver.Driver_ID) AS Num_Drivers FROM driver JOIN vehicle_driver ON driver.Driver_ID = vehicle_driver.Driver_ID JOIN vehicle ON vehicle.Vehicle_ID = vehicle_driver.Vehicle_ID WHERE vehicle.Build_Year = '2012';",
+        "id": 166
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(*) FROM driver WHERE Racing_Series  =  'NASCAR'",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "driver",
+            "WHERE",
+            "Racing_Series",
+            "=",
+            "'NASCAR",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "driver",
+            "where",
+            "racing_series",
+            "=",
+            "value"
+        ],
+        "question": "How many drivers have raced in 'NASCAR'?",
+        "question_toks": [
+            "How",
+            "many",
+            "drivers",
+            "have",
+            "raced",
+            "in",
+            "'NASCAR",
+            "'",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            11,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"NASCAR\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(*) AS Num_Drivers_NASCAR FROM driver WHERE Racing",
+        "id": 167
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT count(*) FROM driver WHERE Racing_Series  =  'NASCAR'",
+        "query_toks": [
+            "SELECT",
+            "count",
+            "(",
+            "*",
+            ")",
+            "FROM",
+            "driver",
+            "WHERE",
+            "Racing_Series",
+            "=",
+            "'NASCAR",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "count",
+            "(",
+            "*",
+            ")",
+            "from",
+            "driver",
+            "where",
+            "racing_series",
+            "=",
+            "value"
+        ],
+        "question": "Count the number of drivers who have raced in NASCAR.",
+        "question_toks": [
+            "Count",
+            "the",
+            "number",
+            "of",
+            "drivers",
+            "who",
+            "have",
+            "raced",
+            "in",
+            "NASCAR",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        3,
+                        [
+                            0,
+                            [
+                                0,
+                                0,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            11,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"NASCAR\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT COUNT(DISTINCT Driver_ID) AS Num_Drivers_NASCAR FROM driver WHERE Racing_Series = 'NASCAR';",
+        "id": 168
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT avg(top_speed) FROM vehicle",
+        "query_toks": [
+            "SELECT",
+            "avg",
+            "(",
+            "top_speed",
+            ")",
+            "FROM",
+            "vehicle"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "avg",
+            "(",
+            "top_speed",
+            ")",
+            "from",
+            "vehicle"
+        ],
+        "question": "What is the average top speed of vehicles?",
+        "question_toks": [
+            "What",
+            "is",
+            "the",
+            "average",
+            "top",
+            "speed",
+            "of",
+            "vehicles",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        5,
+                        [
+                            0,
+                            [
+                                0,
+                                4,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT AVG(Top_Speed) AS Average_Top_Speed FROM vehicle;",
+        "id": 169
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT avg(top_speed) FROM vehicle",
+        "query_toks": [
+            "SELECT",
+            "avg",
+            "(",
+            "top_speed",
+            ")",
+            "FROM",
+            "vehicle"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "avg",
+            "(",
+            "top_speed",
+            ")",
+            "from",
+            "vehicle"
+        ],
+        "question": "Return the average top speed across all vehicles.",
+        "question_toks": [
+            "Return",
+            "the",
+            "average",
+            "top",
+            "speed",
+            "across",
+            "all",
+            "vehicles",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        5,
+                        [
+                            0,
+                            [
+                                0,
+                                4,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT AVG(Top_Speed) AS Average_Top_Speed FROM vehicle;",
+        "id": 170
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "select distinct t1.name from driver as t1 join vehicle_driver as t2 on t1.driver_id  =  t2.driver_id join vehicle as t3 on t2.vehicle_id  =  t3.vehicle_id where t3.power  >  5000",
+        "query_toks": [
+            "select",
+            "distinct",
+            "t1.name",
+            "from",
+            "driver",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1.driver_id",
+            "=",
+            "t2.driver_id",
+            "join",
+            "vehicle",
+            "as",
+            "t3",
+            "on",
+            "t2.vehicle_id",
+            "=",
+            "t3.vehicle_id",
+            "where",
+            "t3.power",
+            ">",
+            "5000"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "distinct",
+            "t1",
+            ".",
+            "name",
+            "from",
+            "driver",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "driver_id",
+            "=",
+            "t2",
+            ".",
+            "driver_id",
+            "join",
+            "vehicle",
+            "as",
+            "t3",
+            "on",
+            "t2",
+            ".",
+            "vehicle_id",
+            "=",
+            "t3",
+            ".",
+            "vehicle_id",
+            "where",
+            "t3",
+            ".",
+            "power",
+            ">",
+            "value"
+        ],
+        "question": "What are the distinct driver names who have driven vehicles with power more than 5000 ?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "distinct",
+            "driver",
+            "names",
+            "who",
+            "have",
+            "driven",
+            "vehicles",
+            "with",
+            "power",
+            "more",
+            "than",
+            "5000",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ],
+                    [
+                        "table_unit",
+                        2
+                    ],
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                8,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            12,
+                            false
+                        ],
+                        null
+                    ],
+                    "and",
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                true,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            0,
+                            5,
+                            false
+                        ],
+                        null
+                    ],
+                    5000.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT DISTINCT d.Name FROM driver d JOIN vehicle_driver vd ON d.Driver_ID = vd.Driver_ID JOIN vehicle v ON vd.Vehicle_ID = v.Vehicle_ID WHERE v.Power > 5000;",
+        "id": 171
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT DISTINCT T1.Name FROM driver AS T1 JOIN vehicle_driver AS T2 ON T1.driver_id  =  T2.driver_id JOIN vehicle AS T3 ON T2.vehicle_id  =  T3.vehicle_id WHERE T3.power  >  5000",
+        "query_toks": [
+            "SELECT",
+            "DISTINCT",
+            "T1.Name",
+            "FROM",
+            "driver",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle_driver",
+            "AS",
+            "T2",
+            "ON",
+            "T1.driver_id",
+            "=",
+            "T2.driver_id",
+            "JOIN",
+            "vehicle",
+            "AS",
+            "T3",
+            "ON",
+            "T2.vehicle_id",
+            "=",
+            "T3.vehicle_id",
+            "WHERE",
+            "T3.power",
+            ">",
+            "5000"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "distinct",
+            "t1",
+            ".",
+            "name",
+            "from",
+            "driver",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "driver_id",
+            "=",
+            "t2",
+            ".",
+            "driver_id",
+            "join",
+            "vehicle",
+            "as",
+            "t3",
+            "on",
+            "t2",
+            ".",
+            "vehicle_id",
+            "=",
+            "t3",
+            ".",
+            "vehicle_id",
+            "where",
+            "t3",
+            ".",
+            "power",
+            ">",
+            "value"
+        ],
+        "question": "Return the names of drivers who have driven vehicles with power over 5000.",
+        "question_toks": [
+            "Return",
+            "the",
+            "names",
+            "of",
+            "drivers",
+            "who",
+            "have",
+            "driven",
+            "vehicles",
+            "with",
+            "power",
+            "over",
+            "5000",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        1
+                    ],
+                    [
+                        "table_unit",
+                        2
+                    ],
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                8,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            12,
+                            false
+                        ],
+                        null
+                    ],
+                    "and",
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            1,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                true,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                9,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            0,
+                            5,
+                            false
+                        ],
+                        null
+                    ],
+                    5000.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT d.Name FROM driver d JOIN vehicle_driver vd ON d.Driver_ID = vd.Driver_ID JOIN vehicle v ON vd.Vehicle_ID = v.Vehicle_ID WHERE v.Power > 5000;",
+        "id": 172
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT model FROM vehicle WHERE total_production  >  100 OR top_speed  >  150",
+        "query_toks": [
+            "SELECT",
+            "model",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "total_production",
+            ">",
+            "100",
+            "OR",
+            "top_speed",
+            ">",
+            "150"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "model",
+            "from",
+            "vehicle",
+            "where",
+            "total_production",
+            ">",
+            "value",
+            "or",
+            "top_speed",
+            ">",
+            "value"
+        ],
+        "question": "Which car models have total production larger than 100 or top speed higher than 150?",
+        "question_toks": [
+            "Which",
+            "car",
+            "models",
+            "have",
+            "total",
+            "production",
+            "larger",
+            "than",
+            "100",
+            "or",
+            "top",
+            "speed",
+            "higher",
+            "than",
+            "150",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            0,
+                            7,
+                            false
+                        ],
+                        null
+                    ],
+                    100.0,
+                    null
+                ],
+                "or",
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            0,
+                            4,
+                            false
+                        ],
+                        null
+                    ],
+                    150.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT DISTINCT Model FROM vehicle WHERE Total_Production > 100 OR Top_Speed > 150;",
+        "id": 173
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT model FROM vehicle WHERE total_production  >  100 OR top_speed  >  150",
+        "query_toks": [
+            "SELECT",
+            "model",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "total_production",
+            ">",
+            "100",
+            "OR",
+            "top_speed",
+            ">",
+            "150"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "model",
+            "from",
+            "vehicle",
+            "where",
+            "total_production",
+            ">",
+            "value",
+            "or",
+            "top_speed",
+            ">",
+            "value"
+        ],
+        "question": "Give the models of cars that have a total production of over 100 or a top speed over 150.",
+        "question_toks": [
+            "Give",
+            "the",
+            "models",
+            "of",
+            "cars",
+            "that",
+            "have",
+            "a",
+            "total",
+            "production",
+            "of",
+            "over",
+            "100",
+            "or",
+            "a",
+            "top",
+            "speed",
+            "over",
+            "150",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            0,
+                            7,
+                            false
+                        ],
+                        null
+                    ],
+                    100.0,
+                    null
+                ],
+                "or",
+                [
+                    false,
+                    3,
+                    [
+                        0,
+                        [
+                            0,
+                            4,
+                            false
+                        ],
+                        null
+                    ],
+                    150.0,
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT DISTINCT Model FROM vehicle WHERE Total_Production > 100 OR Top_Speed > 150;",
+        "id": 174
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT model ,  build_year FROM vehicle WHERE model LIKE '%DJ%'",
+        "query_toks": [
+            "SELECT",
+            "model",
+            ",",
+            "build_year",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "model",
+            "LIKE",
+            "'",
+            "%",
+            "DJ",
+            "%",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "model",
+            ",",
+            "build_year",
+            "from",
+            "vehicle",
+            "where",
+            "model",
+            "like",
+            "value"
+        ],
+        "question": "What are the model names and build year of the cars with 'DJ' in its model name?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "model",
+            "names",
+            "and",
+            "build",
+            "year",
+            "of",
+            "the",
+            "cars",
+            "with",
+            "'DJ",
+            "'",
+            "in",
+            "its",
+            "model",
+            "name",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                3,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    9,
+                    [
+                        0,
+                        [
+                            0,
+                            2,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"%DJ%\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Model, Build_Year FROM vehicle WHERE Model LIKE '%DJ%",
+        "id": 175
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT model ,  build_year FROM vehicle WHERE model LIKE '%DJ%'",
+        "query_toks": [
+            "SELECT",
+            "model",
+            ",",
+            "build_year",
+            "FROM",
+            "vehicle",
+            "WHERE",
+            "model",
+            "LIKE",
+            "'",
+            "%",
+            "DJ",
+            "%",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "model",
+            ",",
+            "build_year",
+            "from",
+            "vehicle",
+            "where",
+            "model",
+            "like",
+            "value"
+        ],
+        "question": "Return the model and build year of cars that include \"DJ\" in their model names.",
+        "question_toks": [
+            "Return",
+            "the",
+            "model",
+            "and",
+            "build",
+            "year",
+            "of",
+            "cars",
+            "that",
+            "include",
+            "``",
+            "DJ",
+            "''",
+            "in",
+            "their",
+            "model",
+            "names",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                3,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [
+                [
+                    false,
+                    9,
+                    [
+                        0,
+                        [
+                            0,
+                            2,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"%DJ%\"",
+                    null
+                ]
+            ],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Model, Build_Year FROM vehicle WHERE Model LIKE '%DJ%';",
+        "id": 176
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT model FROM vehicle EXCEPT SELECT T1.model FROM vehicle AS T1 JOIN vehicle_driver AS T2 ON T1.vehicle_id  =  T2.vehicle_id",
+        "query_toks": [
+            "SELECT",
+            "model",
+            "FROM",
+            "vehicle",
+            "EXCEPT",
+            "SELECT",
+            "T1.model",
+            "FROM",
+            "vehicle",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle_driver",
+            "AS",
+            "T2",
+            "ON",
+            "T1.vehicle_id",
+            "=",
+            "T2.vehicle_id"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "model",
+            "from",
+            "vehicle",
+            "except",
+            "select",
+            "t1",
+            ".",
+            "model",
+            "from",
+            "vehicle",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "vehicle_id",
+            "=",
+            "t2",
+            ".",
+            "vehicle_id"
+        ],
+        "question": "What are the models which have not been driven by any drivers?",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "models",
+            "which",
+            "have",
+            "not",
+            "been",
+            "driven",
+            "by",
+            "any",
+            "drivers",
+            "?"
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": {
+                "from": {
+                    "table_units": [
+                        [
+                            "table_unit",
+                            0
+                        ],
+                        [
+                            "table_unit",
+                            2
+                        ]
+                    ],
+                    "conds": [
+                        [
+                            false,
+                            2,
+                            [
+                                0,
+                                [
+                                    0,
+                                    1,
+                                    false
+                                ],
+                                null
+                            ],
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                },
+                "select": [
+                    false,
+                    [
+                        [
+                            0,
+                            [
+                                0,
+                                [
+                                    0,
+                                    2,
+                                    false
+                                ],
+                                null
+                            ]
+                        ]
+                    ]
+                ],
+                "where": [],
+                "groupBy": [],
+                "having": [],
+                "orderBy": [],
+                "limit": null,
+                "intersect": null,
+                "union": null,
+                "except": null
+            }
+        },
+        "generated_sql": "SELECT Model FROM vehicle WHERE Vehicle_ID NOT IN (SELECT Vehicle_ID FROM vehicle_driver);",
+        "id": 177
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT model FROM vehicle EXCEPT SELECT T1.model FROM vehicle AS T1 JOIN vehicle_driver AS T2 ON T1.vehicle_id  =  T2.vehicle_id",
+        "query_toks": [
+            "SELECT",
+            "model",
+            "FROM",
+            "vehicle",
+            "EXCEPT",
+            "SELECT",
+            "T1.model",
+            "FROM",
+            "vehicle",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle_driver",
+            "AS",
+            "T2",
+            "ON",
+            "T1.vehicle_id",
+            "=",
+            "T2.vehicle_id"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "model",
+            "from",
+            "vehicle",
+            "except",
+            "select",
+            "t1",
+            ".",
+            "model",
+            "from",
+            "vehicle",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "vehicle_id",
+            "=",
+            "t2",
+            ".",
+            "vehicle_id"
+        ],
+        "question": "Return the models of vehicles that have never been driven.",
+        "question_toks": [
+            "Return",
+            "the",
+            "models",
+            "of",
+            "vehicles",
+            "that",
+            "have",
+            "never",
+            "been",
+            "driven",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ]
+                ],
+                "conds": []
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [],
+            "having": [],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": {
+                "from": {
+                    "table_units": [
+                        [
+                            "table_unit",
+                            0
+                        ],
+                        [
+                            "table_unit",
+                            2
+                        ]
+                    ],
+                    "conds": [
+                        [
+                            false,
+                            2,
+                            [
+                                0,
+                                [
+                                    0,
+                                    1,
+                                    false
+                                ],
+                                null
+                            ],
+                            [
+                                0,
+                                13,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                },
+                "select": [
+                    false,
+                    [
+                        [
+                            0,
+                            [
+                                0,
+                                [
+                                    0,
+                                    2,
+                                    false
+                                ],
+                                null
+                            ]
+                        ]
+                    ]
+                ],
+                "where": [],
+                "groupBy": [],
+                "having": [],
+                "orderBy": [],
+                "limit": null,
+                "intersect": null,
+                "union": null,
+                "except": null
+            }
+        },
+        "generated_sql": "SELECT Model FROM vehicle WHERE Vehicle_ID NOT IN (SELECT Vehicle_ID FROM vehicle_driver);",
+        "id": 178
+    },
+    {
+        "db_id": "vehicle_driver",
+        "query": "SELECT T1.vehicle_id ,  T1.model FROM vehicle AS T1 JOIN vehicle_driver AS T2 ON T1.vehicle_id  =  T2.vehicle_id GROUP BY T2.vehicle_id HAVING count(*)  =  2 OR T1.builder  =  'Ziyang'",
+        "query_toks": [
+            "SELECT",
+            "T1.vehicle_id",
+            ",",
+            "T1.model",
+            "FROM",
+            "vehicle",
+            "AS",
+            "T1",
+            "JOIN",
+            "vehicle_driver",
+            "AS",
+            "T2",
+            "ON",
+            "T1.vehicle_id",
+            "=",
+            "T2.vehicle_id",
+            "GROUP",
+            "BY",
+            "T2.vehicle_id",
+            "HAVING",
+            "count",
+            "(",
+            "*",
+            ")",
+            "=",
+            "2",
+            "OR",
+            "T1.builder",
+            "=",
+            "'Ziyang",
+            "'"
+        ],
+        "query_toks_no_value": [
+            "select",
+            "t1",
+            ".",
+            "vehicle_id",
+            ",",
+            "t1",
+            ".",
+            "model",
+            "from",
+            "vehicle",
+            "as",
+            "t1",
+            "join",
+            "vehicle_driver",
+            "as",
+            "t2",
+            "on",
+            "t1",
+            ".",
+            "vehicle_id",
+            "=",
+            "t2",
+            ".",
+            "vehicle_id",
+            "group",
+            "by",
+            "t2",
+            ".",
+            "vehicle_id",
+            "having",
+            "count",
+            "(",
+            "*",
+            ")",
+            "=",
+            "value",
+            "or",
+            "t1",
+            ".",
+            "builder",
+            "=",
+            "value"
+        ],
+        "question": "What are the vehicle ids and models of the vehicle which have been driven by two drivers or been manufactured by 'Ziyang'.",
+        "question_toks": [
+            "What",
+            "are",
+            "the",
+            "vehicle",
+            "ids",
+            "and",
+            "models",
+            "of",
+            "the",
+            "vehicle",
+            "which",
+            "have",
+            "been",
+            "driven",
+            "by",
+            "two",
+            "drivers",
+            "or",
+            "been",
+            "manufactured",
+            "by",
+            "'Ziyang",
+            "'",
+            "."
+        ],
+        "sql": {
+            "from": {
+                "table_units": [
+                    [
+                        "table_unit",
+                        0
+                    ],
+                    [
+                        "table_unit",
+                        2
+                    ]
+                ],
+                "conds": [
+                    [
+                        false,
+                        2,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ],
+                        [
+                            0,
+                            13,
+                            false
+                        ],
+                        null
+                    ]
+                ]
+            },
+            "select": [
+                false,
+                [
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                1,
+                                false
+                            ],
+                            null
+                        ]
+                    ],
+                    [
+                        0,
+                        [
+                            0,
+                            [
+                                0,
+                                2,
+                                false
+                            ],
+                            null
+                        ]
+                    ]
+                ]
+            ],
+            "where": [],
+            "groupBy": [
+                [
+                    0,
+                    13,
+                    false
+                ]
+            ],
+            "having": [
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            3,
+                            0,
+                            false
+                        ],
+                        null
+                    ],
+                    2.0,
+                    null
+                ],
+                "or",
+                [
+                    false,
+                    2,
+                    [
+                        0,
+                        [
+                            0,
+                            6,
+                            false
+                        ],
+                        null
+                    ],
+                    "\"Ziyang\"",
+                    null
+                ]
+            ],
+            "orderBy": [],
+            "limit": null,
+            "intersect": null,
+            "union": null,
+            "except": null
+        },
+        "generated_sql": "SELECT Vehicle_ID, Model FROM vehicle WHERE Vehicle_ID IN (     SELECT Vehicle_ID     FROM vehicle_driver     GROUP BY Vehicle_ID     HAVING COUNT(DISTINCT Driver_ID) = 2 ) OR Builder = 'Ziyang';",
+        "id": 179
+    }
+]

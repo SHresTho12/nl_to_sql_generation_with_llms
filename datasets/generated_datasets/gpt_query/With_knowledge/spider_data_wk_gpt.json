@@ -1,0 +1,4775 @@
+[
+    {
+        "knowledge": {
+            "club": {
+                "columns": [
+                    "Club_ID"
+                ],
+                "aggregation": "COUNT",
+                "derivation": "Count the number of rows in the 'club' table."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of rows in the 'club' table."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT COUNT(*) FROM \"club\";",
+        "id": 0
+    },
+    {
+        "knowledge": {
+            "club": {
+                "columns": [
+                    "Club_ID"
+                ],
+                "aggregation": "COUNT",
+                "derivation": "Count the number of rows in the 'club' table."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of rows in the 'club' table."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT COUNT(*) FROM \"club\";",
+        "id": 1
+    },
+    {
+        "knowledge": {
+            "club": {
+                "columns": [
+                    "Name"
+                ],
+                "order": "ascending",
+                "derivation": "Retrieve the names of clubs from the 'club' table and sort them in ascending alphabetical order."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the names of clubs from the 'club' table.",
+            "Sort the names in ascending alphabetical order."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Name FROM \"club\" ORDER BY Name ASC;",
+        "id": 2
+    },
+    {
+        "knowledge": {
+            "club": {
+                "columns": [
+                    "Name"
+                ],
+                "order": "alphabetically",
+                "derivation": "Retrieve the names of clubs from the 'club' table and order them alphabetically."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the names of clubs from the 'club' table.",
+            "Order the names alphabetically."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Name FROM \"club\" ORDER BY Name;",
+        "id": 3
+    },
+    {
+        "knowledge": {
+            "club": {
+                "columns": [
+                    "Manager",
+                    "Captain"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the managers and captains from the 'club' table."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Manager, Captain FROM \"club\";",
+        "id": 4
+    },
+    {
+        "knowledge": {
+            "club": {
+                "columns": [
+                    "Manager",
+                    "Captain"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Manager' and 'Captain' columns from the 'club' table."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Manager, Captain FROM \"club\";",
+        "id": 5
+    },
+    {
+        "knowledge": {
+            "club": {
+                "columns": [
+                    "Name"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Name' column from the 'club' table where the 'Manufacturer' is not 'Nike'."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Name FROM \"club\" WHERE Manufacturer != 'Nike';",
+        "id": 6
+    },
+    {
+        "knowledge": {
+            "club": {
+                "columns": [
+                    "Name"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Name' column from the 'club' table where the 'Manufacturer' is not 'Nike'."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Name FROM \"club\" WHERE Manufacturer != 'Nike';",
+        "id": 7
+    },
+    {
+        "knowledge": {
+            "player": {
+                "columns": [
+                    "Name",
+                    "Wins_count"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Name' column from the 'player' table, sorted in ascending order based on the 'Wins_count' column."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Name FROM \"player\" ORDER BY Wins_count ASC;",
+        "id": 8
+    },
+    {
+        "knowledge": {
+            "player": {
+                "columns": [
+                    "Name",
+                    "Wins_count"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Name' column from the 'player' table, sorted in ascending order based on the 'Wins_count' column."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Name FROM \"player\" ORDER BY Wins_count ASC;",
+        "id": 9
+    },
+    {
+        "knowledge": {
+            "player": {
+                "columns": [
+                    "Name",
+                    "Earnings"
+                ],
+                "aggregation": {
+                    "function": "MAX",
+                    "column": "Earnings"
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Find the maximum value of 'Earnings' column in the 'player' table.",
+            "Retrieve the 'Name' of the player who has the highest earnings."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Name FROM \"player\" WHERE Earnings = (SELECT MAX(Earnings) FROM \"player\");",
+        "id": 10
+    },
+    {
+        "knowledge": {
+            "player": {
+                "columns": [
+                    "Name",
+                    "Earnings"
+                ],
+                "aggregation": {
+                    "function": "MAX",
+                    "column": "Earnings"
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Find the maximum value of 'Earnings' column in the 'player' table.",
+            "Retrieve the 'Name' of the player who earns the most money."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Name FROM \"player\" WHERE Earnings = (SELECT MAX(Earnings) FROM \"player\");",
+        "id": 11
+    },
+    {
+        "knowledge": {
+            "player": {
+                "columns": [
+                    "Country"
+                ],
+                "conditions": {
+                    "Earnings": {
+                        "operator": ">",
+                        "value": 1200000
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter the 'player' table to select only those players whose 'Earnings' are higher than 1200000.",
+            "Retrieve the distinct 'Country' values of the selected players."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT DISTINCT Country FROM \"player\" WHERE Earnings > 1200000;",
+        "id": 12
+    },
+    {
+        "knowledge": {
+            "player": {
+                "columns": [
+                    "Country"
+                ],
+                "conditions": {
+                    "Earnings": {
+                        "operator": ">",
+                        "value": 1200000
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter the 'player' table to select only those players whose 'Earnings' are higher than 1200000.",
+            "Retrieve the distinct 'Country' values of the selected players."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT DISTINCT Country FROM \"player\" WHERE Earnings > 1200000;",
+        "id": 13
+    },
+    {
+        "knowledge": {
+            "player": {
+                "columns": [
+                    "Country",
+                    "Earnings"
+                ],
+                "conditions": {
+                    "Wins_count": {
+                        "operator": ">",
+                        "value": 2
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter the 'player' table to select only those players whose 'Wins_count' is greater than 2.",
+            "Identify the player with the highest 'Earnings' among the selected players.",
+            "Retrieve the 'Country' of the player identified in the previous step."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Country FROM \"player\" WHERE Wins_count > 2 ORDER BY Earnings DESC LIMIT 1;",
+        "id": 14
+    },
+    {
+        "knowledge": {
+            "player": {
+                "columns": [
+                    "Country",
+                    "Earnings"
+                ],
+                "conditions": {
+                    "Wins_count": {
+                        "operator": ">",
+                        "value": 2
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter the 'player' table to select only those players whose 'Wins_count' is greater than 2.",
+            "Identify the player with the highest 'Earnings' among the selected players.",
+            "Retrieve the 'Country' of the player identified in the previous step."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Country FROM \"player\" WHERE Wins_count > 2 ORDER BY Earnings DESC LIMIT 1;",
+        "id": 15
+    },
+    {
+        "knowledge": {
+            "player": {
+                "columns": [
+                    "Name",
+                    "Club_ID"
+                ]
+            },
+            "club": {
+                "columns": [
+                    "Name",
+                    "Club_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Retrieve the 'Name' and 'Club_ID' columns from the 'player' table.",
+            "Retrieve the 'Name' column from the 'club' table.",
+            "Join the 'player' and 'club' tables on the 'Club_ID' column.",
+            "Display the 'Name' of players along with the corresponding 'Name' of clubs they are in."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT player.Name AS Player_Name, club.Name AS Club_Name FROM player JOIN club ON player.Club_ID = club.Club_ID;",
+        "id": 16
+    },
+    {
+        "knowledge": {
+            "player": {
+                "columns": [
+                    "Name",
+                    "Club_ID"
+                ]
+            },
+            "club": {
+                "columns": [
+                    "Name",
+                    "Club_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Retrieve the 'Name' and 'Club_ID' columns from the 'player' table.",
+            "Retrieve the 'Name' column from the 'club' table.",
+            "Join the 'player' and 'club' tables on the 'Club_ID' column.",
+            "Display the 'Name' of players along with the corresponding 'Name' of clubs they are in."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT p.Name AS Player_Name, c.Name AS Club_Name FROM player p JOIN club c ON p.Club_ID = c.Club_ID;",
+        "id": 17
+    },
+    {
+        "knowledge": {
+            "club": {
+                "columns": [
+                    "Name",
+                    "Club_ID"
+                ]
+            },
+            "player": {
+                "columns": [
+                    "Wins_count",
+                    "Club_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Retrieve the 'Name' and 'Club_ID' columns from the 'club' table.",
+            "Retrieve the 'Wins_count' and 'Club_ID' columns from the 'player' table.",
+            "Filter rows from the 'player' table where 'Wins_count' is greater than 2.",
+            "Join the filtered 'player' table with the 'club' table on the 'Club_ID' column.",
+            "Display the 'Name' of clubs that have players with more than 2 win counts."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT DISTINCT c.Name AS Club_Name FROM club c JOIN player p ON c.Club_ID = p.Club_ID WHERE p.Wins_count > 2;",
+        "id": 18
+    },
+    {
+        "knowledge": {
+            "club": {
+                "columns": [
+                    "Name",
+                    "Club_ID"
+                ]
+            },
+            "player": {
+                "columns": [
+                    "Wins_count",
+                    "Club_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Retrieve the 'Name' and 'Club_ID' columns from the 'club' table.",
+            "Retrieve the 'Wins_count' and 'Club_ID' columns from the 'player' table.",
+            "Filter rows from the 'player' table where 'Wins_count' is greater than 2.",
+            "Join the filtered 'player' table with the 'club' table on the 'Club_ID' column.",
+            "Display the 'Name' of clubs that have players who have won more than twice."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT DISTINCT c.Name AS Club_Name FROM club c JOIN player p ON c.Club_ID = p.Club_ID WHERE p.Wins_count > 2;",
+        "id": 19
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Club_ID": "int",
+                "Manager": "text"
+            },
+            "player": {
+                "Name": "text",
+                "Club_ID": "int"
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Find the Club_ID of the club managed by 'Sam Allardyce'.",
+            "Find the names of players who belong to that Club_ID."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT p.Name AS Player_Name FROM player p JOIN club c ON p.Club_ID = c.Club_ID WHERE c.Manager = 'Sam Allardyce';",
+        "id": 20
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Club_ID": "int",
+                "Manager": "text"
+            },
+            "player": {
+                "Name": "text",
+                "Club_ID": "int"
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Find the Club_ID of the club managed by 'Sam Allardyce'.",
+            "Find the names of players who belong to that Club_ID."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT p.Name FROM player p JOIN club c ON p.Club_ID = c.Club_ID WHERE c.Manager = 'Sam Allardyce';",
+        "id": 21
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Club_ID": "int",
+                "Name": "text"
+            },
+            "player": {
+                "Earnings": "real",
+                "Club_ID": "int"
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Calculate the average earnings of players for each club.",
+            "Sort the clubs by the calculated average earnings in descending order.",
+            "Retrieve the names of the clubs based on the sorted order."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT c.Name FROM club c JOIN (     SELECT Club_ID, AVG(Earnings) AS avg_earnings     FROM player     GROUP BY Club_ID ) AS avg_earnings_per_club ON c.Club_ID = avg_earnings_per_club.Club_ID ORDER BY avg_earnings_per_club.avg_earnings DESC;",
+        "id": 22
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Club_ID": "int",
+                "Name": "text"
+            },
+            "player": {
+                "Earnings": "real",
+                "Club_ID": "int"
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Calculate the average earnings of players for each club.",
+            "Sort the clubs by the calculated average earnings in descending order.",
+            "Retrieve the names of the clubs based on the sorted order."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT c.Name FROM club c JOIN (     SELECT Club_ID, AVG(Earnings) AS avg_earnings     FROM player     GROUP BY Club_ID ) AS avg_earnings_per_club ON c.Club_ID = avg_earnings_per_club.Club_ID ORDER BY avg_earnings_per",
+        "id": 23
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Manufacturer": "text",
+                "Club_ID": "int"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of clubs associated with each manufacturer."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Manufacturer, COUNT(Club_ID) AS Number_of_Clubs FROM club GROUP BY Manufacturer;",
+        "id": 24
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Manufacturer": "text",
+                "Club_ID": "int"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of clubs associated with each manufacturer."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Manufacturer, COUNT(*) AS Num_Clubs FROM club GROUP BY Manufacturer;",
+        "id": 25
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Manufacturer": "text",
+                "Club_ID": "int"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of clubs associated with each manufacturer.",
+            "Identify the manufacturer with the highest count."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Manufacturer FROM club GROUP BY Manufacturer ORDER BY COUNT(*) DESC LIMIT 1;",
+        "id": 26
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Manufacturer": "text",
+                "Club_ID": "int"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of clubs associated with each manufacturer.",
+            "Identify the manufacturer with the highest count."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Manufacturer FROM club GROUP BY Manufacturer ORDER BY COUNT(*) DESC LIMIT 1;",
+        "id": 27
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Manufacturer": "text",
+                "Club_ID": "int"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of clubs associated with each manufacturer.",
+            "Filter out manufacturers associated with only one club."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Manufacturer FROM club GROUP BY Manufacturer HAVING COUNT(*) > 1;",
+        "id": 28
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Manufacturer": "text"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of clubs associated with each manufacturer.",
+            "Filter out manufacturers associated with more than one club."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Manufacturer FROM club GROUP BY Manufacturer HAVING COUNT(*) > 1;",
+        "id": 29
+    },
+    {
+        "knowledge": {
+            "player": {
+                "Country": "text"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of players from each country.",
+            "Filter out countries with more than one player."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Country FROM player GROUP BY Country HAVING COUNT(*) > 1;",
+        "id": 30
+    },
+    {
+        "knowledge": {
+            "player": {
+                "Country": "text"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of players from each country.",
+            "Filter out countries with more than one player."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Country FROM player GROUP BY Country HAVING COUNT(*) > 1;",
+        "id": 31
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Name": "text"
+            },
+            "player": {
+                "Club_ID": "int"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Identify clubs with no players associated with them."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Name FROM club WHERE Club_ID NOT IN (SELECT DISTINCT Club_ID FROM player);",
+        "id": 32
+    },
+    {
+        "knowledge": {
+            "club": {
+                "Name": "text"
+            },
+            "player": {
+                "Club_ID": "int"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Identify clubs with no players associated with them."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Name FROM club WHERE Club_ID NOT IN (SELECT DISTINCT Club_ID FROM player);",
+        "id": 33
+    },
+    {
+        "knowledge": {
+            "player": {
+                "Name": "text",
+                "Country": "text",
+                "Earnings": "real"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter players based on their earnings: one group with earnings more than 1400000 and another group with earnings less than 1100000.",
+            "Retrieve the countries of players from each group."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Country FROM player WHERE Earnings > 1400000  UNION  SELECT Country FROM player WHERE Earnings < 1100000;",
+        "id": 34
+    },
+    {
+        "knowledge": {
+            "player": {
+                "Name": "text",
+                "Country": "text",
+                "Earnings": "real"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Identify players with earnings over 1400000 and players with earnings below 1100000.",
+            "Determine the countries of these players.",
+            "Find the intersection of the countries from both groups."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Country FROM player WHERE Earnings > 1400000  INTERSECT  SELECT Country FROM player WHERE Earnings < 1100000;",
+        "id": 35
+    },
+    {
+        "knowledge": {
+            "player": {
+                "Country": "text"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the distinct countries of all players.",
+            "Count the number of distinct countries."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT COUNT(DISTINCT Country) AS \"Distinct Countries\" FROM player;",
+        "id": 36
+    },
+    {
+        "knowledge": {
+            "player": {
+                "Country": "text"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the distinct countries of all players.",
+            "Count the number of distinct countries."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT COUNT(DISTINCT Country) AS \"Number of Different Countries\" FROM player;",
+        "id": 37
+    },
+    {
+        "knowledge": {
+            "player": {
+                "Country": "text",
+                "Earnings": "real"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter the players based on the countries 'Australia' or 'Zimbabwe'.",
+            "Retrieve the earnings of the filtered players."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Earnings FROM player WHERE Country IN ('Australia', 'Zimbabwe');",
+        "id": 38
+    },
+    {
+        "knowledge": {
+            "player": {
+                "Country": "text",
+                "Earnings": "real"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter the players based on the countries 'Australia' or 'Zimbabwe'.",
+            "Retrieve the earnings of the filtered players."
+        ],
+        "db_id": "soccer_3",
+        "generated_sql": "SELECT Earnings FROM player WHERE Country = 'Australia' OR Country = 'Zimbabwe';",
+        "id": 39
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Customers",
+                "Orders",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table_1": "Customers",
+                        "table_2": "Orders",
+                        "condition": "Customers.customer_id = Orders.customer_id"
+                    },
+                    {
+                        "table_1": "Orders",
+                        "table_2": "Order_Items",
+                        "condition": "Orders.order_id = Order_Items.order_id"
+                    }
+                ]
+            },
+            "filters": [
+                "Count of distinct Orders.order_id > 2",
+                "Count of distinct Order_Items.order_item_id >= 3"
+            ]
+        },
+        "label": "nested",
+        "steps": "1. Join Customers with Orders and Orders with Order_Items. 2. Filter customers who have placed more than 2 orders and have bought at least 3 items.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT c.customer_id, c.customer_first_name, c.customer_last_name FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id JOIN Order_Items oi ON o.order_id = oi.order_id GROUP BY c.customer_id HAVING COUNT(DISTINCT o.order_id) > 2 AND CO",
+        "id": 40
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Customers",
+                "Orders",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table_1": "Customers",
+                        "table_2": "Orders",
+                        "condition": "Customers.customer_id = Orders.customer_id"
+                    },
+                    {
+                        "table_1": "Orders",
+                        "table_2": "Order_Items",
+                        "condition": "Orders.order_id = Order_Items.order_id"
+                    }
+                ]
+            },
+            "filters": [
+                "Count of distinct Orders.order_id > 2",
+                "Count of distinct Order_Items.order_item_id >= 3"
+            ]
+        },
+        "label": "nested",
+        "steps": "1. Join Customers with Orders and Orders with Order_Items. 2. Filter customers who have ordered more than twice and have bought at least 3 items.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT c.customer_id, c.customer_first_name, c.customer_last_name FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id JOIN Order_Items oi ON o.order_id = oi.order_id GROUP BY c.customer_id HAVING COUNT(DISTINCT o.order_id) > 2 AND COUNT(DISTINCT oi.order_item_id) >= 3;",
+        "id": 41
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Orders",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table_1": "Orders",
+                        "table_2": "Order_Items",
+                        "condition": "Orders.order_id = Order_Items.order_id"
+                    }
+                ]
+            },
+            "aggregation": {
+                "group_by": [
+                    "Orders.order_id",
+                    "Orders.order_status_code"
+                ],
+                "functions": [
+                    "Count(Order_Items.product_id) AS num_products"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": "1. Join Orders with Order_Items. 2. Group by order id and status. 3. Count the number of products for each order.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT o.order_id, o.order_status_code, COUNT(oi.product_id) AS num_products FROM Orders o JOIN Order_Items oi ON o.order_id = oi.order_id GROUP BY o.order_id, o.order_status_code;",
+        "id": 42
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Orders",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table_1": "Orders",
+                        "table_2": "Order_Items",
+                        "condition": "Orders.order_id = Order_Items.order_id"
+                    }
+                ]
+            },
+            "aggregation": {
+                "group_by": [
+                    "Orders.order_id",
+                    "Orders.order_status_code"
+                ],
+                "functions": [
+                    "Count(Order_Items.product_id) AS num_products"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": "1. Join Orders with Order_Items. 2. Group by order id and status. 3. Count the number of products for each order.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT o.order_id, o.order_status_code, COUNT(oi.product_id) AS num_products FROM Orders o JOIN Order_Items oi ON o.order_id = oi.order_id GROUP BY o.order_id, o.order_status_code;",
+        "id": 43
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Orders",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table_1": "Orders",
+                        "table_2": "Order_Items",
+                        "condition": "Orders.order_id = Order_Items.order_id"
+                    }
+                ]
+            },
+            "filtering": {
+                "conditions": [
+                    "Orders.date_order_placed = (SELECT MIN(date_order_placed) FROM Orders)",
+                    "COUNT(Order_Items.order_item_id) > 1"
+                ],
+                "logical_operator": "OR"
+            }
+        },
+        "label": "nested",
+        "steps": "1. Join Orders with Order_Items. 2. Filter orders by the earliest order placement time or orders with more than 1 item.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT date_order_placed FROM Orders WHERE date_order_placed = (SELECT MIN(date_order_placed) FROM Orders)    OR order_id IN (SELECT order_id FROM Order_Items GROUP BY",
+        "id": 44
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Orders",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table_1": "Orders",
+                        "table_2": "Order_Items",
+                        "condition": "Orders.order_id = Order_Items.order_id"
+                    }
+                ]
+            },
+            "filtering": {
+                "conditions": [
+                    "Orders.date_order_placed = (SELECT MIN(date_order_placed) FROM Orders)",
+                    "COUNT(Order_Items.order_item_id) > 1"
+                ],
+                "logical_operator": "OR"
+            }
+        },
+        "label": "nested",
+        "steps": "1. Join Orders with Order_Items. 2. Filter orders by the earliest order placement date or orders with more than 1 item.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT date_order_placed FROM Orders WHERE date_order_placed = (SELECT MIN(date_order_placed) FROM Orders)    OR order_id IN (SELECT order_id FROM Order_Items GROUP BY order_id HAVING COUNT(order_item_id) > 1);",
+        "id": 45
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Customers"
+            ],
+            "joins": {
+                "simple": []
+            },
+            "filtering": {
+                "condition": "Customers.customer_id NOT IN (SELECT customer_id FROM Orders)"
+            }
+        },
+        "label": "simple",
+        "steps": "Filter customers by those whose customer_id is not present in the Orders table.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT customer_first_name, customer_middle_initial, customer_last_name FROM Customers WHERE customer_id NOT IN (SELECT customer_id FROM Orders);",
+        "id": 46
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Customers",
+                "Orders"
+            ],
+            "joins": {
+                "simple": []
+            },
+            "filtering": {
+                "condition": "Customers.customer_id NOT IN (SELECT customer_id FROM Orders)"
+            }
+        },
+        "label": "simple",
+        "steps": "Filter customers by those whose customer_id is not present in the Orders table.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT customer_first_name, customer_middle_initial, customer_last_name FROM Customers WHERE customer_id NOT IN (SELECT customer_id FROM Orders);",
+        "id": 47
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Products",
+                "Orders",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table1": "Products",
+                        "table2": "Order_Items",
+                        "condition": "Products.product_id = Order_Items.product_id"
+                    },
+                    {
+                        "table1": "Orders",
+                        "table2": "Order_Items",
+                        "condition": "Orders.order_id = Order_Items.order_id"
+                    }
+                ]
+            },
+            "filtering": {
+                "condition": "Products.product_id NOT IN (SELECT product_id FROM (SELECT product_id, COUNT(*) AS order_count FROM Order_Items GROUP BY product_id HAVING order_count >= 2))"
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join the Products table with the Order_Items table on product_id.",
+            "Join the Orders table with the Order_Items table on order_id.",
+            "Filter the products by those whose product_id is not present in the subquery result of products ordered at least twice."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT product_id, product_name, product_price, product_color FROM Products WHERE product_id NOT IN (     SELECT product_id     FROM (         SELECT product_id, COUNT(*) AS order_count         FROM Order_Items         GROUP BY product_id         HAVING order_count >= 2     ) );",
+        "id": 48
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Products",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table1": "Products",
+                        "table2": "Order_Items",
+                        "condition": "Products.product_id = Order_Items.product_id"
+                    }
+                ]
+            },
+            "group_by": "Products.product_id",
+            "having": "COUNT(Order_Items.order_id) < 2"
+        },
+        "label": "simple",
+        "steps": [
+            "Join the Products table with the Order_Items table on product_id.",
+            "Group the result by product_id.",
+            "Filter the products by those having less than two orders."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT product_id, product_name, product_price, product_color FROM Products LEFT JOIN Order_Items ON Products.product_id = Order_Items.product_id GROUP BY Products.product_id HAVING COUNT(Order_Items.order_id) < 2;",
+        "id": 49
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Orders",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table1": "Orders",
+                        "table2": "Order_Items",
+                        "condition": "Orders.order_id = Order_Items.order_id"
+                    }
+                ]
+            },
+            "group_by": "Orders.order_id, Orders.date_order_placed",
+            "having": "COUNT(Order_Items.product_id) >= 2"
+        },
+        "label": "simple",
+        "steps": [
+            "Join the Orders table with the Order_Items table on order_id.",
+            "Group the result by order_id and date_order_placed.",
+            "Filter the orders by those having at least 2 products."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Orders.order_id, Orders.date_order_placed FROM Orders JOIN Order_Items ON Orders.order_id = Order_Items.order_id GROUP BY Orders.order_id, Orders.date_order_placed HAVING COUNT(Order_Items.product_id) >= 2;",
+        "id": 50
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Orders",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table1": "Orders",
+                        "table2": "Order_Items",
+                        "condition": "Orders.order_id = Order_Items.order_id"
+                    }
+                ]
+            },
+            "group_by": "Orders.order_id, Orders.date_order_placed",
+            "having": "COUNT(Order_Items.product_id) >= 2"
+        },
+        "label": "simple",
+        "steps": [
+            "Join the Orders table with the Order_Items table on order_id.",
+            "Group the result by order_id and date_order_placed.",
+            "Filter the orders by those having at least two products."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Orders.order_id, Orders.date_order_placed FROM Orders JOIN Order_Items ON Orders.order_id = Order_Items.order_id GROUP BY Orders.order_id, Orders.date_order_placed HAVING COUNT(Order_Items.order_item_id) >= 2;",
+        "id": 51
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Products",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table1": "Products",
+                        "table2": "Order_Items",
+                        "condition": "Products.product_id = Order_Items.product_id"
+                    }
+                ]
+            },
+            "group_by": "Products.product_id, Products.product_name, Products.product_price",
+            "order_by": "COUNT(*) DESC",
+            "limit": 1
+        },
+        "label": "simple",
+        "steps": [
+            "Join the Products table with the Order_Items table on product_id.",
+            "Group the result by product_id, product_name, and product_price.",
+            "Order the result by the count of occurrences of each product in descending order.",
+            "Limit the result to show only the product that is listed most frequently."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Products.product_id, Products.product_name, Products.product_price FROM Products JOIN Order_Items ON Products.product_id = Order_Items.product_id GROUP BY Products.product_id, Products.product_name, Products.product_price ORDER BY COUNT(*) DESC LIMIT 1;",
+        "id": 52
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Products",
+                "Order_Items"
+            ],
+            "joins": {
+                "simple": [
+                    {
+                        "table1": "Products",
+                        "table2": "Order_Items",
+                        "condition": "Products.product_id = Order_Items.product_id"
+                    }
+                ]
+            },
+            "group_by": "Products.product_id, Products.product_name, Products.product_price",
+            "order_by": "COUNT(*) DESC"
+        },
+        "label": "simple",
+        "steps": [
+            "Join the Products table with the Order_Items table on product_id.",
+            "Group the result by product_id, product_name, and product_price.",
+            "Order the result by the count of occurrences of each product in descending order."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Products.product_id, Products.product_name, Products.product_price FROM Products JOIN Order_Items ON Products.product_id = Order_Items.product_id GROUP BY Products.product_id, Products.product_name, Products.product_price ORDER BY COUNT(*) DESC;",
+        "id": 53
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Orders",
+                "Order_Items",
+                "Products"
+            ],
+            "joins": {
+                "nested": [
+                    {
+                        "table1": "Orders",
+                        "table2": "Order_Items",
+                        "condition": "Orders.order_id = Order_Items.order_id"
+                    },
+                    {
+                        "table1": "Order_Items",
+                        "table2": "Products",
+                        "condition": "Order_Items.product_id = Products.product_id"
+                    }
+                ]
+            },
+            "group_by": "Orders.order_id",
+            "select": "Orders.order_id, SUM(Products.product_price) AS total_price",
+            "order_by": "total_price ASC",
+            "limit": 1
+        },
+        "label": "nested",
+        "steps": [
+            "Join the Orders table with the Order_Items table on order_id.",
+            "Join the resulting table with the Products table on product_id.",
+            "Group the result by order_id and calculate the sum of product prices for each order.",
+            "Order the result by the total sum of product prices in ascending order.",
+            "Limit the result to the first row to get the order with the least sum of product prices."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Orders.order_id, SUM(Products.product_price) AS total_price FROM Orders JOIN Order_Items ON Orders.order_id = Order_Items.order_id JOIN Products ON Order_Items.product_id = Products.product_id GROUP BY Orders.order_id ORDER BY total_price ASC LIMIT 1;",
+        "id": 54
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Orders",
+                "Order_Items",
+                "Products"
+            ],
+            "joins": {
+                "nested": [
+                    {
+                        "table1": "Orders",
+                        "table2": "Order_Items",
+                        "condition": "Orders.order_id = Order_Items.order_id"
+                    },
+                    {
+                        "table1": "Order_Items",
+                        "table2": "Products",
+                        "condition": "Order_Items.product_id = Products.product_id"
+                    }
+                ]
+            },
+            "group_by": "Orders.order_id",
+            "select": "Orders.order_id, SUM(Products.product_price) AS total_cost",
+            "order_by": "total_cost ASC",
+            "limit": 1
+        },
+        "label": "nested",
+        "steps": [
+            "Join the Orders table with the Order_Items table on order_id.",
+            "Join the resulting table with the Products table on product_id.",
+            "Group the result by order_id and calculate the sum of product prices for each order.",
+            "Order the result by the total sum of product prices in ascending order.",
+            "Limit the result to the first row to get the order with the least total cost."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Orders.order_id, SUM(Products.product_price) AS total_cost FROM Orders JOIN Order_Items ON Orders.order_id = Order_Items.order_id JOIN Products ON Order_Items.product_id = Products.product_id GROUP BY Orders.order_id ORDER BY total_cost ASC LIMIT 1;",
+        "id": 55
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Customer_Payment_Methods"
+            ],
+            "select": "payment_method_code",
+            "group_by": "payment_method_code",
+            "order_by": "COUNT(*) DESC",
+            "limit": 1
+        },
+        "label": "simple",
+        "steps": [
+            "Group the payment methods by their codes.",
+            "Count the occurrences of each payment method.",
+            "Order the result by the count of occurrences in descending order.",
+            "Limit the result to the first row to find the most popular payment method."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT payment_method_code, COUNT(*) AS method_count FROM Customer_Payment_Methods GROUP BY payment_method_code ORDER BY method_count DESC LIMIT 1;",
+        "id": 56
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Customer_Payment_Methods"
+            ],
+            "select": "payment_method_code",
+            "group_by": "payment_method_code",
+            "order_by": "COUNT(DISTINCT customer_id) DESC",
+            "limit": 1
+        },
+        "label": "simple",
+        "steps": [
+            "Group the payment methods by their codes.",
+            "Count the number of unique customers for each payment method.",
+            "Order the result by the count of unique customers in descending order.",
+            "Limit the result to the first row to find the payment method that most customers use."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT payment_method_code, COUNT(DISTINCT customer_id) AS customer_count FROM Customer_Payment_Methods GROUP BY payment_method_code ORDER BY customer_count DESC LIMIT 1;",
+        "id": 57
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Customers",
+                "Order_Items"
+            ],
+            "join": {
+                "type": "inner",
+                "conditions": [
+                    "Customers.customer_id = Orders.customer_id",
+                    "Orders.order_id = Order_Items.order_id"
+                ]
+            },
+            "select": "Customers.gender_code, COUNT(DISTINCT Order_Items.product_id) AS product_count",
+            "group_by": "Customers.gender_code"
+        },
+        "label": "nested",
+        "steps": [
+            "Join the Customers table with the Order_Items table using the common customer_id and order_id columns.",
+            "Group the result by the gender of the customers.",
+            "Count the number of distinct products bought by each gender.",
+            "Select the gender code and the count of products for each gender."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Customers.gender_code, COUNT(DISTINCT Order_Items.product_id) AS product_count FROM Customers JOIN Orders ON Customers.customer_id = Orders.customer_id JOIN Order_Items ON Orders.order_id = Order_Items.order_id GROUP BY Customers.gender_code;",
+        "id": 58
+    },
+    {
+        "knowledge": {
+            "tables": [
+                "Customers",
+                "Orders",
+                "Order_Items"
+            ],
+            "join": {
+                "type": "inner",
+                "conditions": [
+                    "Customers.customer_id = Orders.customer_id",
+                    "Orders.order_id = Order_Items.order_id"
+                ]
+            },
+            "select": "Customers.gender_code, COUNT(Order_Items.order_item_id) AS product_count",
+            "group_by": "Customers.gender_code"
+        },
+        "label": "nested",
+        "steps": [
+            "Join the Customers table with the Orders table using the common customer_id column.",
+            "Join the resulting table with the Order_Items table using the common order_id column.",
+            "Group the result by the gender of the customers.",
+            "Count the number of products bought by each gender.",
+            "Select the gender code and the count of products for each gender."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Customers.gender_code, COUNT(Order_Items.order_item_id) AS product_count FROM Customers JOIN Orders ON Customers.customer_id = Orders.customer_id JOIN Order_Items ON Orders.order_id = Order_Items.order_id GROUP BY Customers.gender_code;",
+        "id": 59
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers",
+                "Orders"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Customers table with Orders table using customer_id as the common attribute."
+            },
+            "Derivation": "Count the number of orders for each gender of customers."
+        },
+        "label": "simple",
+        "steps": [
+            "Join Customers table with Orders table using customer_id as the common attribute.",
+            "Count the number of orders for each gender of customers."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Customers.gender_code, COUNT(Orders.order_id) AS order_count FROM Customers JOIN Orders ON Customers.customer_id = Orders.customer_id GROUP BY Customers.gender_code;",
+        "id": 60
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers",
+                "Orders"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Customers table with Orders table using customer_id as the common attribute."
+            },
+            "Derivation": "Count the number of orders for each gender of customers."
+        },
+        "label": "simple",
+        "steps": [
+            "Join Customers table with Orders table using customer_id as the common attribute.",
+            "Count the number of orders for each gender of customers."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Customers.gender_code, COUNT(Orders.order_id) AS order_count FROM Customers JOIN Orders ON Customers.customer_id = Orders.customer_id GROUP BY Customers.gender_code;",
+        "id": 61
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers",
+                "Customer_Payment_Methods"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Customers table with Customer_Payment_Methods table using customer_id as the common attribute."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Join Customers table with Customer_Payment_Methods table using customer_id as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT customer_first_name, customer_middle_initial, customer_last_name, payment_method_code FROM Customers JOIN Customer_Payment_Methods ON Customers.customer_id = Cust",
+        "id": 62
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers",
+                "Customer_Payment_Methods"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Customers table with Customer_Payment_Methods table using customer_id as the common attribute."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Join Customers table with Customer_Payment_Methods table using customer_id as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT c.customer_first_name, c.customer_middle_initial, c.customer_last_name, cp.payment_method_code FROM Customers c JOIN Customer_Payment_Methods cp ON c.customer_id = cp.customer_id;",
+        "id": 63
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Invoices",
+                "Shipments"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Invoices table with Shipments table using invoice_number as the common attribute."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Join Invoices table with Shipments table using invoice_number as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT i.invoice_status_code, i.invoice_date, s.shipment_date FROM Invoices i JOIN Shipments s ON i.invoice_number = s.invoice_number;",
+        "id": 64
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Invoices",
+                "Shipments"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Invoices table with Shipments table using invoice_number as the common attribute."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Join Invoices table with Shipments table using invoice_number as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT i.invoice_status_code, i.invoice_date, s.shipment_date FROM Invoices i JOIN Shipments s ON i.invoice_number = s.invoice_number;",
+        "id": 65
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products",
+                "Shipments"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Products table with Shipments table using product_id as the common attribute."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Join Products table with Shipments table using product_id as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT p.product_name, s.shipment_date FROM Products p JOIN Shipment_Items si ON p.product_id = si.order_item_id JOIN Shipments s ON si.shipment_id = s.shipment_id;",
+        "id": 66
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products",
+                "Shipments"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Products table with Shipments table using product_id as the common attribute."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Join Products table with Shipments table using product_id as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT p.product_name, s.shipment_date FROM Products p JOIN Shipment_Items si ON p.product_id = si.order_item_id JOIN Shipments s ON si.shipment_id = s.shipment_id;",
+        "id": 67
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Orders",
+                "Order_Items",
+                "Shipments",
+                "Shipment_Items"
+            ],
+            "Joins": {
+                "type": "nested",
+                "description": [
+                    "Join Orders table with Order_Items table using order_id as the common attribute.",
+                    "Join Order_Items table with Shipment_Items table using order_item_id as the common attribute.",
+                    "Join Shipment_Items table with Shipments table using shipment_id as the common attribute."
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join Orders table with Order_Items table using order_id as the common attribute.",
+            "Join Order_Items table with Shipment_Items table using order_item_id as the common attribute.",
+            "Join Shipment_Items table with Shipments table using shipment_id as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT oi.order_item_status_code, s.shipment_tracking_number FROM Orders o JOIN Order_Items oi ON o.order_id = oi.order_id JOIN Shipment_Items si ON oi.order_item_id = si.order_item_id JOIN Shipments s ON si.shipment_id = s.shipment_id;",
+        "id": 68
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Orders",
+                "Order_Items",
+                "Shipments",
+                "Shipment_Items"
+            ],
+            "Joins": {
+                "type": "nested",
+                "description": [
+                    "Join Orders table with Order_Items table using order_id as the common attribute.",
+                    "Join Order_Items table with Shipment_Items table using order_item_id as the common attribute.",
+                    "Join Shipment_Items table with Shipments table using shipment_id as the common attribute."
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join Orders table with Order_Items table using order_id as the common attribute.",
+            "Join Order_Items table with Shipment_Items table using order_item_id as the common attribute.",
+            "Join Shipment_Items table with Shipments table using shipment_id as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT oi.order_item_status_code, s.shipment_tracking_number FROM Orders o JOIN Order_Items oi ON o.order_id = oi.order_id JOIN Shipment_Items si ON oi.order_item_id = si.order_item_id JOIN Shipments s ON si.shipment_id = s.shipment_id;",
+        "id": 69
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products",
+                "Orders",
+                "Order_Items",
+                "Shipments",
+                "Shipment_Items"
+            ],
+            "Joins": {
+                "type": "nested",
+                "description": [
+                    "Join Orders table with Order_Items table using order_id as the common attribute.",
+                    "Join Order_Items table with Shipment_Items table using order_item_id as the common attribute.",
+                    "Join Shipment_Items table with Shipments table using shipment_id as the common attribute.",
+                    "Join Order_Items table with Products table using product_id as the common attribute."
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join Orders table with Order_Items table using order_id as the common attribute.",
+            "Join Order_Items table with Shipment_Items table using order_item_id as the common attribute.",
+            "Join Shipment_Items table with Shipments table using shipment_id as the common attribute.",
+            "Join Order_Items table with Products table using product_id as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT p.product_name, p.product_color FROM Orders o JOIN Order_Items oi ON o.order_id = oi.order_id JOIN Shipment_Items si ON oi.order_item_id = si.order_item_id JOIN Shipments s ON si.shipment_id = s.shipment_id JOIN Products p ON oi.product_id = p.product_id;",
+        "id": 70
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products",
+                "Shipments",
+                "Shipment_Items",
+                "Order_Items"
+            ],
+            "Joins": {
+                "type": "nested",
+                "description": [
+                    "Join Shipments table with Shipment_Items table using shipment_id as the common attribute.",
+                    "Join Shipment_Items table with Order_Items table using order_item_id as the common attribute.",
+                    "Join Order_Items table with Products table using product_id as the common attribute."
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join Shipments table with Shipment_Items table using shipment_id as the common attribute.",
+            "Join Shipment_Items table with Order_Items table using order_item_id as the common attribute.",
+            "Join Order_Items table with Products table using product_id as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT p.product_name, p.product_color FROM Shipments s JOIN Shipment_Items si ON s.shipment_id = si.shipment_id JOIN Order_Items oi ON si.order_item_id = oi.order_item_id JOIN Products p ON oi.product_id = p.product_id;",
+        "id": 71
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products",
+                "Customers",
+                "Orders",
+                "Order_Items"
+            ],
+            "Joins": {
+                "type": "nested",
+                "description": [
+                    "Join Customers table with Orders table using customer_id as the common attribute.",
+                    "Join Orders table with Order_Items table using order_id as the common attribute.",
+                    "Join Order_Items table with Products table using product_id as the common attribute."
+                ]
+            },
+            "Condition": "gender_code = 'Female'"
+        },
+        "label": "nested",
+        "steps": [
+            "Join Customers table with Orders table using customer_id as the common attribute.",
+            "Join Orders table with Order_Items table using order_id as the common attribute.",
+            "Join Order_Items table with Products table using product_id as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT DISTINCT p.product_name, p.product_price, p.product_description FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id JOIN Order_Items oi ON o.order_id = oi.order_id JOIN Products p ON oi.product_id = p.product_id WHERE c.gender_code = 'Female';",
+        "id": 72
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products",
+                "Customers",
+                "Orders",
+                "Order_Items"
+            ],
+            "Joins": {
+                "type": "nested",
+                "description": [
+                    "Join Customers table with Orders table using customer_id as the common attribute.",
+                    "Join Orders table with Order_Items table using order_id as the common attribute.",
+                    "Join Order_Items table with Products table using product_id as the common attribute."
+                ]
+            },
+            "Condition": "gender_code = 'Female'"
+        },
+        "label": "nested",
+        "steps": [
+            "Join Customers table with Orders table using customer_id as the common attribute.",
+            "Join Orders table with Order_Items table using order_id as the common attribute.",
+            "Join Order_Items table with Products table using product_id as the common attribute."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT DISTINCT p.product_name, p.product_price, p.product_description FROM Customers c JOIN Orders o ON c.customer_id = o.customer_id JOIN Order_Items oi ON o.order_id = oi.order_id JOIN Products p ON oi.product_id = p.product_id WHERE c.gender_code = 'Female';",
+        "id": 73
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Invoices",
+                "Orders",
+                "Shipments"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Orders table with Invoices table using order_id as the common attribute."
+            },
+            "Condition": "There are no direct joins with Shipments table since it's not needed to determine the orders that have not been shipped."
+        },
+        "label": "simple",
+        "steps": "Join Orders table with Invoices table using order_id as the common attribute.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT i.invoice_status_code FROM Invoices i LEFT JOIN Orders o ON i.invoice_number = o.order_id WHERE o.order_id IS NULL;",
+        "id": 74
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Invoices",
+                "Orders",
+                "Shipments"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Orders table with Invoices table using order_id as the common attribute."
+            },
+            "Condition": "Exclude orders that have been shipped out by not joining with the Shipments table, as it is not needed to determine the orders that have not been shipped."
+        },
+        "label": "simple",
+        "steps": "Join Orders table with Invoices table using order_id as the common attribute.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT i.invoice_status_code FROM Invoices i LEFT JOIN Orders o ON i.invoice_number = o.order_id WHERE o.order_id IS NOT NULL AND o.order_id NOT IN (SELECT order_id FROM Shipments);",
+        "id": 75
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Orders",
+                "Order_Items",
+                "Products"
+            ],
+            "Joins": {
+                "type": "nested",
+                "description": "Join Orders table with Order_Items table using order_id as the common attribute, then join with Products table using product_id as the common attribute."
+            },
+            "Aggregation": {
+                "attribute": "product_price",
+                "function": "SUM",
+                "alias": "total_cost",
+                "description": "Calculate the total cost of each order by summing up the prices of all products in the order."
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join Orders table with Order_Items table using order_id as the common attribute.",
+            "Join the result with Products table using product_id as the common attribute.",
+            "Calculate the total cost of each order by summing up the prices of all products in the order."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT o.order_id, o.date_order_placed, SUM(p.product_price) AS total_cost FROM Orders o JOIN Order_Items oi ON o.order_id = oi.order_id JOIN Products p ON oi.product_id = p.product_id GROUP BY o.order_id, o.date_order_placed;",
+        "id": 76
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Orders",
+                "Invoices",
+                "Order_Items"
+            ],
+            "Joins": {
+                "type": "nested",
+                "description": "Join Orders table with Invoices table using order_id as the common attribute, then join with Order_Items table using order_id as the common attribute."
+            },
+            "Aggregation": {
+                "attribute": "product_price",
+                "function": "SUM",
+                "alias": "total_amount_paid",
+                "description": "Calculate the total amount paid for each order by summing up the prices of all products in the order."
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join Orders table with Invoices table using order_id as the common attribute.",
+            "Join the result with Order_Items table using order_id as the common attribute.",
+            "Calculate the total amount paid for each order by summing up the prices of all products in the order."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT o.order_id, o.date_order_placed, SUM(p.product_price) AS total_amount_paid FROM Orders o JOIN Invoices i ON o.order_id = i.invoice_number JOIN Order_Items oi ON o.order_id = oi.order_id JOIN Products p ON oi.product_id = p.product_id GROUP BY o.order_id, o.date_order_placed;",
+        "id": 77
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers",
+                "Orders"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Customers table with Orders table using customer_id as the common attribute."
+            },
+            "Aggregation": {
+                "function": "COUNT",
+                "attribute": "customer_id",
+                "description": "Count the number of distinct customer_ids to determine how many customers have placed any order."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Join Customers table with Orders table using customer_id as the common attribute.",
+            "Count the number of distinct customer_ids to determine how many customers have placed any order."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(DISTINCT o.customer_id) AS num_customers_placed_order FROM Orders o;",
+        "id": 78
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers",
+                "Orders"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Customers table with Orders table using customer_id as the common attribute."
+            },
+            "Aggregation": {
+                "function": "COUNT",
+                "attribute": "DISTINCT customer_id",
+                "description": "Count the number of distinct customer_ids to determine how many different customers have ordered things."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Join Customers table with Orders table using customer_id as the common attribute.",
+            "Count the number of distinct customer_ids to determine how many different customers have ordered things."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(DISTINCT o.customer_id) AS num_customers_ordered FROM Orders o;",
+        "id": 79
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Orders",
+                "Order_Items"
+            ],
+            "Joins": {
+                "type": "simple",
+                "description": "Join Orders table with Order_Items table using order_id as the common attribute."
+            },
+            "Distinct Count": {
+                "attribute": "order_item_status_code",
+                "description": "Count the distinct values of order_item_status_code to determine how many item states are there in the orders."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Join Orders table with Order_Items table using order_id as the common attribute.",
+            "Count the distinct values of order_item_status_code to determine how many item states are there in the orders."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(DISTINCT oi.order_item_status_code) AS num_item_states FROM Orders o JOIN Order_Items oi ON o.order_id = oi.order_id;",
+        "id": 80
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Order_Items"
+            ],
+            "Distinct Count": {
+                "attribute": "order_item_status_code",
+                "description": "Count the distinct values of order_item_status_code to determine how many different item status codes are there listed in ordered items."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the distinct values of order_item_status_code to determine how many different item status codes are there listed in ordered items."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(DISTINCT order_item_status_code) AS num_item_status_codes FROM Order_Items;",
+        "id": 81
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customer_Payment_Methods"
+            ],
+            "Distinct Count": {
+                "attribute": "payment_method_code",
+                "description": "Count the distinct values of payment_method_code to determine how many different payment methods are there."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the distinct values of payment_method_code to determine how many different payment methods are there."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(DISTINCT payment_method_code) AS num_payment_methods FROM Customer_Payment_Methods;",
+        "id": 82
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customer_Payment_Methods"
+            ],
+            "Distinct Count": {
+                "attribute": "payment_method_code",
+                "description": "Count the distinct values of payment_method_code to determine how many different payment methods customers can choose from."
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the distinct values of payment_method_code to determine how many different payment methods customers can choose from."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(DISTINCT payment_method_code) AS num_payment_methods FROM Customer_Payment_Methods;",
+        "id": 83
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers"
+            ],
+            "Filter": {
+                "attribute": "phone_number",
+                "condition": "starts with '+12'"
+            },
+            "Attributes": [
+                "login_name",
+                "login_password"
+            ]
+        },
+        "label": "simple",
+        "steps": [
+            "Filter the Customers table based on the condition that the phone number starts with the prefix '+12'.",
+            "Retrieve the login names and passwords of the filtered customers."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT login_name, login_password FROM Customers WHERE phone_number LIKE '+12%';",
+        "id": 84
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers"
+            ],
+            "Filter": {
+                "attribute": "phone_number",
+                "condition": "starts with '+12'"
+            },
+            "Attributes": [
+                "login_name",
+                "login_password"
+            ]
+        },
+        "label": "simple",
+        "steps": [
+            "Filter the Customers table based on the condition that the phone number starts with the prefix '+12'.",
+            "Retrieve the usernames and passwords of the filtered customers."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT login_name, login_password FROM Customers WHERE phone_number LIKE '+12%';",
+        "id": 85
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products"
+            ],
+            "Filter": {
+                "attribute": "product_name",
+                "condition": "contains substring 'Dell'"
+            },
+            "Attributes": [
+                "product_size"
+            ]
+        },
+        "label": "simple",
+        "steps": [
+            "Filter the Products table based on the condition that the product name contains the substring 'Dell'.",
+            "Retrieve the product sizes of the filtered products."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT product_size FROM Products WHERE product_name LIKE '%Dell%';",
+        "id": 86
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products"
+            ],
+            "Filter": {
+                "attribute": "product_name",
+                "condition": "includes the word 'Dell'"
+            },
+            "Attributes": [
+                "product_size"
+            ]
+        },
+        "label": "simple",
+        "steps": [
+            "Filter the Products table based on the condition that the product name includes the word 'Dell'.",
+            "Retrieve the sizes of the filtered products."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT product_size FROM Products WHERE product_name LIKE '%Dell%';",
+        "id": 87
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products"
+            ],
+            "Attributes": [
+                "product_price",
+                "product_size"
+            ],
+            "Filter": {
+                "condition": "price is above average"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Calculate the average price of all products.",
+            "Filter the Products table to select products whose price is above the calculated average.",
+            "Retrieve the product price and size for the filtered products."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT product_price, product_size FROM Products WHERE product_price > (     SELECT AVG(product_price)     FROM Products );",
+        "id": 88
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products"
+            ],
+            "Attributes": [
+                "product_price",
+                "product_size"
+            ],
+            "Filter": {
+                "condition": "price is above the mean"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Calculate the mean (average) price of all products.",
+            "Filter the Products table to select products whose price is above the calculated mean.",
+            "Retrieve the prices and sizes of the filtered products."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT product_price, product_size FROM Products WHERE product_price > (     SELECT AVG(product_price)     FROM Products );",
+        "id": 89
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products",
+                "Order_Items"
+            ],
+            "Attributes": [
+                "product_id",
+                "order_item_id"
+            ],
+            "Join": {
+                "type": "LEFT JOIN",
+                "conditions": "Products.product_id = Order_Items.product_id"
+            },
+            "Filter": {
+                "condition": "order_item_id IS NULL"
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join the Products table with the Order_Items table using LEFT JOIN on product_id.",
+            "Filter the joined table to select rows where order_item_id is NULL, indicating unsold products.",
+            "Count the number of distinct product types that have not been sold."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(DISTINCT Products.product_id) AS unsold_products_count FROM Products LEFT JOIN Order_Items ON Products.product_id = Order_Items.prod",
+        "id": 90
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products",
+                "Order_Items"
+            ],
+            "Attributes": [
+                "product_id",
+                "order_item_id"
+            ],
+            "Join": {
+                "type": "LEFT JOIN",
+                "conditions": "Products.product_id = Order_Items.product_id"
+            },
+            "Filter": {
+                "condition": "order_item_id IS NULL"
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join the Products table with the Order_Items table using LEFT JOIN on product_id.",
+            "Filter the joined table to select rows where order_item_id is NULL, indicating products that have not been ordered yet.",
+            "Count the number of distinct products that have not been ordered yet."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(DISTINCT Products.product_id) AS unordered_products_count FROM Products LEFT JOIN Order_Items ON Products.product_id = Order_I",
+        "id": 91
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers",
+                "Customer_Payment_Methods"
+            ],
+            "Attributes": [
+                "customer_id",
+                "payment_method_code"
+            ],
+            "Join": {
+                "type": "LEFT JOIN",
+                "conditions": "Customers.customer_id = Customer_Payment_Methods.customer_id"
+            },
+            "Filter": {
+                "condition": "payment_method_code IS NULL"
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join the Customers table with the Customer_Payment_Methods table using LEFT JOIN on customer_id.",
+            "Filter the joined table to select rows where payment_method_code is NULL, indicating customers without any payment method.",
+            "Count the number of distinct customers without any payment method."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(DISTINCT Customers.customer_id) AS customers_without_payment_method FROM Customers LEFT JOIN Customer_Payment_Methods ON Customers.customer_id = Customer_Payment_Methods.customer_id WHERE Customer_Payment_Methods.payment_method_code IS NULL;",
+        "id": 92
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers",
+                "Customer_Payment_Methods"
+            ],
+            "Attributes": [
+                "customer_id",
+                "payment_method_code"
+            ],
+            "Join": {
+                "type": "LEFT JOIN",
+                "conditions": "Customers.customer_id = Customer_Payment_Methods.customer_id"
+            },
+            "Filter": {
+                "condition": "payment_method_code IS NULL"
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join the Customers table with the Customer_Payment_Methods table using LEFT JOIN on customer_id.",
+            "Filter the joined table to select rows where payment_method_code is NULL, indicating customers without a listed payment method.",
+            "Count the number of distinct customers without a listed payment method."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(DISTINCT Customers.customer_id) AS customers_without_payment_method FROM Customers LEFT JOIN Customer_Payment_Methods ON Customers.customer_id = Customer_Payment_Methods.customer_id WHERE Customer_Payment_Methods.payment_method_code IS NULL;",
+        "id": 93
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Orders"
+            ],
+            "Attributes": [
+                "order_status_code",
+                "date_order_placed"
+            ]
+        },
+        "label": "simple",
+        "steps": "Retrieve all distinct order statuses along with their corresponding order dates from the Orders table.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT DISTINCT order_status_code, date_order_placed FROM Orders;",
+        "id": 94
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Orders"
+            ],
+            "Attributes": [
+                "order_status_code",
+                "date_order_placed"
+            ]
+        },
+        "label": "simple",
+        "steps": "Retrieve all order status codes and corresponding order placement dates from the Orders table.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT order_status_code, date_order_placed FROM Orders;",
+        "id": 95
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers"
+            ],
+            "Attributes": [
+                "address_line_1",
+                "town_city",
+                "county"
+            ],
+            "Condition": "country = 'USA'"
+        },
+        "label": "simple",
+        "steps": "Retrieve the address_line_1, town_city, and county information from the Customers table where the country is 'USA'.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT address_line_1, town_city, county FROM Customers WHERE country = 'USA';",
+        "id": 96
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers"
+            ],
+            "Attributes": [
+                "address_line_1",
+                "town_city",
+                "county"
+            ],
+            "Condition": "country = 'USA'"
+        },
+        "label": "simple",
+        "steps": "Retrieve the address_line_1, town_city, and county information from the Customers table where the country is 'USA'.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT address_line_1, town_city, county FROM Customers WHERE country = 'USA';",
+        "id": 97
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers",
+                "Order_Items",
+                "Products"
+            ],
+            "Attributes": [
+                "customer_first_name",
+                "product_name"
+            ],
+            "Joins": {
+                "Order_Items": {
+                    "Type": "INNER",
+                    "Conditions": "Order_Items.product_id = Products.product_id AND Order_Items.order_id = Orders.order_id"
+                },
+                "Customers": {
+                    "Type": "INNER",
+                    "Conditions": "Customers.customer_id = Orders.customer_id"
+                }
+            }
+        },
+        "label": "nested",
+        "steps": "Join the Customers table with Orders table on customer_id, then join the resulting table with Order_Items table on order_id and product_id, finally join with Products table on product_id.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Customers.customer_first_name, Products.product_name FROM Customers INNER JOIN Orders ON Customers.customer_id = Orders.customer_id INNER JOIN Order_Items ON Orders.order_id = Order_Items.order_id INNER JOIN Products ON Order_Items.product_id = Products.product_id;",
+        "id": 98
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers",
+                "Order_Items",
+                "Products"
+            ],
+            "Attributes": [
+                "customer_first_name",
+                "product_name"
+            ],
+            "Joins": {
+                "Order_Items": {
+                    "Type": "INNER",
+                    "Conditions": "Order_Items.product_id = Products.product_id AND Order_Items.order_id = Orders.order_id"
+                },
+                "Customers": {
+                    "Type": "INNER",
+                    "Conditions": "Customers.customer_id = Orders.customer_id"
+                }
+            }
+        },
+        "label": "nested",
+        "steps": "Join the Customers table with Orders table on customer_id, then join the resulting table with Order_Items table on order_id and product_id, finally join with Products table on product_id.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT Customers.customer_first_name, Products.product_name FROM Customers INNER JOIN Orders ON Customers.customer_id = Orders.customer_id INNER JOIN Order_Items ON Orders.order_id = Order_Items.order_id INNER JOIN Products ON Order_Items.product_id = Products.product_id;",
+        "id": 99
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Shipments",
+                "Shipment_Items"
+            ],
+            "Joins": {
+                "Shipment_Items": {
+                    "Type": "nested",
+                    "Conditions": {
+                        "Shipment_Items.shipment_id": "Shipments.shipment_id"
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(*) AS total_shipped_items FROM Shipment_Items;",
+        "id": 100
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Shipment_Items"
+            ],
+            "Joins": {
+                "Shipment_Items": {
+                    "Type": "nested",
+                    "Conditions": {
+                        "Shipment_Items.order_item_id": "Order_Items.order_item_id",
+                        "Order_Items.product_id": "Products.product_id"
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT COUNT(DISTINCT Products.product_id) AS total_shipped_products FROM Shipment_Items JOIN Order_Items ON Shipment_Items.order_item_id = Order_Items.order_item_id JOIN Products ON Order_Items.product_id = Products.product_id;",
+        "id": 101
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products"
+            ],
+            "label": "simple"
+        },
+        "steps": [],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT AVG(product_price) AS product_average_price FROM Products;",
+        "id": 102
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products"
+            ],
+            "label": "simple"
+        },
+        "steps": [],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT AVG(product_price) AS average_product_price FROM Products;",
+        "id": 103
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products",
+                "Orders",
+                "Order_Items"
+            ],
+            "Joins": [
+                "Products.product_id = Order_Items.product_id",
+                "Orders.order_id = Order_Items.order_id"
+            ],
+            "label": "nested"
+        },
+        "steps": [],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT AVG(product_price) AS average_ordered_product_price FROM Products JOIN Order_Items ON Products.product_id = Order_Items.product_id;",
+        "id": 104
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Products",
+                "Order_Items"
+            ],
+            "Joins": [
+                "Products.product_id = Order_Items.product_id"
+            ],
+            "label": "nested"
+        },
+        "steps": [],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT AVG(product_price) AS average_ordered_product_price FROM Products JOIN Order_Items ON Products.product_id = Order_Items.product_id; `",
+        "id": 105
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers"
+            ],
+            "label": "simple",
+            "steps": []
+        },
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT email_address, town_city, county FROM Customers WHERE gender_code = (     SELECT gender_code     FROM Customers     GROUP BY gender_code     ORDER BY COUNT(*) ASC     LIMIT 1 );",
+        "id": 106
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Customers"
+            ],
+            "label": "simple",
+            "steps": []
+        },
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT email_address, town_city, county FROM Customers WHERE gender_code = (     SELECT gender_code     FROM Customers     GROUP BY gender_code     ORDER BY COUNT(*) ASC     LIMIT 1 );",
+        "id": 107
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Orders",
+                "Customer_Payment_Methods"
+            ],
+            "Joins": {
+                "Orders": [
+                    "customer_id"
+                ],
+                "Customer_Payment_Methods": [
+                    "customer_id"
+                ]
+            },
+            "label": "nested",
+            "steps": []
+        },
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT date_order_placed FROM Orders WHERE customer_id IN (     SELECT customer_id     FROM Customer_Payment_Methods     GROUP BY customer_id     HAVING COUNT(*) >= 2 );",
+        "id": 108
+    },
+    {
+        "knowledge": {
+            "Tables": [
+                "Orders",
+                "Customer_Payment_Methods"
+            ],
+            "Joins": {
+                "Orders": [
+                    "customer_id"
+                ],
+                "Customer_Payment_Methods": [
+                    "customer_id"
+                ]
+            },
+            "label": "nested",
+            "steps": []
+        },
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT date_order_placed FROM Orders WHERE customer_id IN (     SELECT customer_id     FROM Customer_Payment_Methods     GROUP BY customer_id     HAVING COUNT(*)",
+        "id": 109
+    },
+    {
+        "knowledge": {
+            "Tables": {
+                "Orders": {
+                    "Columns": [
+                        "order_status_code"
+                    ]
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the count of each unique order status from the Orders table.",
+            "Identify the order status with the lowest count, as it would be the most uncommon."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT order_status_code FROM Orders GROUP BY order_status_code ORDER BY COUNT(*) ASC LIMIT 1;",
+        "id": 110
+    },
+    {
+        "knowledge": {
+            "Tables": {
+                "Orders": {
+                    "Columns": [
+                        "order_status_code"
+                    ]
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the count of each unique order status from the Orders table.",
+            "Identify the order status with the lowest count, as it would be the least common."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT order_status_code FROM Orders GROUP BY order_status_code ORDER BY COUNT(*) ASC LIMIT 1; ``",
+        "id": 111
+    },
+    {
+        "knowledge": {
+            "Tables": {
+                "Products": {
+                    "Columns": [
+                        "product_id",
+                        "product_description"
+                    ]
+                },
+                "Order_Items": {
+                    "Columns": [
+                        "product_id"
+                    ],
+                    "Relationships": [
+                        {
+                            "Type": "ManyToOne",
+                            "Related_Table": "Products",
+                            "Foreign_Key": "product_id"
+                        }
+                    ]
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Count the occurrences of each product in the Order_Items table.",
+            "Filter out the products that were sold more than 3 times.",
+            "Retrieve the product id and description of the filtered products from the Products table."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT p.product_id, p.product_description FROM Products p JOIN (     SELECT product_id     FROM Order_Items     GROUP BY product_id     HAVING COUNT(*) > 3 ) o ON p.product_id = o.product_id;",
+        "id": 112
+    },
+    {
+        "knowledge": {
+            "Tables": {
+                "Products": {
+                    "Columns": [
+                        "product_id",
+                        "product_description"
+                    ]
+                },
+                "Order_Items": {
+                    "Columns": [
+                        "product_id"
+                    ],
+                    "Relationships": [
+                        {
+                            "Type": "ManyToOne",
+                            "Related_Table": "Products",
+                            "Foreign_Key": "product_id"
+                        }
+                    ]
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Count the occurrences of each product in the Order_Items table.",
+            "Filter out the products that were sold more than 3 times.",
+            "Retrieve the product id and description of the filtered products from the Products table."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT p.product_id, p.product_description FROM Products p JOIN (     SELECT product_id     FROM Order_Items     GROUP BY product_id     HAVING COUNT(*) > 3 ) o ON p.product_id = o.product_id;",
+        "id": 113
+    },
+    {
+        "knowledge": {
+            "Tables": {
+                "Invoices": {
+                    "Columns": [
+                        "invoice_number",
+                        "invoice_date"
+                    ]
+                },
+                "Shipments": {
+                    "Columns": [
+                        "invoice_number"
+                    ],
+                    "Aggregation": {
+                        "Condition": "COUNT(*) >= 2",
+                        "Group_By": [
+                            "invoice_number"
+                        ]
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Count the number of shipments for each invoice in the Shipments table.",
+            "Filter out the invoices with at least 2 shipments.",
+            "Retrieve the invoice number and date from the Invoices table for the filtered invoices."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT i.invoice_number, i.invoice_date FROM Invoices i JOIN (     SELECT invoice_number     FROM Shipments     GROUP BY invoice_number     HAVING COUNT(*) >= 2 ) s ON i.invoice_number = s.invoice_number;",
+        "id": 114
+    },
+    {
+        "knowledge": {
+            "Tables": {
+                "Invoices": {
+                    "Columns": [
+                        "invoice_number",
+                        "invoice_date"
+                    ]
+                },
+                "Shipments": {
+                    "Columns": [
+                        "invoice_number"
+                    ],
+                    "Aggregation": {
+                        "Condition": "COUNT(*) >= 2",
+                        "Group_By": [
+                            "invoice_number"
+                        ]
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Count the number of shipments for each invoice in the Shipments table.",
+            "Filter out the invoices with at least 2 shipments.",
+            "Retrieve the invoice number and date from the Invoices table for the filtered invoices."
+        ],
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT i.invoice_number, i.invoice_date FROM Invoices i JOIN (     SELECT invoice_number     FROM Shipments     GROUP BY invoice_number     HAVING COUNT(*) >= 2 ) s ON i.invoice_number = s.invoice_number;",
+        "id": 115
+    },
+    {
+        "knowledge": {
+            "Tables": {
+                "Shipments": {
+                    "Columns": [
+                        "shipment_tracking_number",
+                        "shipment_date"
+                    ]
+                }
+            }
+        },
+        "label": "simple",
+        "steps": "Retrieve shipment tracking numbers and shipment dates from the Shipments table.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT shipment_tracking_number, shipment_date FROM Shipments;",
+        "id": 116
+    },
+    {
+        "knowledge": {
+            "Tables": {
+                "Shipments": {
+                    "Columns": [
+                        "shipment_tracking_number",
+                        "shipment_date"
+                    ]
+                }
+            }
+        },
+        "label": "simple",
+        "steps": "Retrieve shipment tracking numbers and dates from the Shipments table.",
+        "db_id": "e_commerce",
+        "generated_sql": "SELECT shipment_tracking_number, shipment_date FROM Shipments;",
+        "id": 117
+    },
+    {
+        "knowledge": {
+            "Tables": {
+                "Products": {
+                    "Columns": [
+                        "product_color",
+                        "product_description",
+                        "product_size",
+                        "product_price"
+                    ]
+                }
+            }
+        },
+        "label": "simple",
+        "steps": "Identify the maximum price among the products. Then retrieve the color, description, and size of the products with prices below the maximum.",
+        "db_id": "e_commerce",
+        "generated_sql": "WITH MaxPrice AS (   SELECT MAX(product_price) AS max_price FROM Products ) SELECT product_color, product_description, product_size FROM Products WHERE product_price < (SELECT max_price FROM MaxPrice);",
+        "id": 118
+    },
+    {
+        "knowledge": {
+            "Tables": {
+                "Products": {
+                    "Columns": [
+                        "product_color",
+                        "product_description",
+                        "product_size",
+                        "product_price"
+                    ]
+                }
+            }
+        },
+        "label": "simple",
+        "steps": "Identify the maximum price among the products. Then retrieve the color, description, and size of the products with prices lower than the maximum.",
+        "db_id": "e_commerce",
+        "generated_sql": "WITH MaxPrice AS (   SELECT MAX(product_price) AS max_price FROM Products ) SELECT product_color, product_description, product_size FROM Products WHERE product_price < (SELECT max_price FROM MaxPrice);",
+        "id": 119
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "director": {
+                    "columns": {
+                        "Director_ID": "int",
+                        "Name": "text",
+                        "Age": "int"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Calculate the average age of all directors",
+            "Select the names of directors whose age is greater than the average age"
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT Name FROM director WHERE Age > (SELECT AVG(Age) FROM director);",
+        "id": 120
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "director": {
+                    "columns": {
+                        "Director_ID": "int",
+                        "Name": "text",
+                        "Age": "int"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Identify the maximum age among all directors",
+            "Select the name of the director with the maximum age"
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT Name FROM director WHERE Age = (SELECT MAX(Age) FROM director);",
+        "id": 121
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "channel": {
+                    "columns": {
+                        "Channel_ID": "int",
+                        "Name": "text",
+                        "Analogue_terrestrial_channel": "text",
+                        "Digital_terrestrial_channel": "text",
+                        "Internet": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of channels where the 'Internet' column contains the word 'bbc'"
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT COUNT(*) FROM channel WHERE Internet LIKE '%bbc%';",
+        "id": 122
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "channel": {
+                    "columns": {
+                        "Channel_ID": "int",
+                        "Name": "text",
+                        "Analogue_terrestrial_channel": "text",
+                        "Digital_terrestrial_channel": "text",
+                        "Internet": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the distinct values in the 'Digital_terrestrial_channel' column of the 'channel' table"
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT COUNT(DISTINCT Digital_terrestrial_channel) AS num_digital_channels FROM channel;",
+        "id": 123
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "program": {
+                    "columns": {
+                        "Program_ID": "int",
+                        "Start_Year": "real",
+                        "Title": "text",
+                        "Director_ID": "int",
+                        "Channel_ID": "int"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select all program titles from the 'program' table",
+            "Order the results by 'Start_Year' in descending order"
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT Title FROM program ORDER BY Start_Year DESC;",
+        "id": 124
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "director": {
+                    "columns": {
+                        "Director_ID": "int",
+                        "Name": "text",
+                        "Age": "int"
+                    }
+                },
+                "program": {
+                    "columns": {
+                        "Program_ID": "int",
+                        "Start_Year": "real",
+                        "Title": "text",
+                        "Director_ID": "int",
+                        "Channel_ID": "int"
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Count the number of programs each director is in charge of",
+            "Identify the director with the highest count of programs",
+            "Select the name of that director"
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT d.Name FROM director d JOIN (     SELECT Director_ID, COUNT(*) AS program_count     FROM program     GROUP BY Director_ID     ORDER BY program_count DESC     LIMIT 1 ) AS director_program_count ON d.Director_ID = director_program_count.Director_ID;",
+        "id": 125
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "director": {
+                    "columns": {
+                        "Director_ID": "int",
+                        "Name": "text",
+                        "Age": "int"
+                    }
+                },
+                "program": {
+                    "columns": {
+                        "Program_ID": "int",
+                        "Start_Year": "real",
+                        "Title": "text",
+                        "Director_ID": "int",
+                        "Channel_ID": "int"
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Count the number of programs each director is in charge of",
+            "Identify the director with the highest count of programs",
+            "Select the name and age of that director"
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT d.Name, d.Age FROM director d JOIN (     SELECT Director_ID, COUNT(*) AS program_count     FROM program     GROUP BY Director_ID     ORDER B",
+        "id": 126
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "program": {
+                    "columns": {
+                        "Program_ID": "int",
+                        "Start_Year": "real",
+                        "Title": "text",
+                        "Director_ID": "int",
+                        "Channel_ID": "int"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select the title of the program with the most recent start year from the 'program' table"
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT Title FROM program ORDER BY Start_Year DESC LIMIT 1;",
+        "id": 127
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "channel": {
+                    "columns": {
+                        "Channel_ID": "int",
+                        "Name": "text",
+                        "Internet": "text"
+                    }
+                },
+                "program": {
+                    "columns": {
+                        "Channel_ID": "int"
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Count the number of programs for each channel from the 'program' table",
+            "Filter channels with more than one program",
+            "Select the name and internet link of these channels from the 'channel' table"
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT c.Name, c.Internet FROM channel c WHERE c.Channel_ID IN (     SELECT p.Channel_ID     FROM program p",
+        "id": 128
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "channel": {
+                    "columns": {
+                        "Channel_ID": "int",
+                        "Name": "text"
+                    }
+                },
+                "program": {
+                    "columns": {
+                        "Channel_ID": "int"
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Count the number of programs for each channel from the 'program' table",
+            "Join the result with the 'channel' table to get the name of each channel"
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT c.Name, COUNT(p.Program_ID) AS Num_Programs FROM channel c LEFT JOIN program p ON c.Channel_ID = p.Channel_ID GROUP BY c.Channel_ID, c.Name;",
+        "id": 129
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "channel": {
+                    "columns": {
+                        "Channel_ID": "int",
+                        "Name": "text"
+                    }
+                },
+                "program": {
+                    "columns": {
+                        "Channel_ID": "int"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of distinct channels from the 'channel' table that do not have any corresponding entries in the 'program' table"
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT COUNT(*) AS Num_Channels_No_Program FROM channel c LEFT JOIN program p ON c.Channel_ID = p.Channel_ID WHERE p.Program_ID IS NULL;",
+        "id": 130
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "program": {
+                    "columns": {
+                        "Director_ID": "int"
+                    }
+                },
+                "director": {
+                    "columns": {
+                        "Director_ID": "int",
+                        "Name": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the director's name from the 'director' table where the 'Director_ID' matches the one associated with the 'Dracula' program in the 'program' table."
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT d.Name AS Director_Name FROM director d JOIN program p ON d.Director_ID = p.Director_ID WHERE p.Title = 'Dracula';",
+        "id": 131
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "channel": {
+                    "columns": {
+                        "Name": "text",
+                        "Internet": "text"
+                    }
+                },
+                "director_admin": {
+                    "columns": {
+                        "Channel_ID": "int",
+                        "Director_ID": "int"
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Count the number of directors associated with each channel from the 'director_admin' table.",
+            "Identify the channel with the maximum count of directors.",
+            "Retrieve the name and internet web of the identified channel from the 'channel' table."
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT c.Name, c.Internet FROM channel c JOIN (     SELECT Channel_ID, COUNT(DISTINCT Director_ID) AS num_directors     FROM director_admin     GROUP BY Channel_ID     ORDER BY num_directors DESC     LIMIT 1 ) AS max_directors ON c.Channel_ID = max_directors.Channel_ID;",
+        "id": 132
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "director": {
+                    "columns": {
+                        "Name": "text",
+                        "Age": "int"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Query the 'director' table to select the names of directors.",
+            "Filter the directors based on their age, selecting only those whose age is between 30 and 60."
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT Name FROM director WHERE Age BETWEEN 30 AND 60;",
+        "id": 133
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "channel": {
+                    "columns": {
+                        "Name": "text"
+                    }
+                },
+                "director": {
+                    "columns": {
+                        "Director_ID": "int",
+                        "Age": "int"
+                    }
+                },
+                "director_admin": {
+                    "columns": {
+                        "Director_ID": "int",
+                        "Channel_ID": "int"
+                    },
+                    "foreign_keys": [
+                        {
+                            "from": "Director_ID",
+                            "to_table": "director",
+                            "to_column": "Director_ID"
+                        },
+                        {
+                            "from": "Channel_ID",
+                            "to_table": "channel",
+                            "to_column": "Channel_ID"
+                        }
+                    ]
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join the 'director' table with the 'director_admin' table to associate directors with channels.",
+            "Filter the directors based on their age, selecting those younger than 40 and those older than 60 separately.",
+            "Group the directors by channel, counting how many directors younger than 40 and older than 60 each channel has.",
+            "Select the channels that have both directors younger than 40 and directors older than 60."
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT c.Name FROM channel c JOIN director_admin da ON c.Channel_ID = da.Channel_ID JOIN director d ON da.Director_ID = d.Director_ID WHERE d.Age < 40 AND c.Channel_ID IN (     SELECT Channel_ID     FROM director_admin     WHERE Director_ID IN (         SELECT Director_ID         FROM director         WHERE Age > 60     ) ) GROUP BY c.Channel_ID HAVING COUNT(CASE WHEN d.Age < 40 THEN 1 END) > 0    AND COUNT(CASE WHEN d.Age > 60 THEN 1 END) > 0;",
+        "id": 134
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "channel": {
+                    "columns": {
+                        "Channel_ID": "int",
+                        "Name": "text"
+                    }
+                },
+                "director": {
+                    "columns": {
+                        "Director_ID": "int",
+                        "Name": "text"
+                    }
+                },
+                "director_admin": {
+                    "columns": {
+                        "Director_ID": "int",
+                        "Channel_ID": "int"
+                    },
+                    "foreign_keys": [
+                        {
+                            "from": "Director_ID",
+                            "to_table": "director",
+                            "to_column": "Director_ID"
+                        },
+                        {
+                            "from": "Channel_ID",
+                            "to_table": "channel",
+                            "to_column": "Channel_ID"
+                        }
+                    ]
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join the 'director' table with the 'director_admin' table to associate directors with channels.",
+            "Filter the channels by those not directed by Hank Baskett using the 'director' table.",
+            "Select the id and name of the filtered channels."
+        ],
+        "db_id": "bbc_channels",
+        "generated_sql": "SELECT c.Channel_ID, c.Name FROM channel c WHERE c.Channel_ID NOT IN (     SELECT da.Channel_ID     FROM director_admin da     JOIN director d ON da.Director_ID = d.Director_ID     WHERE d.Name = 'Hank Baskett' );",
+        "id": 135
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "radio": {
+                    "columns": {
+                        "Radio_ID": "int"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of rows in the 'radio' table."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT COUNT(*) AS num_radios FROM radio;",
+        "id": 136
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "radio": {
+                    "columns": {
+                        "Radio_ID": "int",
+                        "Transmitter": "text",
+                        "ERP_kW": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Transmitter' column from the 'radio' table.",
+            "Sort the transmitters in ascending order based on the 'ERP_kW' column."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT Transmitter FROM radio ORDER BY CAST(ERP_kW AS REAL) ASC;",
+        "id": 137
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "tv_show": {
+                    "columns": {
+                        "tv_show_name": "text",
+                        "Original_Airdate": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'tv_show_name' and 'Original_Airdate' columns from the 'tv_show' table."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT tv_show_name, Original_Airdate FROM tv_show;",
+        "id": 138
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "city_channel": {
+                    "columns": {
+                        "Station_name": "text",
+                        "Affiliation": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Station_name' column from the 'city_channel' table where the 'Affiliation' is not 'ABC'."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT Station_name FROM city_channel WHERE Affiliatio",
+        "id": 139
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "radio": {
+                    "columns": {
+                        "Transmitter": "text",
+                        "ERP_kW": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter the 'radio' table to select rows where ERP is bigger than 150 or smaller than 30.",
+            "Retrieve the 'Transmitter' column for the filtered rows."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT Transmitter FROM radio WHERE CAST(ERP_kW AS REAL) > 150 OR CAST(ERP_kW AS REAL) < 30;",
+        "id": 140
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "radio": {
+                    "columns": {
+                        "Transmitter": "text",
+                        "ERP_kW": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Transmitter' column from the 'radio' table.",
+            "Identify the row with the largest value in the 'ERP_kW' column.",
+            "Get the transmitter associated with the identified row."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT Transmitter FROM radio ORDER BY CAST(ERP_kW AS REAL) DESC LI",
+        "id": 141
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "radio": {
+                    "columns": {
+                        "ERP_kW": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'ERP_kW' column from the 'radio' table.",
+            "Calculate the average value of the 'ERP_kW' column."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT AVG(CAST(ERP_kW AS REAL)) AS average_ERP FROM radio;",
+        "id": 142
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "city_channel": {
+                    "columns": {
+                        "Affiliation": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Affiliation' column from the 'city_channel' table.",
+            "Count the number of occurrences of each unique affiliation."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT Affiliation, COUNT(*) AS num_channels FROM city_channel GROUP BY Affiliation;",
+        "id": 143
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "city_channel": {
+                    "columns": {
+                        "Affiliation": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the occurrences of each affiliation in the 'Affiliation' column of the 'city_channel' table.",
+            "Retrieve the affiliation with the highest count."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT Affiliation FROM city_channel GROUP BY Affiliation ORDER BY COUNT(*) DESC LIMIT 1;",
+        "id": 144
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "city_channel": {
+                    "columns": {
+                        "Affiliation": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the occurrences of each affiliation in the 'Affiliation' column of the 'city_channel' table.",
+            "Filter out the affiliations with a count greater than three."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT Affiliation FROM city_channel GROUP BY Affiliation HAVING COUNT(*) > 3;",
+        "id": 145
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "city_channel": {
+                    "columns": {
+                        "City": "text",
+                        "Station_name": "text"
+                    }
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'City' and 'Station_name' columns from the 'city_channel' table.",
+            "Sort the results in ascending alphabetical order of the 'Station_name' column."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT City, Station_name FROM city_channel ORDER BY Station_name ASC;",
+        "id": 146
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "city_channel": {
+                    "columns": {
+                        "City": "text"
+                    }
+                },
+                "radio": {
+                    "columns": {
+                        "Transmitter": "text"
+                    }
+                },
+                "city_channel_radio": {
+                    "foreign_keys": {
+                        "City_channel_ID": "city_channel(ID)",
+                        "Radio_ID": "radio(Radio_ID)"
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join the 'city_channel_radio' table with the 'city_channel' table using 'City_channel_ID'.",
+            "Join the result with the 'radio' table using 'Radio_ID'.",
+            "Select the 'Transmitter' column from the 'radio' table and the 'City' column from the 'city_channel' table."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT r.Transmitter, cc.City FROM city_channel_radio ccr JOIN city_channel cc ON ccr.City_channel_ID = cc.ID JOIN radio r ON ccr.Radio_ID = r.Radio_ID;",
+        "id": 147
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "city_channel": {
+                    "columns": {
+                        "Station_name": "text"
+                    }
+                },
+                "radio": {
+                    "columns": {
+                        "Transmitter": "text",
+                        "ERP_kW": "text"
+                    }
+                },
+                "city_channel_radio": {
+                    "foreign_keys": {
+                        "City_channel_ID": "city_channel(ID)",
+                        "Radio_ID": "radio(Radio_ID)"
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join the 'city_channel_radio' table with the 'city_channel' table using 'City_channel_ID'.",
+            "Join the result with the 'radio' table using 'Radio_ID'.",
+            "Select the 'Transmitter' column from the 'radio' table and the 'Station_name' column from the 'city_channel' table.",
+            "Order the result by the 'ERP_kW' column of the 'radio' table in descending order."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT r.Transmitter, cc.Station_name FROM city_channel_radio ccr JOIN city_channel cc ON ccr.City_channel_ID = cc.ID JOIN radio r ON ccr.Radio_ID = r.Radio_ID ORDER BY CAST(r.ERP_kW AS REAL) DESC;",
+        "id": 148
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "radio": {
+                    "columns": {
+                        "Transmitter": "text"
+                    }
+                },
+                "city_channel_radio": {
+                    "columns": {
+                        "Radio_ID": "int"
+                    },
+                    "foreign_keys": {
+                        "Radio_ID": "radio(Radio_ID)"
+                    }
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Group the 'city_channel_radio' table by the 'Radio_ID' column.",
+            "Count the number of rows in each group to find the number of city channels associated with each transmitter.",
+            "Select the 'Transmitter' column from the 'radio' table and the count of rows for each transmitter."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT r.Transmitter, COUNT(ccr.City_channel_ID) AS Channel_Count FROM city_channel_radio ccr JOIN radio r ON ccr.Radio_ID = r.Radio_ID GROUP BY r.Transmitter;",
+        "id": 149
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "city_channel": {
+                    "columns": [
+                        "ID",
+                        "City",
+                        "Station_name",
+                        "Owned_Since",
+                        "Affiliation"
+                    ]
+                },
+                "radio": {
+                    "columns": [
+                        "Radio_ID",
+                        "Transmitter",
+                        "Radio_MHz",
+                        "2FM_MHz",
+                        "RnaG_MHz",
+                        "Lyric_FM_MHz",
+                        "ERP_kW"
+                    ]
+                },
+                "city_channel_radio": {
+                    "columns": [
+                        "City_channel_ID",
+                        "Radio_ID",
+                        "Is_online"
+                    ],
+                    "evidence": "This table associates radios with city channels."
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Find the distinct transmitters from the 'radio' table.",
+            "Exclude transmitters associated with any city channel using the 'city_channel_radio' table."
+        ],
+        "db_id": "tv_shows",
+        "generated_sql": "SELECT DISTINCT r.\"Transmitter\" FROM \"radio\" r LEFT JOIN \"city_channel_radio\" ccr ON r.\"Radio_ID\" = ccr.\"Radio_ID\" WHERE ccr.\"City_channel_ID\" IS NULL;",
+        "id": 150
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Vehicle_ID",
+                        "Model",
+                        "Build_Year",
+                        "Top_Speed",
+                        "Power",
+                        "Builder",
+                        "Total_Production"
+                    ],
+                    "evidence": "Contains information about vehicles including their model, top speed, and power."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter vehicles with power higher than 6000.",
+            "Find the vehicle with the maximum top speed among the filtered vehicles.",
+            "Retrieve the model of the vehicle."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT v.\"Model\" FROM \"vehicle\" v WHERE v.\"Power\" > 6000 AND v.\"Top_Speed\" = (SELECT MAX(\"Top_Speed\") FROM \"vehicle\" WHERE \"Power\" > 6000);",
+        "id": 151
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Vehicle_ID",
+                        "Model",
+                        "Build_Year",
+                        "Top_Speed",
+                        "Power",
+                        "Builder",
+                        "Total_Production"
+                    ],
+                    "evidence": "Contains information about vehicles including their model, top speed, and power."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter vehicles with power over 6000.",
+            "Among the filtered vehicles, find the one with the greatest top speed.",
+            "Return the model of that vehicle."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT \"Model\" FROM \"vehicle\" WHERE \"Power\" > 6000 ORDER BY \"Top_Speed\" DESC LIMIT 1;",
+        "id": 152
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "driver": {
+                    "columns": [
+                        "Driver_ID",
+                        "Name",
+                        "Citizenship",
+                        "Racing_Series"
+                    ],
+                    "evidence": "Contains information about drivers including their names and citizenship."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter drivers whose citizenship is 'United States'.",
+            "Retrieve the names of the filtered drivers."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT \"Name\" FROM \"driver\" WHERE \"Citizenship\" = 'United States';",
+        "id": 153
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "driver": {
+                    "columns": [
+                        "Driver_ID",
+                        "Name",
+                        "Citizenship",
+                        "Racing_Series"
+                    ],
+                    "evidence": "Contains information about drivers including their names and citizenship."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter drivers whose citizenship is 'United States'.",
+            "Retrieve the names of the filtered drivers."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT \"Name\" FROM \"driver\" WHERE \"Citizenship\" = 'United States';",
+        "id": 154
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "driver": {
+                    "columns": [
+                        "Driver_ID",
+                        "Name",
+                        "Citizenship",
+                        "Racing_Series"
+                    ],
+                    "evidence": "Contains information about drivers including their names and driver IDs."
+                },
+                "vehicle_driver": {
+                    "columns": [
+                        "Driver_ID",
+                        "Vehicle_ID"
+                    ],
+                    "evidence": "Associates drivers with vehicles, indicating which driver has driven which vehicle."
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Count the number of vehicles driven by each driver.",
+            "Find the maximum count of vehicles driven by a driver.",
+            "Retrieve the driver ID of the driver who has driven the maximum number of vehicles."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT COUNT(\"Vehicle_ID\") AS \"Max_Vehicles_Driven\", \"Driver_ID\" FROM \"vehicle_driver\" GROUP BY \"Driver_ID\" ORDER BY \"Max_Vehicles_Driven\" DESC LIMIT 1;",
+        "id": 155
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "driver": {
+                    "columns": [
+                        "Driver_ID",
+                        "Name",
+                        "Citizenship",
+                        "Racing_Series"
+                    ],
+                    "evidence": "Contains information about drivers including their driver IDs."
+                },
+                "vehicle_driver": {
+                    "columns": [
+                        "Driver_ID",
+                        "Vehicle_ID"
+                    ],
+                    "evidence": "Associates drivers with vehicles, indicating which driver has driven which vehicle."
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Count the number of vehicles driven by each driver.",
+            "Find the maximum count of vehicles driven by a driver.",
+            "Retrieve the driver ID of the driver who has driven the maximum number of vehicles."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT \"Driver_ID\", COUNT(\"Vehicle_ID\") AS \"Max_Vehicles_Driven\" FROM \"vehicle_driver\" GROUP BY \"Driver_ID\" ORDER BY \"Max_Vehicles_Driven\" DESC LIMIT 1;",
+        "id": 156
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Vehicle_ID",
+                        "Model",
+                        "Build_Year",
+                        "Top_Speed",
+                        "Power",
+                        "Builder",
+                        "Total_Production"
+                    ],
+                    "evidence": "Contains information about vehicles including their power and manufacturer."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter vehicles manufactured by 'Zhuzhou'.",
+            "Calculate the maximum power among these vehicles.",
+            "Calculate the average power among these vehicles."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT      MAX(\"Power\") AS \"Max_Power\",     AVG(\"Power\") AS \"Average_Power\" FROM      \"vehicle\" WHERE      \"Builder\" = 'Zhuzhou';",
+        "id": 157
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Vehicle_ID",
+                        "Model",
+                        "Build_Year",
+                        "Top_Speed",
+                        "Power",
+                        "Builder",
+                        "Total_Production"
+                    ],
+                    "evidence": "Contains information about vehicles including their power and manufacturer."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Filter vehicles built by 'Zhuzhou'.",
+            "Calculate the maximum power among these vehicles.",
+            "Calculate the average power among these vehicles."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT      MAX(\"Power\") AS \"Max_Power\",     AVG(\"Power\") AS \"Average_Power\" FROM      \"vehicle\" WHERE      \"Builder\" = 'Zhuzhou';",
+        "id": 158
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle_driver": {
+                    "columns": [
+                        "Driver_ID",
+                        "Vehicle_ID"
+                    ],
+                    "evidence": "Associates drivers with vehicles, indicating which vehicle each driver has driven."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of times each vehicle has been driven.",
+            "Find the vehicle with the minimum count of times driven.",
+            "Retrieve the ID of that vehicle."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT \"Vehicle_ID\" FROM (     SELECT \"Vehicle_ID\", COUNT(*) AS \"Times_Driven\"     FROM \"vehicle_driver\"     GROUP BY \"Vehicle_ID\"     ORDER BY \"Times_Driven\" ASC     LIMIT 1 ) AS min_driven;",
+        "id": 159
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Vehicle_ID"
+                    ],
+                    "evidence": "Contains information about vehicles, including their unique identifier."
+                },
+                "driver": {
+                    "columns": [
+                        "Driver_ID"
+                    ],
+                    "evidence": "Contains information about drivers, including their unique identifier."
+                },
+                "vehicle_driver": {
+                    "columns": [
+                        "Driver_ID",
+                        "Vehicle_ID"
+                    ],
+                    "relationships": {
+                        "driver": {
+                            "column": "Driver_ID",
+                            "foreign_key": true
+                        },
+                        "vehicle": {
+                            "column": "Vehicle_ID",
+                            "foreign_key": true
+                        }
+                    },
+                    "evidence": "Associative table linking drivers to vehicles, indicating which driver has driven which vehicle."
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Join the vehicle and vehicle_driver tables on the Vehicle_ID column.",
+            "Group the results by Vehicle_ID and count the number of times each vehicle has been driven.",
+            "Select the Vehicle_ID with the minimum count."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT \"Vehicle_ID\" FROM (     SELECT \"Vehicle_ID\", COUNT(*) AS \"Times_Driven\"     FROM \"vehicle_driver\"     GROUP BY \"Vehicle_ID\"     ORDER BY \"Times_Driven\" ASC     LIMIT 1 ) AS min_driven;",
+        "id": 160
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Top_Speed",
+                        "Power"
+                    ],
+                    "filter": "Build_Year = '1996'",
+                    "evidence": "Contains information about vehicles, including their top speed and power, as well as the year of manufacture."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select the top speed and power columns from the vehicle table.",
+            "Filter the results where the Build_Year is '1996'."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT \"Top_Speed\", \"Power\" FROM \"vehicle\" WHERE \"Build_Year\" = '1996';",
+        "id": 161
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Top_Speed",
+                        "Power"
+                    ],
+                    "filter": "Build_Year = '1996'",
+                    "evidence": "Contains information about vehicles, including their top speed and power, as well as the year of manufacture."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select the top speed and power columns from the vehicle table.",
+            "Filter the results where the Build_Year is '1996'."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT \"Top_Speed\", \"Power\" FROM \"vehicle\" WHERE \"Build_Year\" = '1996';",
+        "id": 162
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Build_Year",
+                        "Model",
+                        "Builder"
+                    ],
+                    "evidence": "Contains information about vehicles, including their build year, model name, and builder."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select the Build_Year, Model, and Builder columns from the vehicle table."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT \"Build_Year\", \"Model\", \"Builder\" FROM \"vehicle\";",
+        "id": 163
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Build_Year",
+                        "Model",
+                        "Builder"
+                    ],
+                    "evidence": "Contains information about vehicles, including their build year, model, and builder."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select the Build_Year, Model, and Builder columns from the vehicle table."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT \"Build_Year\", \"Model\", \"Builder\" FROM \"vehicle\";",
+        "id": 164
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Vehicle_ID"
+                    ],
+                    "filter": "Build_Year = '2012'",
+                    "evidence": "Contains information about vehicles, including their build year."
+                },
+                "vehicle_driver": {
+                    "columns": [
+                        "Driver_ID"
+                    ],
+                    "relationships": {
+                        "vehicle": {
+                            "column": "Vehicle_ID",
+                            "foreign_key": true
+                        }
+                    },
+                    "evidence": "Associative table linking drivers to vehicles, indicating which driver has driven which vehicle."
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Select the Driver_ID column from the vehicle_driver table.",
+            "Filter the results where the vehicles were built in 2012.",
+            "Count the number of unique Driver_IDs."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT COUNT(DISTINCT \"Driver_ID\") FROM \"vehicle_driver\" WHERE \"Vehicle_ID\" IN (SELECT \"Vehicle_ID\" FROM \"vehicle\" WHERE \"Build_Year\" = '2012');",
+        "id": 165
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Vehicle_ID"
+                    ],
+                    "filter": "Build_Year = '2012'",
+                    "evidence": "Contains information about vehicles, including their build year."
+                },
+                "driver": {
+                    "columns": [
+                        "Driver_ID"
+                    ],
+                    "evidence": "Contains information about drivers, including their unique identifier."
+                },
+                "vehicle_driver": {
+                    "columns": [
+                        "Driver_ID"
+                    ],
+                    "relationships": {
+                        "vehicle": {
+                            "column": "Vehicle_ID",
+                            "foreign_key": true
+                        },
+                        "driver": {
+                            "column": "Driver_ID",
+                            "foreign_key": true
+                        }
+                    },
+                    "evidence": "Associative table linking drivers to vehicles, indicating which driver has driven which vehicle."
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Select the Driver_ID column from the vehicle_driver table.",
+            "Join the vehicle_driver table with the vehicle table on the Vehicle_ID column.",
+            "Filter the results to include only vehicles built in 2012.",
+            "Count the number of unique Driver_IDs."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT COUNT(DISTINCT \"vd\".\"Driver_ID\") FROM \"vehicle_driver\" AS \"vd\" JOIN \"vehicle\" AS \"v\" ON \"vd\".\"Vehicle_ID\" = \"v\".\"Vehicle_ID\" WHERE \"v\".\"Build_Year\" = '2012';",
+        "id": 166
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "driver": {
+                    "columns": [
+                        "Driver_ID"
+                    ],
+                    "filter": "Racing_Series = 'NASCAR'",
+                    "evidence": "Contains information about drivers, including their racing series."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select the Driver_ID column from the driver table.",
+            "Filter the results to include only drivers who have raced in 'NASCAR'.",
+            "Count the number of records."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT COUNT(*)  FROM \"driver\" WHERE \"Racing_Series\" = 'NASCAR';",
+        "id": 167
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "driver": {
+                    "columns": [
+                        "Driver_ID"
+                    ],
+                    "filter": "Racing_Series = 'NASCAR'",
+                    "evidence": "Contains information about drivers, including their racing series."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select the Driver_ID column from the driver table.",
+            "Filter the results to include only drivers who have raced in NASCAR.",
+            "Count the number of records."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT COUNT(*)  FROM \"driver\" WHERE \"Racing_Series\" = 'NASCAR';",
+        "id": 168
+    },
+    {
+        "knowledge": {
+            "tables": {
+                "vehicle": {
+                    "columns": [
+                        "Top_Speed"
+                    ],
+                    "evidence": "Contains information about vehicles, including their top speed."
+                }
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select the Top_Speed column from the vehicle table.",
+            "Calculate the average of the top speed values."
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT AVG(\"Top_Speed\") AS \"Average_Top_Speed\" FROM \"vehicle\";",
+        "id": 169
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Vehicle_ID",
+                    "Top_Speed"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Calculate the average top speed from the vehicle table"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT AVG(Top_Speed) AS Average_Top_Speed FROM vehicle;",
+        "id": 170
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Vehicle_ID",
+                    "Power"
+                ]
+            },
+            "driver": {
+                "columns": [
+                    "Driver_ID",
+                    "Name"
+                ]
+            },
+            "vehicle_driver": {
+                "columns": [
+                    "Driver_ID",
+                    "Vehicle_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Select Vehicle_IDs from the vehicle table where Power is more than 5000",
+            "Join the vehicle_driver table on Vehicle_ID to find Driver_IDs",
+            "Join the driver table on Driver_ID to find distinct driver names"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT DISTINCT d.Name FROM driver d JOIN vehicle_driver vd ON d.Driver_ID = vd.Driver_ID JOIN vehicle v ON vd.Vehicle_ID = v.Vehicle_ID WHERE v.Power > 5000;",
+        "id": 171
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Vehicle_ID",
+                    "Power"
+                ]
+            },
+            "driver": {
+                "columns": [
+                    "Driver_ID",
+                    "Name"
+                ]
+            },
+            "vehicle_driver": {
+                "columns": [
+                    "Driver_ID",
+                    "Vehicle_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Select Vehicle_IDs from the vehicle table where Power is over 5000",
+            "Join the vehicle_driver table on Vehicle_ID to find Driver_IDs",
+            "Join the driver table on Driver_ID to find the names of drivers"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT DISTINCT d.Name FROM driver d JOIN vehicle_driver vd ON d.Driver_ID = vd.Driver_ID JOIN vehicle v ON vd.Vehicle_ID = v.Vehicle_ID WHERE v.Power > 5000;",
+        "id": 172
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Model",
+                    "Total_Production",
+                    "Top_Speed"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select car models from the vehicle table where total production is larger than 100 or top speed is higher than 150"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Model FROM vehicle WHERE Total_Production > 100 OR Top_Speed > 150;",
+        "id": 173
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Model",
+                    "Total_Production",
+                    "Top_Speed"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select models from the vehicle table where total production is over 100 or top speed is over 150"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Model FROM vehicle WHERE Total_Production > 100 OR Top_Speed > 150;",
+        "id": 174
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Model",
+                    "Build_Year"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select model names and build year from the vehicle table where the model name contains 'DJ'"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Model, Build_Year FROM vehicle WHERE Model LIKE '%DJ%';",
+        "id": 175
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Model",
+                    "Build_Year"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Select model and build year from the vehicle table where the model name contains 'DJ'"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Model, Build_Year FROM vehicle WHERE Model LIKE '%DJ%';",
+        "id": 176
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Model"
+                ]
+            },
+            "vehicle_driver": {
+                "columns": [
+                    "Vehicle_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Select models from the vehicle table that do not have corresponding entries in the vehicle_driver table"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Model FROM vehicle WHERE Vehicle_ID NOT IN (SELECT DISTINCT Vehicle_ID FROM vehicle_driver);",
+        "id": 177
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Model"
+                ]
+            },
+            "vehicle_driver": {
+                "columns": [
+                    "Vehicle_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Select models from the vehicle table that do not have corresponding entries in the vehicle_driver table"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Model FROM vehicle WHERE Vehicle_ID NOT IN (SELECT DISTINCT Vehicle_ID FROM vehicle_driver);",
+        "id": 178
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Vehicle_ID",
+                    "Model",
+                    "Builder"
+                ]
+            },
+            "vehicle_driver": {
+                "columns": [
+                    "Vehicle_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Select vehicle ids and models from the vehicle table where the vehicle has been driven by two drivers or manufactured by 'Ziyang'"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Vehicle_ID, Model FROM vehicle WHERE Vehicle_ID IN (     SELECT Vehicle_ID     FROM vehicle_driver     GROUP BY Vehicle_ID     HAVING COUNT(DISTINCT Driver_ID) = 2 ) OR Builder = 'Ziyang';",
+        "id": 179
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Vehicle_ID",
+                    "Model",
+                    "Builder"
+                ]
+            },
+            "vehicle_driver": {
+                "columns": [
+                    "Vehicle_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Select vehicle ids and models from the vehicle table where the vehicle has been driven by exactly two drivers or built by Ziyang"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Vehicle_ID, Model FROM vehicle WHERE Vehicle_ID IN (     SELECT Vehicle_ID     FROM vehicle_driver     GROUP BY Vehicle_ID     HAVING COUNT(DISTINCT Driver_ID) = 2 ) OR Builder = 'Ziyang';",
+        "id": 180
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Vehicle_ID",
+                    "Model"
+                ]
+            },
+            "driver": {
+                "columns": [
+                    "Driver_ID",
+                    "Name"
+                ]
+            },
+            "vehicle_driver": {
+                "columns": [
+                    "Vehicle_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Select vehicle ids and models from the vehicle table where the vehicle has been driven by more than 2 drivers or driven by the driver named 'Jeff Gordon'"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Vehicle_ID, Model FROM vehicle WHERE Vehicle_ID IN (     SELECT Vehicle_ID     FROM vehicle_driver     GROUP BY Vehicle_ID     HAVING COUNT(*) > 2 ) OR Vehicle_ID IN (     SELECT vd.Vehicle_ID     FROM vehicle_driver vd     JOIN driver d ON vd.Driver_ID = d.Driver_ID     WHERE d.Name = 'Jeff Gordon' );",
+        "id": 181
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Vehicle_ID",
+                    "Model"
+                ]
+            },
+            "driver": {
+                "columns": [
+                    "Name"
+                ]
+            },
+            "vehicle_driver": {
+                "columns": [
+                    "Vehicle_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Select vehicle ids and models from the vehicle table where the vehicle has been driven by more than 2 drivers or driven by Jeff Gordon"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Vehicle_ID, Model FROM vehicle WHERE Vehicle_ID IN (     SELECT Vehicle_ID     FROM vehicle_driver     GROUP BY Vehicle_ID     HAVING COUNT(*) > 2 ) OR Vehicle_ID IN (     SELECT Vehicle_ID     FROM vehicle_driver vd     JOIN driver d ON vd.Driver_ID = d.Driver_ID     WHERE d.Name = 'Jeff Gordon' );",
+        "id": 182
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Vehicle_ID",
+                    "Top_Speed"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of vehicles in the vehicle table that have the maximum top speed"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT COUNT(*) AS num_vehicles_with_max_speed FROM vehicle WHERE Top_Speed = (SELECT MAX(Top_Speed) FROM vehicle);",
+        "id": 183
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Vehicle_ID",
+                    "Top_Speed"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Find the maximum top speed across all vehicles",
+            "Count the number of vehicles with a top speed equal to the maximum"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT COUNT(*) AS num_vehicles_with_max_speed FROM vehicle WHERE Top_Speed = (SELECT MAX(Top_Speed) FROM vehicle);",
+        "id": 184
+    },
+    {
+        "knowledge": {
+            "driver": {
+                "columns": [
+                    "Name"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve all driver names from the 'driver' table",
+            "Order the names alphabetically"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Name FROM driver ORDER BY Name ASC;",
+        "id": 185
+    },
+    {
+        "knowledge": {
+            "driver": {
+                "columns": [
+                    "Name"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve all driver names from the 'driver' table",
+            "Order the names alphabetically"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Name FROM driver ORDER BY Name ASC;",
+        "id": 186
+    },
+    {
+        "knowledge": {
+            "driver": {
+                "columns": [
+                    "Racing_Series"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of drivers for each distinct racing series in the 'driver' table"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Racing_Series, COUNT(*) AS Num_Drivers FROM driver GROUP BY Racing_Series;",
+        "id": 187
+    },
+    {
+        "knowledge": {
+            "driver": {
+                "columns": [
+                    "Racing_Series"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of drivers for each distinct racing series in the 'driver' table"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT Racing_Series, COUNT(*) AS Num_Drivers FROM driver GROUP BY Racing_Series;",
+        "id": 188
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Model"
+                ]
+            },
+            "driver": {
+                "columns": [
+                    "Name",
+                    "Citizenship"
+                ]
+            },
+            "vehicle_driver": {
+                "foreign_keys": {
+                    "Driver_ID": "driver.Driver_ID",
+                    "Vehicle_ID": "vehicle.Vehicle_ID"
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Retrieve the Driver_ID associated with the vehicle model 'DJ1' from the 'vehicle' table",
+            "Use the retrieved Driver_ID to get the name and citizenship of the drivers from the 'driver' table"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT d.Name, d.Citizenship FROM driver d JOIN vehicle_driver vd ON d.Driver_ID = vd.Driver_ID JOIN vehicle v ON vd.Vehicle_ID = v.Vehicle_ID WHERE v.Model = 'DJ1';",
+        "id": 189
+    },
+    {
+        "knowledge": {
+            "vehicle": {
+                "columns": [
+                    "Vehicle_ID",
+                    "Model"
+                ]
+            },
+            "driver": {
+                "columns": [
+                    "Driver_ID",
+                    "Name",
+                    "Citizenship"
+                ]
+            },
+            "vehicle_driver": {
+                "foreign_keys": {
+                    "Vehicle_ID": "vehicle.Vehicle_ID",
+                    "Driver_ID": "driver.Driver_ID"
+                }
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Retrieve the Driver_IDs of drivers who have driven the vehicle with the model 'DJ1' from the 'vehicle_driver' table using a SELECT query with a JOIN condition on 'vehicle' table to filter by model 'DJ1'",
+            "Join the result with the 'driver' table on the Driver_ID to obtain the names and citizenships of the drivers"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT d.Name, d.Citizenship FROM driver d JOIN vehicle_driver vd ON d.Driver_ID = vd.Driver_ID JOIN vehicle v ON vd.Vehicle_ID = v.Vehicle_ID WHERE v.Model = 'DJ1';",
+        "id": 190
+    },
+    {
+        "knowledge": {
+            "driver": {
+                "columns": [
+                    "Driver_ID"
+                ]
+            },
+            "vehicle_driver": {
+                "columns": [
+                    "Driver_ID"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of distinct Driver_IDs from the 'driver' table that do not exist in the 'vehicle_driver' table"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT COUNT(*) FROM driver d LEFT JOIN vehicle_driver vd ON d.Driver_ID = vd.Driver_ID WHERE vd.Driver_ID IS NULL;",
+        "id": 191
+    },
+    {
+        "knowledge": {
+            "driver": {
+                "columns": [
+                    "Driver_ID"
+                ]
+            },
+            "vehicle_driver": {
+                "columns": [
+                    "Driver_ID"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of distinct Driver_IDs from the 'driver' table that do not exist in the 'vehicle_driver' table"
+        ],
+        "db_id": "vehicle_driver",
+        "generated_sql": "SELECT COUNT(*) FROM driver d WHERE d.Driver_ID NOT IN (SELECT vd.Driver_ID FROM vehicle_driver vd);",
+        "id": 192
+    },
+    {
+        "knowledge": {
+            "Exams": {
+                "columns": [
+                    "Exam_ID"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of distinct Exam_IDs from the 'Exams' table"
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT COUNT(*) AS Total_Exams FROM Exams;",
+        "id": 193
+    },
+    {
+        "knowledge": {
+            "Exams": {
+                "columns": [
+                    "Exam_ID"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Count the number of distinct Exam_IDs from the 'Exams' table"
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT COUNT(DISTINCT Exam_ID) AS NumberOfExams FROM Exams;",
+        "id": 194
+    },
+    {
+        "knowledge": {
+            "Exams": {
+                "columns": [
+                    "Subject_Code"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Subject_Code' column from the 'Exams' table.",
+            "Remove duplicates from the 'Subject_Code' column.",
+            "Sort the distinct 'Subject_Code' values in ascending alphabetical order."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT DISTINCT Subject_Code FROM Exams ORDER BY Subject_Code ASC;",
+        "id": 195
+    },
+    {
+        "knowledge": {
+            "Exams": {
+                "columns": [
+                    "Subject_Code"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Subject_Code' column from the 'Exams' table.",
+            "Remove duplicates from the 'Subject_Code' column.",
+            "Sort the distinct 'Subject_Code' values in alphabetical order."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT DISTINCT Subject_Code FROM Exams ORDER BY Subject_Code ASC;",
+        "id": 196
+    },
+    {
+        "knowledge": {
+            "Exams": {
+                "columns": [
+                    "Exam_Name",
+                    "Exam_Date"
+                ],
+                "condition": "Subject_Code <> 'Database'"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Exam_Name' and 'Exam_Date' columns from the 'Exams' table.",
+            "Filter the exams where the 'Subject_Code' is not equal to 'Database'."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT Exam_Name, Exam_Date FROM Exams WHERE Subject_Code <> 'Database';",
+        "id": 197
+    },
+    {
+        "knowledge": {
+            "Exams": {
+                "columns": [
+                    "Exam_Date",
+                    "Exam_Name"
+                ],
+                "condition": "Subject_Code <> 'Database'"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Exam_Date' and 'Exam_Name' columns from the 'Exams' table.",
+            "Filter the exams where the 'Subject_Code' is not equal to 'Database'."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT Exam_Date, Exam_Name FROM Exams WHERE Subject_Code",
+        "id": 198
+    },
+    {
+        "knowledge": {
+            "Exams": {
+                "columns": [
+                    "Exam_Date"
+                ],
+                "condition": "Subject_Code LIKE '%data%'",
+                "order": "Exam_Date DESC"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Exam_Date' column from the 'Exams' table.",
+            "Filter the exams where the 'Subject_Code' contains the word 'data'.",
+            "Order the results in descending order based on the 'Exam_Date'."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT Exam_Date FROM Exams WHERE Subject_Code LIKE '%data%' ORDER BY Exam_Date DES",
+        "id": 199
+    },
+    {
+        "knowledge": {
+            "Exams": {
+                "columns": [
+                    "Exam_Date"
+                ],
+                "condition": "Subject_Code LIKE '%data%'",
+                "order": "Exam_Date DESC"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Exam_Date' column from the 'Exams' table.",
+            "Filter the exams where the 'Subject_Code' contains the substring 'data'.",
+            "Order the results in descending order based on the 'Exam_Date'."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT Exam_Date FROM Exams WHERE Subject_Code LIKE '%data%' ORDER BY Exam_Date DESC;",
+        "id": 200
+    },
+    {
+        "knowledge": {
+            "Questions": {
+                "columns": [
+                    "Type_of_Question_Code",
+                    "COUNT(*) AS Question_Count"
+                ],
+                "group_by": "Type_of_Question_Code"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Type_of_Question_Code' column from the 'Questions' table.",
+            "Count the number of occurrences for each type of question.",
+            "Group the results by 'Type_of_Question_Code'."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT Type_of_Question_Code, COUNT(*) AS Question_Count FROM Questions GROUP BY Type_of_Question_Code;",
+        "id": 201
+    },
+    {
+        "knowledge": {
+            "Questions": {
+                "columns": [
+                    "Type_of_Question_Code",
+                    "COUNT(*) AS Occurrence_Count"
+                ],
+                "group_by": "Type_of_Question_Code"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Type_of_Question_Code' column from the 'Questions' table.",
+            "Count the number of occurrences for each type of question.",
+            "Group the results by 'Type_of_Question_Code'."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT Type_of_Question_Code, COUNT(*) AS Occurrence_Count FROM Questions GROUP BY Type_of_Question_Code;",
+        "id": 202
+    },
+    {
+        "knowledge": {
+            "Student_Answers": {
+                "columns": [
+                    "DISTINCT Student_Answer_Text"
+                ],
+                "conditions": [
+                    "Comments = 'Normal'"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Student_Answer_Text' column from the 'Student_Answers' table.",
+            "Select only distinct values of 'Student_Answer_Text'.",
+            "Filter the results where 'Comments' is 'Normal'."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT DISTINCT Student_Answer_Text FROM Student_Answers WHERE Comments = 'Normal';",
+        "id": 203
+    },
+    {
+        "knowledge": {
+            "Student_Answers": {
+                "columns": [
+                    "DISTINCT Student_Answer_Text"
+                ],
+                "conditions": [
+                    "Comments = 'Normal'"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Student_Answer_Text' column from the 'Student_Answers' table.",
+            "Select only distinct values of 'Student_Answer_Text'.",
+            "Filter the results where 'Comments' is 'Normal'."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT DISTINCT Student_Answer_Text FROM Student_Answers WHERE Comments = 'Normal';",
+        "id": 204
+    },
+    {
+        "knowledge": {
+            "Student_Answers": {
+                "columns": [
+                    "DISTINCT Comments"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Comments' column from the 'Student_Answers' table.",
+            "Select only distinct values of 'Comments'.",
+            "Count the number of distinct comments."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT COUNT(DISTINCT Comments) AS Number_of_Distinct_Comments FROM Student_Answers;",
+        "id": 205
+    },
+    {
+        "knowledge": {
+            "Student_Answers": {
+                "columns": [
+                    "COUNT(DISTINCT Comments)"
+                ]
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Retrieve the 'Comments' column from the 'Student_Answers' table.",
+            "Select only distinct values of 'Comments'.",
+            "Count the number of distinct comments."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT COUNT(DISTINCT Comments) AS Number_of_Distinct_Comments FROM Student_Answers;",
+        "id": 206
+    },
+    {
+        "knowledge": {
+            "Student_Answers": {
+                "columns": [
+                    "Student_Answer_Text",
+                    "COUNT(Student_Answer_Text)"
+                ],
+                "group_by": [
+                    "Student_Answer_Text"
+                ],
+                "order_by": "COUNT(Student_Answer_Text) DESC"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Group the rows in the 'Student_Answers' table by 'Student_Answer_Text'.",
+            "Count the occurrences of each 'Student_Answer_Text'.",
+            "Sort the results in descending order based on the count of each 'Student_Answer_Text'."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT Student_Answer_Text, COUNT(Student_Answer_Text) AS Count FROM Student_Answers GROUP BY Student_Answer_Text ORDER BY Count DESC;",
+        "id": 207
+    },
+    {
+        "knowledge": {
+            "Student_Answers": {
+                "columns": [
+                    "Student_Answer_Text",
+                    "COUNT(Student_Answer_Text)"
+                ],
+                "group_by": [
+                    "Student_Answer_Text"
+                ],
+                "order_by": "COUNT(Student_Answer_Text) DESC"
+            }
+        },
+        "label": "simple",
+        "steps": [
+            "Group the rows in the 'Student_Answers' table by 'Student_Answer_Text'.",
+            "Count the occurrences of each 'Student_Answer_Text'.",
+            "Sort the results in descending order based on the count of each 'Student_Answer_Text'."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT Student_Answer_Text, COUNT(Student_Answer_Text) AS Frequency FROM Student_Answers GROUP BY Student_Answer_Text ORDER BY Frequency DESC;",
+        "id": 208
+    },
+    {
+        "knowledge": {
+            "Students": {
+                "columns": [
+                    "First_Name",
+                    "Student_ID"
+                ]
+            },
+            "Student_Answers": {
+                "columns": [
+                    "Date_of_Answer",
+                    "Student_ID"
+                ],
+                "join": [
+                    "Students.Student_ID = Student_Answers.Student_ID"
+                ]
+            }
+        },
+        "label": "nested",
+        "steps": [
+            "Retrieve the first names of students from the 'Students' table.",
+            "Retrieve the dates of their answers from the 'Student_Answers' table.",
+            "Join the 'Students' and 'Student_Answers' tables on 'Student_ID'."
+        ],
+        "db_id": "online_exams",
+        "generated_sql": "SELECT Students.First_Name, Student_Answers.Date_of_Answer FROM Students JOIN Student_Answers ON Students.Student_ID = Student_Answers.Student_ID;",
+        "id": 209
+    }
+]
